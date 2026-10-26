@@ -4,21 +4,20 @@
 export const SITE = "https://moneycoachinghub.com";
 
 export const links = {
-  bookCall: `${SITE}/contact-us/`,
-  // TODO: replace with the investing course page / application form when ready.
-  courseApply: `${SITE}/contact-us/`,
-  courseDetails: `${SITE}/contact-us/`,
-  workshopEnquiry: `${SITE}/services/financial-workshops/`,
-  quiz: `${SITE}/take-money-type-quiz/`,
-  about: `${SITE}/about-us/`,
-  blog: `${SITE}/blog/`,
-  reviews: `${SITE}/about-us/`,
-  sendStory: `${SITE}/contact-us/`,
-  crypto: `${SITE}/crypto-made-simple-the-online-course/`,
+  bookCall: "/contact-us/",
+  courseApply: "/investing-made-simple/#apply",
+  courseDetails: "/investing-made-simple/",
+  workshopEnquiry: "/services/financial-workshops/",
+  quiz: "/take-money-type-quiz/",
+  about: "/luca/",
+  blog: "/blog/",
+  reviews: "/money-coaching-mindset-budgeting/#reviews",
+  sendStory: "/contact-us/?subject=My%20money%20story",
+  crypto: "/crypto-made-simple-the-online-course/",
   column: "https://timesofmalta.com/author/luca-caruana.537",
-  privacy: `${SITE}/privacy-policy/`,
-  cookies: `${SITE}/cookie-policy/`,
-  terms: `${SITE}/terms-and-conditions/`,
+  privacy: "/privacy-policy/",
+  cookies: "/cookie-policy/",
+  terms: "/website-terms-and-conditions/",
 };
 
 export const nav = [
@@ -75,14 +74,14 @@ export const services = [
     tag: "Single session",
     title: "One Time Session",
     blurb: "A focused deep-dive on one money question. Property or stocks? Pay the loan or invest?",
-    href: `${SITE}/services/one-time-session/`,
+    href: "/services/one-time-session/",
     cta: "Learn more",
   },
   {
     tag: "Most popular",
     title: "Individual Coaching",
     blurb: "A one-to-one journey to rewrite your money story, build habits and start investing with confidence.",
-    href: `${SITE}/services/individual-coaching/`,
+    href: "/services/individual-coaching/",
     cta: "Learn more",
     featured: true,
   },
@@ -90,14 +89,14 @@ export const services = [
     tag: "For two",
     title: "Couples Coaching",
     blurb: "Talk about money without the awkwardness, align your goals and plan your future together.",
-    href: `${SITE}/services/couples-coaching/`,
+    href: "/services/couples-coaching/",
     cta: "Learn more",
   },
   {
     tag: "For teams",
     title: "Financial Workshops",
     blurb: "The psychology of money for your workforce. Delivered for HSBC, PwC Malta, MeDirect and more.",
-    href: "#companies",
+    href: "/services/financial-workshops/",
     cta: "For companies",
   },
 ];

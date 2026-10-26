@@ -1,21 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import RevealOnScroll from "@/components/RevealOnScroll";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
-
 
 const description =
   "Certified Money Coach Luca helps you get great with money: one-to-one coaching, the Investing Made Simple course and financial wellbeing workshops. Based in Malta, coaching worldwide.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://moneycoachinghub.com"),
-  title: "Money Coaching Hub – Money Coaching with Luca, Malta",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Money Coaching Hub – Money Coaching with Luca, Malta",
+    template: "%s | Money Coaching Hub",
+  },
   description,
-  alternates: { canonical: "/" },
   openGraph: {
     title: "Money Coaching Hub – Let me help you be great with money",
     description,
-    url: "https://moneycoachinghub.com/",
+    url: `${SITE_URL}/`,
     siteName: "Money Coaching Hub",
     images: [{ url: "/images/money-coach-column.webp", width: 1200, height: 800 }],
     locale: "en_GB",
@@ -37,7 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        {children}
+        <a href="#main" className="skip">
+          Skip to content
+        </a>
+        <Header />
+        <RevealOnScroll />
+        <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );

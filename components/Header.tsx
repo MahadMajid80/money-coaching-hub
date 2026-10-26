@@ -1,11 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { links, nav } from "@/lib/content";
+import { bookCall, mainNav } from "@/lib/site";
+
+const Chevron = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  // Close menus whenever the page changes.
+  useEffect(() => {
+    setOpen(false);
+    setOpenGroup(null);
+  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
@@ -19,25 +35,47 @@ export default function Header() {
     };
   }, [open]);
 
+  const isActive = (href: string) => href !== "/" && pathname.startsWith(href.replace(/\/$/, ""));
+
   return (
     <header className="header">
       <div className="header__inner">
-        <a href="#top" className="header__logo" aria-label="Money Coaching Hub, back to top">
+        <Link href="/" className="header__logo" aria-label="Money Coaching Hub home">
           <Image src="/images/logo.webp" alt="Money Coaching Hub" width={559} height={459} priority />
-        </a>
+        </Link>
 
         <nav className="header__nav" aria-label="Main">
-          {nav.map((item, i) => (
-            <a key={item.href} href={item.href} className={i === 0 ? "is-primary" : undefined}>
-              {item.label}
-            </a>
-          ))}
+          {mainNav.map((item) =>
+            item.children ? (
+              <div key={item.label} className="dd">
+                <Link href={item.href} className={`dd__trigger${isActive(item.href) ? " is-active" : ""}`} aria-haspopup="true">
+                  {item.label} <Chevron />
+                </Link>
+                <div className="dd__panel">
+                  <ul>
+                    {item.children.map((c) => (
+                      <li key={c.href + c.label}>
+                        <Link href={c.href}>
+                          <span>{c.label}</span>
+                          {c.note && <small>{c.note}</small>}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link key={item.label} href={item.href} className={isActive(item.href) ? "is-active" : undefined}>
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="header__actions">
-          <a href={links.bookCall} className="btn btn--dark header__cta">
+          <Link href={bookCall} className="btn btn--dark header__cta">
             Book a 10-minute call
-          </a>
+          </Link>
           <button
             type="button"
             className="menu-btn"
@@ -54,14 +92,36 @@ export default function Header() {
       </div>
 
       <nav id="mobile-nav" className={`mobile-nav${open ? " is-open" : ""}`} aria-label="Mobile">
-        {nav.map((item) => (
-          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-            {item.label}
-          </a>
-        ))}
-        <a href={links.bookCall} className="btn btn--dark">
+        {mainNav.map((item) =>
+          item.children ? (
+            <div key={item.label} className="mobile-group">
+              <button
+                type="button"
+                className="mobile-group__btn"
+                aria-expanded={openGroup === item.label}
+                onClick={() => setOpenGroup((g) => (g === item.label ? null : item.label))}
+              >
+                {item.label} <Chevron />
+              </button>
+              {openGroup === item.label && (
+                <ul>
+                  {item.children.map((c) => (
+                    <li key={c.href + c.label}>
+                      <Link href={c.href}>{c.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <Link key={item.label} href={item.href} className="mobile-link">
+              {item.label}
+            </Link>
+          )
+        )}
+        <Link href={bookCall} className="btn btn--dark">
           Book a 10-minute call
-        </a>
+        </Link>
       </nav>
     </header>
   );

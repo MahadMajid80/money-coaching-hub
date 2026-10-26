@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Header from "@/components/Header";
 import NewsletterForm from "@/components/NewsletterForm";
-import RevealOnScroll from "@/components/RevealOnScroll";
+import { PostGrid } from "@/components/PostCard";
+import { posts as blogPosts } from "@/lib/blog";
 import {
   clients,
   columnFeatured,
@@ -27,6 +27,7 @@ const Check = ({ size = 16, stroke = 2 }: { size?: number; stroke?: number }) =>
 const d = (s: number) => ({ "--delay": `${s}s` }) as React.CSSProperties;
 
 export default function Home() {
+  const latest = blogPosts.slice(0, 3);
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -53,15 +54,9 @@ export default function Home() {
 
   return (
     <>
-      <a href="#main" className="skip">
-        Skip to content
-      </a>
-      <Header />
-      <RevealOnScroll />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main id="main">
-        <div className="frame" id="top">
+      <div className="frame" id="top">
           {/* HERO */}
           <section className="row row--first hero split" aria-labelledby="hero-title">
             <div className="hero__text">
@@ -480,17 +475,21 @@ export default function Home() {
                 All articles →
               </a>
             </div>
-            <div className="cols cols--3">
-              {posts.map((p, i) => (
-                <a key={p.title} href={p.href} className="cell post hover-soft reveal" style={d(0.06 * i)}>
-                  <Image src={p.image} alt="" width={320} height={213} sizes="(max-width: 900px) 100vw, 360px" />
-                  <p className="post__meta">
-                    {p.category} · {p.date}
-                  </p>
-                  <h3>{p.title}</h3>
-                </a>
-              ))}
-            </div>
+            {latest.length ? (
+              <PostGrid items={latest} />
+            ) : (
+              <div className="cols cols--3">
+                {posts.map((p, i) => (
+                  <a key={p.title} href={p.href} className="cell post hover-soft reveal" style={d(0.06 * i)}>
+                    <Image src={p.image} alt="" width={320} height={213} sizes="(max-width: 900px) 100vw, 360px" />
+                    <p className="post__meta">
+                      {p.category} · {p.date}
+                    </p>
+                    <h3>{p.title}</h3>
+                  </a>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* CTA */}
@@ -512,55 +511,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-        </div>
-      </main>
-
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="footer__inner">
-          <div className="footer__grid">
-            <div>
-              <Image src="/images/logo-dark.webp" alt="Money Coaching Hub" width={559} height={459} className="footer__logo" />
-              <p>Based in Malta (EU), working with clients all over the world.</p>
-              <p>Education, not personalised financial advice.</p>
-            </div>
-            <nav className="footer__col" aria-labelledby="f-learn">
-              <h2 id="f-learn">Learn</h2>
-              <a href="#course">Investing Made Simple</a>
-              <a href={links.crypto}>Crypto Made Simple</a>
-              <a href="#column">Times of Malta column</a>
-              <a href={links.quiz}>Money Type Quiz</a>
-              <a href={links.blog}>Blog</a>
-            </nav>
-            <nav className="footer__col" aria-labelledby="f-coaching">
-              <h2 id="f-coaching">Coaching</h2>
-              {services.slice(0, 3).map((s) => (
-                <a key={s.title} href={s.href}>
-                  {s.title}
-                </a>
-              ))}
-              <a href="#companies">For Companies</a>
-            </nav>
-            <nav className="footer__col" aria-labelledby="f-connect">
-              <h2 id="f-connect">Connect</h2>
-              <a href={links.bookCall}>Book a 10-minute call</a>
-              {socials.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener">
-                  {s.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-          <div className="footer__bottom">
-            <span>© {new Date().getFullYear()} Money Coaching Hub. All rights reserved.</span>
-            <nav aria-label="Legal">
-              <a href={links.privacy}>Privacy</a>
-              <a href={links.cookies}>Cookies</a>
-              <a href={links.terms}>Terms</a>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      </div>
     </>
   );
 }

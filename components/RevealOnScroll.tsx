@@ -1,11 +1,14 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-/** Fades in every `.reveal` element as it scrolls into view. */
+/** Fades in every `.reveal` element as it scrolls into view. Re-runs on each page change. */
 export default function RevealOnScroll() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal:not(.is-in)"));
     if (!("IntersectionObserver" in window)) {
       els.forEach((el) => el.classList.add("is-in"));
       return;
@@ -23,7 +26,7 @@ export default function RevealOnScroll() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }
