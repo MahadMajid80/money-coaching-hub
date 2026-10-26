@@ -93,32 +93,29 @@ export default function Home() {
                   <Check /> Columnist, Times of Malta
                 </li>
               </ul>
+              <div className="proof up d4">
+                <span className="proof__faces" aria-hidden="true">
+                  {["lorraine-sammut", "carmelo-romano", "hannah-cremona", "angele-azzopardi", "christine-borg"].map((n) => (
+                    <Image key={n} src={`/images/reviews/${n}.webp`} alt="" width={48} height={48} />
+                  ))}
+                </span>
+                <span>
+                  <strong>300+ clients</strong> coached · <strong>1,000+</strong> workshop participants
+                </span>
+              </div>
             </div>
 
             <div className="hero__media">
-              <div className="portrait">
-                <div className="portrait__sun" aria-hidden="true" />
+              <div className="arch">
                 <Image
                   src="/images/luca.webp"
-                  alt="Luca, Certified Money Coach, seated and smiling"
+                  alt="Luca Caruana, Certified Money Coach, seated and smiling"
                   width={360}
                   height={515}
                   priority
-                  sizes="(max-width: 600px) 300px, 360px"
+                  unoptimized
+                  className="arch__img"
                 />
-              </div>
-              <a href="#column" className="chip chip--column">
-                <span className="chip__tom" aria-hidden="true">
-                  ToM
-                </span>
-                <span>
-                  <strong>The Money Coach column</strong>
-                  <small>Times of Malta · 70+ columns</small>
-                </span>
-              </a>
-              <div className="chip chip--stats">
-                <div className="mono">300+ clients</div>
-                <strong>1,000+ workshop participants</strong>
               </div>
             </div>
           </section>

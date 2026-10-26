@@ -2886,3 +2886,72 @@ main {
   display: block;
   margin-bottom: 4px;
 }
+
+/* hero portrait: clean arch, nothing on top of the photo */
+.hero__media {
+  max-width: 440px;
+}
+.arch {
+  position: relative;
+  height: 540px;
+  border-radius: 220px 220px 28px 28px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, var(--sun) 0 46%, var(--gold-soft) 46.4%);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.arch__img {
+  width: auto;
+  height: 515px;
+  max-width: none;
+}
+.proof {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--body);
+}
+.proof strong {
+  color: var(--ink);
+}
+.proof__faces {
+  display: flex;
+}
+.proof__faces img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  margin-left: -10px;
+}
+.proof__faces img:first-child {
+  margin-left: 0;
+}
+/* about photo: show the full portrait at its natural size instead of zooming in */
+.about__photo {
+  align-items: flex-end;
+}
+.about__photo img {
+  height: 94%;
+  width: auto;
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  .arch {
+    height: 440px;
+    border-radius: 180px 180px 24px 24px;
+  }
+  .arch__img {
+    height: 420px;
+  }
+  .proof {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
