@@ -36,7 +36,19 @@ npm run seed                # fill an empty database with the site's current con
 
 The local database is `data/payload.db` and uploads go to `media/`. Both are git-ignored.
 
-## Hosting
+## Hosting on Vercel
+
+Vercel's disk is read-only, so the database and photos must live in hosted services:
+
+1. Vercel → your project → **Storage** → create a **Blob** store and connect it. This sets `BLOB_READ_WRITE_TOKEN`.
+2. Create a database at [turso.tech](https://turso.tech) (free plan), or add Turso from Vercel → Storage / Marketplace. Set `TURSO_DATABASE_URL` (`libsql://…`) and `TURSO_AUTH_TOKEN`.
+3. Set `PAYLOAD_SECRET` (long random string), `NEXT_PUBLIC_SITE_URL` and `CRON_SECRET`.
+4. Redeploy. On first load the database tables are created automatically.
+5. Open `/admin`, create the first login, then press **Load starting content** on the dashboard home.
+
+Scheduled publishing runs through Vercel Cron (`vercel.json`). The Hobby plan allows one run a day, so scheduled posts go live at 06:00 UTC on their day. On Pro, change the schedule to every few minutes.
+
+## Hosting on your own server
 
 The site needs a host that runs **Node.js 20 or newer** as a long-running process, such as cPanel's "Setup Node.js App", a VPS or Railway. It cannot be a static host, because the dashboard and forms need a server.
 
