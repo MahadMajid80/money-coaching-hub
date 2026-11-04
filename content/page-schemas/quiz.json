@@ -1,0 +1,298 @@
+{
+ "slug": "quiz",
+ "label": "Quiz page",
+ "groups": [
+  {
+   "name": "hero",
+   "label": "Hero",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Free · 3 minutes · Instant result"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Which money types are running your money life?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Some days you're the Warrior in the driving seat. Other days the Innocent or the Martyr takes over, or the Fool goes on a splurge. Most of us carry three or four types, with one or two in charge. Find yours."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Start the quiz"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#quiz"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "textarea",
+     "default": "The eight money types and this quiz are from *Money Magic* by Deborah L. Price, founder of the Money Coaching Institute, used with permission.",
+     "styled": true
+    }
+   ]
+  },
+  {
+   "name": "the_eight_short",
+   "label": "Meet the cast (the eight types)",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "The eight types"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Meet the cast."
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "Full descriptions →"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/the-8-money-archetypes/"
+    },
+    {
+     "name": "card",
+     "label": "Card link",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#innocent"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "The Innocent"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Avoids looking at money and hopes it all works out."
+    },
+    {
+     "name": "card_2",
+     "label": "Card link 2",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#victim"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "The Victim"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Feels money happens to them, not by them."
+    },
+    {
+     "name": "card_3",
+     "label": "Card link 3",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#warrior"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "The Warrior"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "In the driving seat: decisive and goal-driven."
+    },
+    {
+     "name": "card_4",
+     "label": "Card link 4",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#martyr"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "The Martyr"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Takes care of everyone else's needs first."
+    },
+    {
+     "name": "card_5",
+     "label": "Card link 5",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#fool"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "The Fool"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Loves the thrill. Hello, impulsive splurge."
+    },
+    {
+     "name": "card_6",
+     "label": "Card link 6",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#creator"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "The Creator"
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Values meaning and freedom over money."
+    },
+    {
+     "name": "card_7",
+     "label": "Card link 7",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#tyrant"
+    },
+    {
+     "name": "text_13",
+     "label": "Text 13",
+     "kind": "text",
+     "type": "text",
+     "default": "The Tyrant"
+    },
+    {
+     "name": "text_14",
+     "label": "Text 14",
+     "kind": "text",
+     "type": "text",
+     "default": "Uses money to keep control and feel safe."
+    },
+    {
+     "name": "card_8",
+     "label": "Card link 8",
+     "kind": "card",
+     "type": "text",
+     "default": "/the-8-money-archetypes/#magician"
+    },
+    {
+     "name": "text_15",
+     "label": "Text 15",
+     "kind": "text",
+     "type": "text",
+     "default": "The Magician ✦"
+    },
+    {
+     "name": "text_16",
+     "label": "Text 16",
+     "kind": "text",
+     "type": "text",
+     "default": "Balanced, confident and at peace with money. The goal."
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "header_button",
+     "label": "Header button",
+     "kind": "text",
+     "type": "text",
+     "default": "Start the quiz"
+    },
+    {
+     "name": "header_button_link",
+     "label": "Header button: link",
+     "kind": "text",
+     "type": "text",
+     "default": "#quiz"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Money Magic"
+    }
+   ]
+  }
+ ]
+}

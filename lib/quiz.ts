@@ -58,3 +58,23 @@ export function score(selected: Set<string>) {
     })
     .sort((a, b) => b.pct - a.pct || b.hits - a.hits);
 }
+
+export type QuizWord = { word: string; type: string };
+
+/** The built-in word list with its types, used until words are edited in the dashboard. */
+export const DEFAULT_QUIZ: QuizWord[] = WORDS.map((w) => ({
+  word: w,
+  type: (Object.keys(WORD_TYPES) as TypeSlug[]).find((t) => WORD_TYPES[t].includes(w)) || "innocent",
+}));
+
+/** Score against any word list (from the dashboard). */
+export function scoreWith(list: QuizWord[], selected: Set<string>) {
+  const types: TypeSlug[] = ["innocent", "victim", "warrior", "martyr", "fool", "creator", "tyrant", "magician"];
+  return types
+    .map((t) => {
+      const words = list.filter((w) => w.type === t).map((w) => w.word);
+      const hits = words.filter((w) => selected.has(w)).length;
+      return { type: t, hits, pct: words.length ? Math.round((hits / words.length) * 100) : 0 };
+    })
+    .sort((a, b) => b.pct - a.pct || b.hits - a.hits);
+}

@@ -80,6 +80,7 @@ export function EnquiryForm() {
     setState("sending");
     try {
       await post("/api/contact/", {
+        kind: "Workshop enquiry",
         name: f.get("name"),
         email: f.get("email"),
         topic: `Workshop enquiry – ${f.get("company") || "company not given"}`,
@@ -132,6 +133,7 @@ export function CallRequestForm() {
     setState("sending");
     try {
       await post("/api/contact/", {
+        kind: "Call request",
         name: f.get("name"),
         email: f.get("email"),
         phone: f.get("phone"),

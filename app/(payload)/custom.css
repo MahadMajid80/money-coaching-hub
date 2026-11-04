@@ -1,0 +1,10 @@
+/* Dashboard colours in the Money Coaching Hub brand. */
+:root {
+  --theme-success-500: #b07400;
+  --font-body: "Lato", system-ui, sans-serif;
+}
+.nav__link--active, .nav-group__toggle { font-weight: 700; }
+.btn--style-primary { background: #111111; color: #ffffff; }
+.btn--style-primary:hover { background: #faac15; color: #111111; }
+.template-default__wrap, .login__brand { --theme-text: inherit; }
+.collapsible__toggle-wrap { font-weight: 700; }

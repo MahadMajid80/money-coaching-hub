@@ -1,0 +1,117 @@
+{
+ "slug": "contact",
+ "label": "Contact page",
+ "groups": [
+  {
+   "name": "section_1",
+   "label": "Book a 10-minute call.",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Free · 10 minutes · No pitch"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Book a 10-minute call."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Tell me what's going on with your money. I'll tell you honestly whether coaching, a course or a workshop is the right next step, or whether you don't need me at all."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Tell me when suits you. The call is on Google Meet, or by phone if you prefer."
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Nothing to prepare. You don't need numbers in front of you."
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "If coaching fits, I'll tell you the price on the call. If it doesn't, I'll say so."
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/images/reviews/lorraine-sammut.webp"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "textarea",
+     "default": "\"Just 2 months later I'm already seeing the improvement on paper and mentally.\" *Lorraine Sammut*",
+     "styled": true
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Request your call"
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "info@moneycoachinghub.com"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "mailto:info@moneycoachinghub.com"
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "header_button",
+     "label": "Header button",
+     "kind": "text",
+     "type": "text",
+     "default": "← Back to the homepage"
+    },
+    {
+     "name": "header_button_link",
+     "label": "Header button: link",
+     "kind": "text",
+     "type": "text",
+     "default": "/"
+    }
+   ]
+  }
+ ]
+}

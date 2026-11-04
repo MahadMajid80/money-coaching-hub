@@ -3,10 +3,13 @@
 // Built section-for-section on the design's Investing Made Simple page.
 
 import { PageFooter, PageHeader, Tick } from "@/components/chrome";
-import type { Course } from "@/lib/courses";
-import { courses } from "@/lib/courses";
+import { notFound } from "next/navigation";
+import { getCourse, getCourses } from "@/lib/cms/data";
 
-export default function CourseLayout({ c }: { c: Course }) {
+export default async function CourseLayout({ slug }: { slug: string }) {
+  const c = await getCourse(slug);
+  if (!c) notFound();
+  const courses = await getCourses();
   const open = c.status === "open";
   const href = open && c.checkout ? c.checkout : `/contact-us/?subject=${encodeURIComponent(c.name)}`;
   const cta = open ? `${c.ctaLabel}` : "Notify me about the next dates";
@@ -174,7 +177,7 @@ export default function CourseLayout({ c }: { c: Course }) {
             <div style={{ flex: "0 1 400px", minWidth: "280px", display: "flex", justifyContent: "center" }}>
               <div style={{ position: "relative", width: "380px", maxWidth: "100%", marginLeft: "20px" }}>
                 <div aria-hidden="true" style={{ position: "absolute", left: "-20px", top: "20px", width: "100%", height: "100%", background: "#FAAC15", borderRadius: "24px" }}></div>
-                <img src="/img/luca-tv2.jpg" alt="Luca Caruana explaining a point" loading="lazy" style={{ position: "relative", width: "100%", aspectRatio: "4/5", objectFit: "cover", objectPosition: "center 10%", borderRadius: "24px", display: "block" }} />
+                <img src={c.image || "/img/luca-tv2.jpg"} alt="Luca Caruana explaining a point" loading="lazy" style={{ position: "relative", width: "100%", aspectRatio: "4/5", objectFit: "cover", objectPosition: "center 10%", borderRadius: "24px", display: "block" }} />
               </div>
             </div>
             <div style={{ flex: "1 1 480px", minWidth: "0", display: "flex", flexDirection: "column", gap: "22px" }}>

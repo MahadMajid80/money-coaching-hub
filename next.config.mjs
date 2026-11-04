@@ -1,3 +1,5 @@
+import { withPayload } from "@payloadcms/next/withPayload";
+
 /** @type {import('next').NextConfig} */
 
 // Old WordPress URLs that no longer have their own page → where they go now.
@@ -31,7 +33,10 @@ const legacy = [
 
 const nextConfig = {
   poweredByHeader: false,
+  agentRules: false,
   trailingSlash: true,
+  // The dashboard (/admin) and its API (/api) must not be redirected; proxy.ts adds the slash for site pages.
+  skipTrailingSlashRedirect: true,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [{ protocol: "https", hostname: "moneycoachinghub.com", pathname: "/wp-content/uploads/**" }],
@@ -40,7 +45,8 @@ const nextConfig = {
     return [
       ...legacy.map(([source, destination]) => ({ source, destination, permanent: true })),
       { source: "/feed/", destination: "/blog/", permanent: true },
-      { source: "/wp-admin/:path*", destination: "/", permanent: false },
+      { source: "/wp-admin/:path*", destination: "/admin/", permanent: false },
+      { source: "/wp-login.php", destination: "/admin/", permanent: false },
       { source: "/blog/page/:n/", destination: "/blog/:n/", permanent: true },
       { source: "/category/:cat/page/:n/", destination: "/category/:cat/", permanent: true },
     ];
@@ -60,4 +66,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withPayload(nextConfig, { devBundleServerPackages: false });

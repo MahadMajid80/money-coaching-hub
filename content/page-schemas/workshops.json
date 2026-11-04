@@ -1,0 +1,426 @@
+{
+ "slug": "workshops",
+ "label": "Workshops page",
+ "groups": [
+  {
+   "name": "hero",
+   "label": "Hero",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "For companies and HR teams"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Financial wellbeing workshops your team will actually enjoy."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Your people aren't distracted by their workload. They're distracted by their money. One honest hour on the psychology of money does more than a year of pension-scheme emails."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Enquire about a workshop"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#enquire"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "See the formats"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#formats"
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-stage.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca presenting The King of Budgeting to a room of executives"
+    }
+   ]
+  },
+  {
+   "name": "logo_strip",
+   "label": "Logo strip",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Delivered for"
+    }
+   ]
+  },
+  {
+   "name": "why",
+   "label": "Why a workshop",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Why it matters"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Money stress doesn't stay at home."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "It comes into the office, sits at the desk, and costs you focus, retention and sick days. The research is consistent; what's been missing is a way to talk about it that people don't switch off from."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "2.2×"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Financially stressed employees are 2.2 times more likely to be looking for a new job."
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "PwC Employee Financial Wellness Survey"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "60%"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "of employees say money is their number one source of stress, ahead of work, health and relationships."
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "PwC Employee Financial Wellness Survey"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "1,000+"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "employees have sat in one of these sessions in Malta and Europe, from shipping crews to bank head offices."
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Money Coaching Hub, since 2023"
+    }
+   ]
+  },
+  {
+   "name": "formats",
+   "label": "Formats",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Formats"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Pick a length. The content bends to your team."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Enquire"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#enquire"
+    },
+    {
+     "name": "eyebrow_2",
+     "label": "Small label 2",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "60 minutes"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Lunch-and-learn"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "One topic, one hour, questions live. The psychology of money, or a single theme like \"where does my salary go\"."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Online or on site · Any team size"
+    },
+    {
+     "name": "eyebrow_3",
+     "label": "Small label 3",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Most booked"
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Half-day workshop"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Money types, the salary map, saving and the first steps into investing. Interactive, with each person leaving with their own one-page plan."
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "On site · Up to 30 people"
+    },
+    {
+     "name": "eyebrow_4",
+     "label": "Small label 4",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "4 to 6 sessions"
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "Workshop series"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "A financial wellbeing programme over a quarter, building from mindset to budgeting to investing, with materials your people keep."
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Online or on site · Materials included"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Every session is education, not advice. No products, no referrals, no commissions. That's why HR teams can put it in front of their people without a compliance headache."
+    }
+   ]
+  },
+  {
+   "name": "what_they_say",
+   "label": "What they say",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "What HR teams say"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Real words from the people who booked it."
+    }
+   ]
+  },
+  {
+   "name": "enquire",
+   "label": "Enquiry form",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Enquire"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Tell me about your team. I'll send a proposal within two working days."
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "book a 10-minute call"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Based in Malta, delivering across Europe. On site in Malta, online anywhere."
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "header_button",
+     "label": "Header button",
+     "kind": "text",
+     "type": "text",
+     "default": "Enquire about a workshop"
+    },
+    {
+     "name": "header_button_link",
+     "label": "Header button: link",
+     "kind": "text",
+     "type": "text",
+     "default": "#enquire"
+    }
+   ]
+  }
+ ]
+}

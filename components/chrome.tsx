@@ -1,51 +1,83 @@
-// Header and footer variants from the design pack:
+// Header and footer variants from the design pack, filled from the dashboard's Site settings:
 // - SiteHeader / SiteFooter: the homepage's full navigation and footer
 // - PageHeader / PageFooter: the inner pages' compact header (logo + one action) and footer
 
-import { EMAIL, socials } from "@/lib/site";
+import { getSettings, type Link } from "@/lib/cms/data";
 
-export function SiteHeader() {
+const ext = (l: Link) => (l.newTab ? { target: "_blank", rel: "noopener" } : {});
+
+async function Announcement() {
+  const { announcement: a } = await getSettings();
+  if (!a.enabled) return null;
+  const dark = a.style === "dark";
   return (
-    <header style={{ position: "relative", background: "#ffffff", borderBottom: "1px solid #EFE9D9" }}>
-      <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap", height: "84px" }}>
-        <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center" }}>
-          <img src="/img/logo.png" alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
-        </a>
-        <nav aria-label="Main" className="site-nav" style={{ display: "flex", gap: "32px", flexWrap: "wrap", fontWeight: "700", fontSize: "15px" }}>
-          <a href="/investing-made-simple/" style={{ textDecoration: "none", color: "#111111" }}>Investing Course</a>
-          <a href="/services/" style={{ textDecoration: "none", color: "#111111" }}>Coaching</a>
-          <a href="/services/financial-workshops/" style={{ textDecoration: "none", color: "#111111" }}>Companies</a>
-          <a href="/#column" style={{ textDecoration: "none", color: "#111111" }}>Column</a>
-          <a href="/#types" style={{ textDecoration: "none", color: "#111111" }}>Money Types</a>
-          <a href="/blog/" style={{ textDecoration: "none", color: "#111111" }}>Blog</a>
-        </nav>
-        <a href="/contact-us/" className="btn btn-dark" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>Book a 10-minute call</a>
-      </div>
-    </header>
+    <div style={{ background: dark ? "#111111" : "#FAAC15", color: dark ? "#ffffff" : "#111111", fontSize: "14px", fontWeight: 700, textAlign: "center", padding: "10px 16px" }}>
+      {a.text}
+      {a.url && (
+        <>
+          {" "}
+          <a href={a.url} style={{ color: dark ? "#FFD112" : "#111111", textDecoration: "underline" }}>
+            {a.linkLabel || "Find out more"} →
+          </a>
+        </>
+      )}
+    </div>
   );
 }
 
-export function PageHeader({ cta, plain = false }: { cta: { label: string; href: string }; plain?: boolean }) {
+export async function SiteHeader() {
+  const s = await getSettings();
   return (
-    <header style={{ background: "#ffffff", borderBottom: "1px solid #EFE9D9" }}>
-      <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", height: "84px" }}>
-        <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center" }}>
-          <img src="/img/logo.png" alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
-        </a>
-        {plain ? (
-          <a href={cta.href} style={{ fontWeight: "700", fontSize: "15px", textDecoration: "none" }}>{cta.label}</a>
-        ) : (
-          <a href={cta.href} className="btn btn-dark" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>{cta.label}</a>
-        )}
-      </div>
-    </header>
+    <>
+      <Announcement />
+      <header style={{ position: "relative", background: "#ffffff", borderBottom: "1px solid #EFE9D9" }}>
+        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap", height: "84px" }}>
+          <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center" }}>
+            <img src={s.logo} alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
+          </a>
+          <nav aria-label="Main" className="site-nav" style={{ display: "flex", gap: "32px", flexWrap: "wrap", fontWeight: "700", fontSize: "15px" }}>
+            {s.nav.map((l) => (
+              <a key={l.label + l.url} href={l.url} style={{ textDecoration: "none", color: "#111111" }} {...ext(l)}>
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <a href={s.headerCta.url} className="btn btn-dark" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>
+            {s.headerCta.label}
+          </a>
+        </div>
+      </header>
+    </>
   );
 }
 
-const DISCLAIMER =
-  "Luca Caruana is a Certified Money Coach (CMC®). Money Coaching Hub provides financial education and coaching. It is not licensed to provide investment advice and does not sell financial products.";
+export async function PageHeader({ cta, plain = false }: { cta: { label: string; href: string }; plain?: boolean }) {
+  const s = await getSettings();
+  return (
+    <>
+      <Announcement />
+      <header style={{ background: "#ffffff", borderBottom: "1px solid #EFE9D9" }}>
+        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", height: "84px" }}>
+          <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center" }}>
+            <img src={s.logo} alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
+          </a>
+          {plain ? (
+            <a href={cta.href} style={{ fontWeight: "700", fontSize: "15px", textDecoration: "none" }}>
+              {cta.label}
+            </a>
+          ) : (
+            <a href={cta.href} className="btn btn-dark" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>
+              {cta.label}
+            </a>
+          )}
+        </div>
+      </header>
+    </>
+  );
+}
 
-export function PageFooter({ note = DISCLAIMER, contactLine = true, back = true, divider = false }: { note?: React.ReactNode; contactLine?: boolean; back?: boolean; divider?: boolean }) {
+export async function PageFooter({ note, contactLine = true, back = true, divider = false }: { note?: React.ReactNode; contactLine?: boolean; back?: boolean; divider?: boolean }) {
+  const s = await getSettings();
   return (
     <footer
       style={{
@@ -59,8 +91,13 @@ export function PageFooter({ note = DISCLAIMER, contactLine = true, back = true,
       }}
     >
       <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: divider ? "32px" : undefined }}>
-        {contactLine && <span>Money Coaching Hub · Malta · {EMAIL}</span>}
-        <span>{note}</span>
+        {contactLine && (
+          <span>
+            Money Coaching Hub · {s.location} · {s.email}
+            {s.phone ? ` · ${s.phone}` : ""}
+          </span>
+        )}
+        <span>{note ?? s.disclaimer}</span>
         <nav aria-label="Legal" style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap", marginTop: "4px" }}>
           <a href="/privacy-policy/" style={{ color: "#C9C3B1", textDecoration: "none" }}>Privacy</a>
           <a href="/cookie-policy/" style={{ color: "#C9C3B1", textDecoration: "none" }}>Cookies</a>
@@ -78,44 +115,62 @@ export function PageFooter({ note = DISCLAIMER, contactLine = true, back = true,
 
 const link = { color: "#C9C3B1", textDecoration: "none" } as const;
 
-export function SiteFooter() {
+const FALLBACK_COLUMNS = [
+  {
+    title: "Learn",
+    links: [
+      { label: "Investing Made Simple", url: "/investing-made-simple/" },
+      { label: "Crypto Made Simple", url: "/crypto-made-simple-the-online-course/" },
+      { label: "Side Hustle, Done Right", url: "/side-hustle/#notify" },
+      { label: "Technical Analysis Bootcamp", url: "/technical-analysis-bootcamp/" },
+      { label: "Times of Malta column", url: "/#column" },
+      { label: "Money Type Quiz", url: "/take-money-type-quiz/" },
+      { label: "The 8 Money Types", url: "/the-8-money-archetypes/" },
+      { label: "€10,000 Investment House", url: "/portfolio-management/" },
+      { label: "Blog", url: "/blog/" },
+    ],
+  },
+  {
+    title: "Coaching",
+    links: [
+      { label: "Individual Coaching", url: "/services/#options" },
+      { label: "Couples Coaching", url: "/services/#options" },
+      { label: "Single Session", url: "/services/#options" },
+      { label: "For Companies", url: "/services/financial-workshops/" },
+    ],
+  },
+  { title: "Connect", links: [{ label: "Book a 10-minute call", url: "/contact-us/" }] },
+] as { title: string; links: Link[] }[];
+
+export async function SiteFooter() {
+  const s = await getSettings();
+  const cols = s.footerColumns.length ? s.footerColumns : FALLBACK_COLUMNS;
   return (
     <footer style={{ background: "#111111", color: "#C9C3B1", padding: "56px 0 32px" }}>
       <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "32px", fontSize: "15px" }}>
+        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: `repeat(${cols.length + 1}, minmax(0, 1fr))`, gap: "32px", fontSize: "15px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "18px", color: "#ffffff" }}>MONEY COACHING HUB</span>
-            <span>Based in Malta (EU), working with clients all over the world.</span>
-            <span>Education, not personalised financial advice.</span>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ color: "#ffffff", fontWeight: "700" }}>Learn</span>
-            <a href="/investing-made-simple/" style={link}>Investing Made Simple</a>
-            <a href="/crypto-made-simple-the-online-course/" style={link}>Crypto Made Simple</a>
-            <a href="/side-hustle/#notify" style={link}>Side Hustle, Done Right</a>
-            <a href="/technical-analysis-bootcamp/" style={link}>Technical Analysis Bootcamp</a>
-            <a href="/#column" style={link}>Times of Malta column</a>
-            <a href="/take-money-type-quiz/" style={link}>Money Type Quiz</a>
-            <a href="/the-8-money-archetypes/" style={link}>The 8 Money Types</a>
-            <a href="/portfolio-management/" style={link}>€10,000 Investment House</a>
-            <a href="/blog/" style={link}>Blog</a>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ color: "#ffffff", fontWeight: "700" }}>Coaching</span>
-            <a href="/services/#options" style={link}>Individual Coaching</a>
-            <a href="/services/#options" style={link}>Couples Coaching</a>
-            <a href="/services/#options" style={link}>Single Session</a>
-            <a href="/services/financial-workshops/" style={link}>For Companies</a>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ color: "#ffffff", fontWeight: "700" }}>Connect</span>
-            <a href="/contact-us/" style={link}>Book a 10-minute call</a>
-            {socials.map((s) => (
-              <a key={s.label} href={s.href} style={link} target="_blank" rel="noopener">
-                {s.label}
-              </a>
+            <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "18px", color: "#ffffff" }}>{s.footerBrand}</span>
+            {s.footerTagline.map((l) => (
+              <span key={l}>{l}</span>
             ))}
           </div>
+          {cols.map((c, i) => (
+            <div key={c.title} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <span style={{ color: "#ffffff", fontWeight: "700" }}>{c.title}</span>
+              {c.links.map((l) => (
+                <a key={l.label + l.url} href={l.url} style={link} {...ext(l)}>
+                  {l.label}
+                </a>
+              ))}
+              {i === cols.length - 1 &&
+                s.socials.map((l) => (
+                  <a key={l.label} href={l.url} style={link} target="_blank" rel="noopener">
+                    {l.label}
+                  </a>
+                ))}
+            </div>
+          ))}
         </div>
         <div style={{ borderTop: "1px solid #2A2A2A", paddingTop: "24px", display: "flex", justifyContent: "space-between", gap: "16px", flexWrap: "wrap", fontSize: "13px" }}>
           <span>© {new Date().getFullYear()} Money Coaching Hub. All rights reserved.</span>

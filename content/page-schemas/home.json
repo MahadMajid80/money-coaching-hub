@@ -1,0 +1,1286 @@
+{
+ "slug": "home",
+ "label": "Homepage",
+ "groups": [
+  {
+   "name": "hero",
+   "label": "Hero",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/face1.jpg"
+    },
+    {
+     "name": "image_2",
+     "label": "Image 2",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/face2.jpg"
+    },
+    {
+     "name": "image_3",
+     "label": "Image 3",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/face3.jpg"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "**Hundreds** of clients coached, **1,000+** workshop participants",
+     "styled": true
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Let me help you be *great* with money.",
+     "styled": true
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Earning well but still broke at the end of the month? I'm Luca, a Certified Money Coach. Together we build your money map, fill the knowledge gaps and keep you going."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "See the investing course"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#course"
+    },
+    {
+     "name": "chip",
+     "label": "Chip",
+     "kind": "chip",
+     "type": "text",
+     "default": "Certified Money Coach"
+    },
+    {
+     "name": "chip_2",
+     "label": "Chip 2",
+     "kind": "chip",
+     "type": "text",
+     "default": "No products, no commissions"
+    },
+    {
+     "name": "chip_3",
+     "label": "Chip 3",
+     "kind": "chip",
+     "type": "text",
+     "default": "Columnist, Times of Malta"
+    },
+    {
+     "name": "image_4",
+     "label": "Image 4",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-tv.jpg"
+    },
+    {
+     "name": "image_4_alt",
+     "label": "Image 4: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana laughing during a TV interview"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Certified Money Coach"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Columnist, Times of Malta"
+    }
+   ]
+  },
+  {
+   "name": "logo_strip",
+   "label": "Logo strip",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Trusted by teams at"
+    }
+   ]
+  },
+  {
+   "name": "course",
+   "label": "Course",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Bestselling course · Taught in Maltese"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Investing Made Simple"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The course that took hundreds of Maltese and European professionals from \"I don't know where to start\" to their first investment, in four weeks. No jargon, no products pushed, no pressure."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "4 live online sessions, recorded if you miss one"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Cohort WhatsApp group and lifetime access to the materials"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Education only: you decide what to buy, never a sales pitch"
+    },
+    {
+     "name": "quote",
+     "label": "Quote",
+     "kind": "quote",
+     "type": "textarea",
+     "default": "\"Luca helped me understand all I needed to know to start investing. 10/10!\"\n*Angele Azzopardi, Freelance Creative Director*",
+     "styled": true
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Applications open for January"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Next cohort starts"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "11 January 2027"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "Format"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Every Monday, 4 weeks"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "Investment"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "€175"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Live online, taught in Maltese. Small group, so places are limited."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Apply for the January cohort"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/investing-made-simple/"
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "Full course details and FAQ"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/investing-made-simple/"
+    },
+    {
+     "name": "eyebrow_2",
+     "label": "Small label 2",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Other programmes"
+    },
+    {
+     "name": "card",
+     "label": "Card link",
+     "kind": "card",
+     "type": "text",
+     "default": "/crypto-made-simple-the-online-course/"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "Online course · Maltese"
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Crypto Made Simple"
+    },
+    {
+     "name": "text_13",
+     "label": "Text 13",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Understand Bitcoin, Ethereum and the rest before you put a cent in. Next cohort: 14, 16 and 21 December 2026."
+    },
+    {
+     "name": "text_14",
+     "label": "Text 14",
+     "kind": "text",
+     "type": "text",
+     "default": "Learn more →"
+    },
+    {
+     "name": "card_2",
+     "label": "Card link 2",
+     "kind": "card",
+     "type": "text",
+     "default": "/side-hustle/#notify"
+    },
+    {
+     "name": "text_15",
+     "label": "Text 15",
+     "kind": "text",
+     "type": "text",
+     "default": "New · Founding cohort February 2027"
+    },
+    {
+     "name": "text_16",
+     "label": "Text 16",
+     "kind": "text",
+     "type": "text",
+     "default": "Side Hustle, Done Right"
+    },
+    {
+     "name": "text_17",
+     "label": "Text 17",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Six weeks from idea to first paying customer, with someone who built his on the side. Intro session 20 January."
+    },
+    {
+     "name": "text_18",
+     "label": "Text 18",
+     "kind": "text",
+     "type": "text",
+     "default": "Get notified →"
+    },
+    {
+     "name": "card_3",
+     "label": "Card link 3",
+     "kind": "card",
+     "type": "text",
+     "default": "/technical-analysis-bootcamp/"
+    },
+    {
+     "name": "text_19",
+     "label": "Text 19",
+     "kind": "text",
+     "type": "text",
+     "default": "Bootcamp · 2 sessions"
+    },
+    {
+     "name": "text_20",
+     "label": "Text 20",
+     "kind": "text",
+     "type": "text",
+     "default": "Technical Analysis Bootcamp"
+    },
+    {
+     "name": "text_21",
+     "label": "Text 21",
+     "kind": "text",
+     "type": "text",
+     "default": "Read a chart without the noise. Intro level, deliberately simple. 11 and 22 December 2026."
+    },
+    {
+     "name": "text_22",
+     "label": "Text 22",
+     "kind": "text",
+     "type": "text",
+     "default": "Learn more →"
+    }
+   ]
+  },
+  {
+   "name": "concerns_bridge",
+   "label": "Concerns bridge",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "The things we don't say out loud"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Does any of this sound like you?"
+    },
+    {
+     "name": "chip",
+     "label": "Chip",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I earn well. So why is there nothing left on the 28th?\""
+    },
+    {
+     "name": "chip_2",
+     "label": "Chip 2",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"My partner and I only talk about money when we're fighting about it.\""
+    },
+    {
+     "name": "chip_3",
+     "label": "Chip 3",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I've been meaning to start investing for three years.\""
+    },
+    {
+     "name": "chip_4",
+     "label": "Chip 4",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I'm 38 and I still don't have an emergency fund.\""
+    },
+    {
+     "name": "chip_5",
+     "label": "Chip 5",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"Everyone thinks I'm doing fine. I'm not.\""
+    },
+    {
+     "name": "chip_6",
+     "label": "Chip 6",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I don't open the bills. I know, I know.\""
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Nobody taught us this. Most of us were told not to even talk about it. That silence is the real problem, and it's the first thing we fix."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    }
+   ]
+  },
+  {
+   "name": "coaching",
+   "label": "Coaching",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Coaching"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Coaching, one-to-one"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Online from anywhere, or in person in Malta. You leave every session with a simple money map and clear next steps."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "eyebrow_2",
+     "label": "Small label 2",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "For you"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Individual Coaching"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "A one-to-one journey to rewrite your money story, fix the habits that keep you broke and start investing with confidence."
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "Learn more →"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/services/"
+    },
+    {
+     "name": "eyebrow_3",
+     "label": "Small label 3",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "For two"
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Couples Coaching"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Talk about money without the awkwardness, align your goals and plan your future together."
+    },
+    {
+     "name": "link_2",
+     "label": "Link 2",
+     "kind": "link",
+     "type": "text",
+     "default": "Learn more →"
+    },
+    {
+     "name": "link_2_link",
+     "label": "Link 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/services/"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Not ready for a programme? Start with one session."
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "A 90-minute deep-dive on one money question. Property or stocks? Pay the loan or invest?"
+    },
+    {
+     "name": "link_3",
+     "label": "Link 3",
+     "kind": "link",
+     "type": "text",
+     "default": "Book a single session →"
+    },
+    {
+     "name": "link_3_link",
+     "label": "Link 3: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    }
+   ]
+  },
+  {
+   "name": "about",
+   "label": "About",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-curtain.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana speaking at an event"
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "About Luca"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "textarea",
+     "default": "Hello, I'm Luca.\nYour money coach."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I brought money coaching to Malta in January 2023, when nobody here had heard of it. Since then I've coached hundreds of Maltese and European professionals who earn well but feel stuck: the ones who never learnt how money works and were told not to ask."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I don't sell products and I don't tell you what to buy. I help you understand your money story, fix the habits that keep you broke, and start investing with a plan you actually understand."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "2023"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "brought money coaching to Malta"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "1,000+"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "workshop participants"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "70+"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Times of Malta columns"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "My story"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/luca/"
+    }
+   ]
+  },
+  {
+   "name": "companies",
+   "label": "Companies",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-mia2.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca speaking at the Malta Institute of Accountants"
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "For companies"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Financial wellbeing workshops your team will actually enjoy."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Engaging, practical sessions on the psychology of money. Delivered to HSBC, PwC Malta, MeDirect, Thomas Smith Group and more."
+    },
+    {
+     "name": "quote",
+     "label": "Quote",
+     "kind": "quote",
+     "type": "textarea",
+     "default": "\"Luca is the only person that addresses the psychological aspect of money, and that part got people the most involved and intrigued.\"\n*Christine Borg, Engagement & Culture Manager, HSBC*",
+     "styled": true
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Enquire about a workshop"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/services/financial-workshops/"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Lunch-and-learn, half-day or series. Online or on site in Malta."
+    }
+   ]
+  },
+  {
+   "name": "times_of_malta_column",
+   "label": "Times of Malta column",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "As published in Times of Malta"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Money Coach column"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Every fortnight, a real reader writes in with a money story they've never told anyone. I answer in Malta's national newspaper. 70+ columns and counting."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Read the column"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "https://timesofmalta.com/author/luca-caruana.537"
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/column-artwork.webp"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "The Money Coach column, Times of Malta"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Got a money story you've never told anyone?"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Write in anonymously. It might be the next column, and the answer might be the one you needed."
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "Send your story"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/?subject=My%20money%20story"
+    }
+   ]
+  },
+  {
+   "name": "testimonials",
+   "label": "Testimonials",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Reviews"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Don't take my word for it"
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "Read all 20+ reviews →"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/services/#reviews"
+    }
+   ]
+  },
+  {
+   "name": "money_types",
+   "label": "Money types",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Money Types"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Which money type is running your money life?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Some days you're the Warrior in the driving seat. Other days the Innocent or the Martyr takes over, or the Fool goes on a splurge. Know your type and you can become the Magician: calm, confident and in control."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Take the 3-minute quiz"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/take-money-type-quiz/"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "Read about the 8 types"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/the-8-money-archetypes/"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Innocent"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Victim"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Warrior"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Martyr"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Fool"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Creator"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "Tyrant"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Magician ✦"
+    },
+    {
+     "name": "card",
+     "label": "Card link",
+     "kind": "card",
+     "type": "text",
+     "default": "/portfolio-management/"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "Free tool"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Build your €10,000 Investment House"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "Stack bricks of different risk and see what €10,000 could become in 10, 20 or 30 years."
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Start building"
+    }
+   ]
+  },
+  {
+   "name": "blog",
+   "label": "Blog",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Knowledge hub"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Fresh from the blog"
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "All articles →"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/blog/"
+    },
+    {
+     "name": "card",
+     "label": "Card link",
+     "kind": "card",
+     "type": "text",
+     "default": "/blog/"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Investing · Sep 2025 · 5 min read"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Investing for Children: Smarter Strategies Beyond Child Savings Plans"
+    },
+    {
+     "name": "card_2",
+     "label": "Card link 2",
+     "kind": "card",
+     "type": "text",
+     "default": "/blog/"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Family budgeting · Aug 2025 · 4 min read"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Couples Financial Counseling: What Happens When One Partner Is a Millionaire?"
+    },
+    {
+     "name": "card_3",
+     "label": "Card link 3",
+     "kind": "card",
+     "type": "text",
+     "default": "/blog/"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Investing · Aug 2025 · 4 min read"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Why I'm Shifting Focus to Artificial Intelligence Stocks"
+    }
+   ]
+  },
+  {
+   "name": "closing_cta_newsletter",
+   "label": "Closing call to action + newsletter",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Want your money working as hard as you do?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Let me show you how. Based in Malta (EU), coaching clients all over the world via Google Meet. No products, no commissions, no judgement."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    }
+   ]
+  }
+ ]
+}

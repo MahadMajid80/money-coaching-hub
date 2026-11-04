@@ -1,0 +1,1104 @@
+{
+ "slug": "investing",
+ "label": "Investing Made Simple page",
+ "groups": [
+  {
+   "name": "hero",
+   "label": "Hero",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Bestselling course · Taught in Maltese · 4 live sessions"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Investing Made Simple"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Four live evenings on how to invest your own money, taught by someone who has **nothing to sell you.**",
+     "styled": true
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The course that took hundreds of Maltese and European professionals from \"I don't know where to start\" to their first investment. No jargon, no products pushed, no pressure."
+    },
+    {
+     "name": "chip",
+     "label": "Chip",
+     "kind": "chip",
+     "type": "text",
+     "default": "No experience needed"
+    },
+    {
+     "name": "chip_2",
+     "label": "Chip 2",
+     "kind": "chip",
+     "type": "text",
+     "default": "Built for European investors"
+    },
+    {
+     "name": "chip_3",
+     "label": "Chip 3",
+     "kind": "chip",
+     "type": "text",
+     "default": "Education, not advice"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Applications open for January"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Next cohort starts"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Monday 11 January 2027"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Format"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "4 Mondays, 7.30pm"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Investment"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "€175"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Live online, taught in Maltese, recorded if you miss one. Small group, so places are limited."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Apply for the January cohort"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#apply"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Education, not advice. No financial products are sold and nothing here is a personal recommendation."
+    }
+   ]
+  },
+  {
+   "name": "who_it_s_for",
+   "label": "Who it's for",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Who this is for"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "You're not bad with money. You're waiting for permission."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Most people who come to this course aren't reckless. They're careful. Careful to the point of paralysis. The money sits in the account, the years go by, and the decision never gets made."
+    },
+    {
+     "name": "chip",
+     "label": "Chip",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"My savings are sitting in the bank doing nothing.\""
+    },
+    {
+     "name": "chip_2",
+     "label": "Chip 2",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I tried once, it went badly, I never went back.\""
+    },
+    {
+     "name": "chip_3",
+     "label": "Chip 3",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"Everyone giving me advice is also selling me something.\""
+    },
+    {
+     "name": "chip_4",
+     "label": "Chip 4",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I should understand this by now. I don't.\""
+    },
+    {
+     "name": "chip_5",
+     "label": "Chip 5",
+     "kind": "chip",
+     "type": "text",
+     "default": "\"I want to build slowly, not gamble.\""
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "**No experience needed.** Session one starts where you actually are, not where a textbook assumes you are.",
+     "styled": true
+    }
+   ]
+  },
+  {
+   "name": "the_four_evenings",
+   "label": "The four evenings",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "The four evenings"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Mondays, 7.30pm to 8.30pm. Live online."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Every session is recorded. Miss one and you keep the recording. The order matters, so we build it in sequence."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "01"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "The investment landscape"
+    },
+    {
+     "name": "item",
+     "label": "List item",
+     "kind": "item",
+     "type": "text",
+     "default": "Which platforms to use, and which to walk away from"
+    },
+    {
+     "name": "item_2",
+     "label": "List item 2",
+     "kind": "item",
+     "type": "text",
+     "default": "Stocks, ETFs, bonds, crypto and commodities, in plain language"
+    },
+    {
+     "name": "item_3",
+     "label": "List item 3",
+     "kind": "item",
+     "type": "text",
+     "default": "How each one actually behaves when markets move"
+    },
+    {
+     "name": "item_4",
+     "label": "List item 4",
+     "kind": "item",
+     "type": "text",
+     "default": "What diversification means beyond the buzzword"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "02"
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Beyond the index fund"
+    },
+    {
+     "name": "item_5",
+     "label": "List item 5",
+     "kind": "item",
+     "type": "text",
+     "default": "What most beginner courses stop short of teaching"
+    },
+    {
+     "name": "item_6",
+     "label": "List item 6",
+     "kind": "item",
+     "type": "text",
+     "default": "Sector and thematic investing, and where it goes wrong"
+    },
+    {
+     "name": "item_7",
+     "label": "List item 7",
+     "kind": "item",
+     "type": "text",
+     "default": "How to evaluate a theme without falling for the story"
+    },
+    {
+     "name": "item_8",
+     "label": "List item 8",
+     "kind": "item",
+     "type": "text",
+     "default": "Worked portfolio examples, including my own"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "03"
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "The psychology of investing"
+    },
+    {
+     "name": "item_9",
+     "label": "List item 9",
+     "kind": "item",
+     "type": "text",
+     "default": "Why your emotions cost you more than your fees"
+    },
+    {
+     "name": "item_10",
+     "label": "List item 10",
+     "kind": "item",
+     "type": "text",
+     "default": "The behavioural traps that catch almost everyone"
+    },
+    {
+     "name": "item_11",
+     "label": "List item 11",
+     "kind": "item",
+     "type": "text",
+     "default": "What to do on the day everything drops"
+    },
+    {
+     "name": "item_12",
+     "label": "List item 12",
+     "kind": "item",
+     "type": "text",
+     "default": "Building the discipline to do nothing"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "04"
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "Putting it together"
+    },
+    {
+     "name": "item_13",
+     "label": "List item 13",
+     "kind": "item",
+     "type": "text",
+     "default": "Applying the framework to your own situation"
+    },
+    {
+     "name": "item_14",
+     "label": "List item 14",
+     "kind": "item",
+     "type": "text",
+     "default": "Templates you can start using that night"
+    },
+    {
+     "name": "item_15",
+     "label": "List item 15",
+     "kind": "item",
+     "type": "text",
+     "default": "Your own written investing roadmap"
+    },
+    {
+     "name": "item_16",
+     "label": "List item 16",
+     "kind": "item",
+     "type": "text",
+     "default": "The mistakes I made so you don't have to"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Apply for the January cohort"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#apply"
+    }
+   ]
+  },
+  {
+   "name": "photo_strip",
+   "label": "Photo strip",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-mia1.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca teaching a room at the Malta Institute of Accountants"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Small groups, not webinars"
+    },
+    {
+     "name": "image_2",
+     "label": "Image 2",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-mic.jpg"
+    },
+    {
+     "name": "image_2_alt",
+     "label": "Image 2: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca speaking on stage"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "1,000+ people trained"
+    },
+    {
+     "name": "image_3",
+     "label": "Image 3",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-workshop.jpg"
+    },
+    {
+     "name": "image_3_alt",
+     "label": "Image 3: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca answering a question in a workshop"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Questions answered live"
+    }
+   ]
+  },
+  {
+   "name": "included",
+   "label": "Included",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Everything included"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Five things, one price."
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "4 live sessions"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "One hour each, Mondays, online. Questions answered as we go."
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Lifetime recordings"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Every session recorded and yours to keep."
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "Investment templates"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "The same worksheets used in one-to-one coaching."
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Newbie's Investment Playbook"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "The workbook. Written for European investors, not American ones."
+    },
+    {
+     "name": "heading_6",
+     "label": "Heading 6",
+     "kind": "heading",
+     "type": "text",
+     "default": "Luca's Money Hub"
+    },
+    {
+     "name": "paragraph_5",
+     "label": "Paragraph 5",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "The WhatsApp community and regular market updates, after the course ends."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "€175"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "One payment. No upsells inside the course."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Apply now"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#apply"
+    }
+   ]
+  },
+  {
+   "name": "who_is_teaching",
+   "label": "Who is teaching",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-tv2.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana explaining a point"
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Who is teaching this"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Luca Caruana"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Certified Money Coach. Brought money coaching to Malta in 2023. Hundreds of clients, workshops for more than a thousand people at HSBC, PwC Malta, MeDirect and others. Columnist in the Times of Malta."
+    },
+    {
+     "name": "quote",
+     "label": "Quote",
+     "kind": "quote",
+     "type": "text",
+     "default": "I'm not a broker. I don't sell financial products. I teach people how to think."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "That distinction is the whole point. Nobody in this course gets nudged towards a fund because it pays a commission, because there is no commission. There's a course fee, and that's the entire commercial relationship."
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "What you get instead is four evenings with someone who invests his own money, has made his own expensive mistakes, and will show you both."
+    }
+   ]
+  },
+  {
+   "name": "past_students",
+   "label": "Past students",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "From past students"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "People who have already done this course."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "\"I recently completed an online investment course with Luca Caruana and I cannot recommend it enough. He has a fantastic ability to simplify complex financial concepts, making them easy to understand even if you're a complete beginner. Luca is incredibly approachable, patient, and uses great real-life examples that really help everything click. If you've been intimidated by investing, this is the course for you.\""
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Valerie Vella"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "\"His course helped me understand the world of investments and helped build my confidence. I learned a lot, well done.\""
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Marianne Zammit"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "\"On his newspaper column, Luca comes across as a nice guy. In person he is lovely. He is patient, passes on his knowledge using simple, everyday language. He has a hands-on approach and is highly receptive to questions from his audience. I thoroughly enjoyed his sessions and found them extremely informative.\""
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Bernard Busuttil"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "\"Very informative course with clear explanations and well-prepared materials.\""
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Clayton Camilleri"
+    },
+    {
+     "name": "paragraph_5",
+     "label": "Paragraph 5",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "\"I recently attended the financial course and found it to be extremely informative and valuable. The content was well structured, easy to follow, and relevant to both beginners and those with some prior financial knowledge. I particularly appreciated the real-life examples and interactive discussions, which helped me better understand topics such as investment strategies and risk management. A course that I really recommend.\""
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Louise Attard Refalo"
+    },
+    {
+     "name": "paragraph_6",
+     "label": "Paragraph 6",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "\"Luca is very professional, knowledgeable, and trustworthy. He makes complex topics like crypto and investing easy to understand, especially for beginners. Highly recommend his courses and coaching sessions to anyone looking to grow their financial knowledge.\""
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Kieran Vella"
+    },
+    {
+     "name": "paragraph_7",
+     "label": "Paragraph 7",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "\"Finally I found a person who is very professional in his work and trustworthy. When you are learning, you need someone to come down to your level, especially when you are new. I recommend anyone who wants to learn to do a course with Luca. You can only gain in knowledge. 10/10\""
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "Alexander Pace"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "All reviews published on the Money Coaching Hub Facebook page."
+    }
+   ]
+  },
+  {
+   "name": "faq",
+   "label": "Questions (FAQ)",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Before you decide"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "The questions people actually ask."
+    },
+    {
+     "name": "question",
+     "label": "Question",
+     "kind": "question",
+     "type": "text",
+     "default": "Is this financial advice?"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "textarea",
+     "default": "No, and this matters. Luca is a Certified Money Coach, not a licensed investment adviser, and Money Coaching Hub is not a regulated investment firm. Everything taught is general financial education. You'll learn how different instruments work, how to assess them and how to build a framework, but nobody will tell you what to buy, and no products are sold at any point."
+    },
+    {
+     "name": "question_2",
+     "label": "Question 2",
+     "kind": "question",
+     "type": "text",
+     "default": "I know nothing about investing. Will I be lost?"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "textarea",
+     "default": "No. Session one starts from the beginning, with no assumed knowledge. Most people who take this course have never bought a single share. The ones with some experience tend to find the psychology session the most useful, because that's the part nobody teaches them."
+    },
+    {
+     "name": "question_3",
+     "label": "Question 3",
+     "kind": "question",
+     "type": "text",
+     "default": "What language is the course in?"
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "book a 10-minute call"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "question_4",
+     "label": "Question 4",
+     "kind": "question",
+     "type": "text",
+     "default": "What if I can't make a Monday?"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Every session is recorded and sent out afterwards, and you keep the recordings. You can also send questions in advance and they'll be answered live. That said, the live sessions are where the value is, so come if you can."
+    },
+    {
+     "name": "question_5",
+     "label": "Question 5",
+     "kind": "question",
+     "type": "text",
+     "default": "Why a small group?"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Because past a certain size it stops being a conversation and becomes a webinar. The whole format depends on being able to stop and answer a real question from a real person. When the places are gone, they're gone until the next cohort."
+    },
+    {
+     "name": "question_6",
+     "label": "Question 6",
+     "kind": "question",
+     "type": "text",
+     "default": "Is this relevant if I'm not in Malta?"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Yes. The course is built around European platforms and European investors, which is deliberate, because most investing content online assumes you're American and can buy things you can't actually access. If you're investing from anywhere in the EU, it applies."
+    }
+   ]
+  },
+  {
+   "name": "apply",
+   "label": "Apply / booking card",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Starts Monday 11 January 2027"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "One evening a week. Four weeks. Done."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "You've been meaning to sort this out for a while. This is four Mondays."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "€175"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Apply for the January cohort"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Education, not advice. Money Coaching Hub is not a regulated investment firm. No financial products are sold and nothing on this course constitutes a personal recommendation."
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Starts"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "11 Jan 2027"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Format"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Live online"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "Time"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Mondays 7.30pm"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "Sessions"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "4 × 1 hour"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "Language"
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Maltese"
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "header_button",
+     "label": "Header button",
+     "kind": "text",
+     "type": "text",
+     "default": "Apply for January"
+    },
+    {
+     "name": "header_button_link",
+     "label": "Header button: link",
+     "kind": "text",
+     "type": "text",
+     "default": "#apply"
+    }
+   ]
+  }
+ ]
+}

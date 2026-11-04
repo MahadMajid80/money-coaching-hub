@@ -1,0 +1,2277 @@
+{
+ "slug": "side-hustle",
+ "label": "Side hustle page",
+ "groups": [
+  {
+   "name": "nt_top",
+   "label": "Notify page › Top of page",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Live online intro · Wednesday 20 January 2027 · *7.30pm to 8.30pm*",
+     "styled": true
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Thinking about a side hustle? *Start here.*",
+     "styled": true
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "A 60-minute live session with money coach Luca Caruana. Find out what you could realistically earn on the side, what stops most people from ever starting, and how to take your first step."
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-yellow.webp"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana, smiling"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "€50 → €5,000"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "a month, built on the side"
+    }
+   ]
+  },
+  {
+   "name": "in_top",
+   "label": "Intro page › Top of page",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Live online intro · Wednesday 20 January 2027 · *7.30pm to 8.30pm*",
+     "styled": true
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Thinking about a side hustle? *Start here.*",
+     "styled": true
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "A 60-minute live session with money coach Luca Caruana. Find out what you could realistically earn on the side, what stops most people from ever starting, and how to take your first step."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Save my seat, €25"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#in-book"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Your €25 comes off the programme fee if you decide to join."
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-yellow.webp"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana, smiling"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "€50 → €5,000"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "a month, built on the side"
+    }
+   ]
+  },
+  {
+   "name": "section_3",
+   "label": "Intro page › You've been thinking about it for a while.",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Sound familiar?"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "You've been thinking about it for a while."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Earning something extra. Building something that's yours."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Maybe you even have an idea. Then work, family and life get in the way. And the questions start."
+    },
+    {
+     "name": "item",
+     "label": "List item",
+     "kind": "item",
+     "type": "text",
+     "default": "“Where would I even start?”"
+    },
+    {
+     "name": "item_2",
+     "label": "List item 2",
+     "kind": "item",
+     "type": "text",
+     "default": "“Who would pay me?”"
+    },
+    {
+     "name": "item_3",
+     "label": "List item 3",
+     "kind": "item",
+     "type": "text",
+     "default": "“Am I good enough at anything to charge for it?”"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "You're not alone. Most people who want a side hustle never start."
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Not because they lack talent. Because nobody showed them how."
+    }
+   ]
+  },
+  {
+   "name": "section_4",
+   "label": "Intro page › In 60 minutes, you'll",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "In 60 minutes, you'll"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Save my seat, €25"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#in-book"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "1"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Hear how I built Money Coaching Hub from €50 a month to €5,000 a month, alongside a full-time job and two kids"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "2"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "See what a side hustle could realistically earn you, with simple, honest maths"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "3"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Understand the three things that stop most people from starting, and from ever earning"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "4"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Spot your own hidden skills with a quick exercise, and leave with at least one idea worth exploring"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "5"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Find out about the 6-week programme starting in February"
+    }
+   ]
+  },
+  {
+   "name": "section_5",
+   "label": "Intro page › I didn't start with a business plan.",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-seated.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana explaining a point during a TV interview"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Where it started"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "€50 a month"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Where it grew"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "€5,000 a month"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Money Coaching Hub, built on the side. Bars drawn to scale."
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Meet Luca"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "I didn't start with a business plan."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "I started with €50 a month and a lot of late evenings."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I built Money Coaching Hub on the side, alongside a full-time job, two kids and Monipal, the financial wellbeing platform I lead. Step by step, it grew to €5,000 a month. I made plenty of mistakes along the way. I'll share those too."
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "[Add from January: “In December 2026, I left my full-time job to go all in on what I built on the side.”]"
+    },
+    {
+     "name": "item",
+     "label": "List item",
+     "kind": "item",
+     "type": "text",
+     "default": "Certified money coach"
+    },
+    {
+     "name": "item_2",
+     "label": "List item 2",
+     "kind": "item",
+     "type": "text",
+     "default": "300+ clients coached"
+    },
+    {
+     "name": "item_3",
+     "label": "List item 3",
+     "kind": "item",
+     "type": "text",
+     "default": "1,000+ workshop participants"
+    },
+    {
+     "name": "item_4",
+     "label": "List item 4",
+     "kind": "item",
+     "type": "text",
+     "default": "Founder, Money Coaching Hub"
+    },
+    {
+     "name": "item_5",
+     "label": "List item 5",
+     "kind": "item",
+     "type": "text",
+     "default": "CEO, Monipal"
+    }
+   ]
+  },
+  {
+   "name": "in_book",
+   "label": "Intro page › Book the intro",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Why €25?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Because people who commit, show up. I want a room full of people who are serious about starting."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "And if you join the programme, your €25 comes straight off the fee. So if you're in, **the intro is free.**",
+     "styled": true
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "The details"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "JAN"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "20"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Wednesday 20 January 2027"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "7.30pm to 8.30pm"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Where"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "Live online on *Zoom*. The link is emailed after booking.",
+     "styled": true
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Price"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "€25, credited against the programme fee"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Bring"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "A pen and paper for the quick exercise"
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Recording"
+    },
+    {
+     "name": "text_13",
+     "label": "Text 13",
+     "kind": "text",
+     "type": "text",
+     "default": "Live only, so the exercise and Q&A work properly"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Save my seat, €25"
+    }
+   ]
+  },
+  {
+   "name": "section_7",
+   "label": "Intro page › Questions",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Questions"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Do I need a side hustle idea already?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "No. Most people come without one. The quick exercise helps you find a starting point."
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Is this a sales pitch?"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I'll tell you about the programme in the last 10 minutes. The rest is real, useful content you can act on, whether you join or not."
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "I already have a side hustle, but it barely earns. Is this for me?"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Yes. The same things that stop people starting often stop side hustles from paying."
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "What if I can't make it on the night?"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Join the notify list and you'll hear about the next intro."
+    }
+   ]
+  },
+  {
+   "name": "section_8",
+   "label": "Intro page › Your side hustle won't start itself. Give it o…",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Your side hustle won't start itself. Give it one hour."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Wednesday 20 January 2027 · *7.30pm to 8.30pm* · Live online",
+     "styled": true
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Save my seat, €25"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#in-book"
+    }
+   ]
+  },
+  {
+   "name": "pg_top",
+   "label": "Programme page › Top of page",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Side Hustle, Done Right"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Founding cohort · 6 Wednesday evenings, 17 February to 24 March 2027 · Live online · *15* places",
+     "styled": true
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "From idea to launch in 6 weeks."
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "With someone who's *actually done it.*",
+     "styled": true
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "A hands-on programme for people with a full-time job and a full life. One evening a week, you'll find your idea, price it, build your brand and reach your first customers, step by step, with money coach Luca Caruana."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Join the founding cohort, €295"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#pg-join"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Founding price, first cohort only. Pay in full or in 2 instalments. Came to the intro? Use your €25 code."
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-yellow.webp"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana, smiling"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "€50 → €5,000"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "a month, built on the side"
+    }
+   ]
+  },
+  {
+   "name": "section_10",
+   "label": "Programme page › This is for you if",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Who it's for"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "This is for you if"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "You want extra income, but don't know where to start"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "You have a skill, a passion or an idea, and you've never made money from it"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "You've started something, but it barely pays"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "You have a job, a family and limited time, and need a plan that fits around them"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "textarea",
+     "default": "**It's not for you if** you're looking for a get-rich-quick scheme, or you want someone to build it for you.",
+     "styled": true
+    }
+   ]
+  },
+  {
+   "name": "section_11",
+   "label": "Programme page › Why this is different",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Why this is different"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Built by someone who did it."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I built Money Coaching Hub from €50 a month to €5,000 a month, on the side, with a full-time job, two kids and Monipal. Every week, I'll show you what I did, what I charged, and what I'd never do again."
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "You build it in the room."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "You don't just learn. You do it, live, with me. Every week you leave with something done: your idea, your price, your bio, your first message to a customer."
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "The money side, sorted."
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Most programmes skip it. Pricing. Undercharging. Feeling awkward charging friends. What the extra income should actually do for your life. As a money coach, this is my home ground."
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "Built for busy people."
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "One 90-minute evening a week. One small action, about 2 hours. That's it."
+    }
+   ]
+  },
+  {
+   "name": "pg_weeks",
+   "label": "Programme page › The six weeks",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "6 Wednesday evenings"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "The 6 weeks"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "17 February to 24 March 2027 · Live online"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 1"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 17 Feb"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Find it"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Your Life Inventory: what you're good at, what you enjoy, what people already ask you for"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "You leave with"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "A shortlist of 3 side hustle ideas"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 2"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 24 Feb"
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Test it"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Talk to real potential customers before building anything"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "You leave with"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "One idea, tested with 5 real people"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 3"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 3 Mar"
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "Package and price it"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "One clear offer, and a price you can say without apologising"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "You leave with"
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Your offer and your price"
+    },
+    {
+     "name": "text_13",
+     "label": "Text 13",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 4"
+    },
+    {
+     "name": "text_14",
+     "label": "Text 14",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 10 Mar"
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "Build your brand"
+    },
+    {
+     "name": "paragraph_5",
+     "label": "Paragraph 5",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "One platform, your story, your bio and first posts, with AI and free tools"
+    },
+    {
+     "name": "text_15",
+     "label": "Text 15",
+     "kind": "text",
+     "type": "text",
+     "default": "You leave with"
+    },
+    {
+     "name": "text_16",
+     "label": "Text 16",
+     "kind": "text",
+     "type": "text",
+     "default": "A profile ready to launch and a 4-week content plan"
+    },
+    {
+     "name": "text_17",
+     "label": "Text 17",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 5"
+    },
+    {
+     "name": "text_18",
+     "label": "Text 18",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 17 Mar"
+    },
+    {
+     "name": "heading_6",
+     "label": "Heading 6",
+     "kind": "heading",
+     "type": "text",
+     "default": "Sell it"
+    },
+    {
+     "name": "paragraph_6",
+     "label": "Paragraph 6",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Reaching your first customers through people you already know"
+    },
+    {
+     "name": "text_19",
+     "label": "Text 19",
+     "kind": "text",
+     "type": "text",
+     "default": "You leave with"
+    },
+    {
+     "name": "text_20",
+     "label": "Text 20",
+     "kind": "text",
+     "type": "text",
+     "default": "Your first messages sent"
+    },
+    {
+     "name": "text_21",
+     "label": "Text 21",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 6"
+    },
+    {
+     "name": "text_22",
+     "label": "Text 22",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 24 Mar"
+    },
+    {
+     "name": "heading_7",
+     "label": "Heading 7",
+     "kind": "heading",
+     "type": "text",
+     "default": "Launch it"
+    },
+    {
+     "name": "paragraph_7",
+     "label": "Paragraph 7",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Go public, set up a simple money system, plan your next 90 days"
+    },
+    {
+     "name": "text_23",
+     "label": "Text 23",
+     "kind": "text",
+     "type": "text",
+     "default": "You leave with"
+    },
+    {
+     "name": "text_24",
+     "label": "Text 24",
+     "kind": "text",
+     "type": "text",
+     "default": "A launched side hustle, celebrated at showcase night *in person, venue TBC*",
+     "styled": true
+    },
+    {
+     "name": "text_25",
+     "label": "Text 25",
+     "kind": "text",
+     "type": "text",
+     "default": "Plus two guest speakers who built their own side hustles in Malta *names TBC*.",
+     "styled": true
+    }
+   ]
+  },
+  {
+   "name": "section_13",
+   "label": "Programme page › What's included",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "What's included"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "6 live 90-minute sessions with Luca, Wednesday evenings"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "The Life Inventory, adapted for side hustles"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Luca's AI prompt pack: write bios, posts, offers and customer messages in minutes"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "The launch-for-under-€100 toolkit: the free and low-cost tools I actually use"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "One 30-minute 1:1 call with Luca, mid-programme"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Two guest speakers who've done it in Malta"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "A private WhatsApp group for your cohort"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Showcase night to celebrate your launch"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "A group check-in 30 days after launch"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Lifetime access to the alumni community"
+    }
+   ]
+  },
+  {
+   "name": "section_14",
+   "label": "Programme page › Launching is the start, not the end.",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "After the programme"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Launching is the start, not the end."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "30 days after launch, we meet again as a group to share results and fix what isn't working. Then you join the alumni community: side hustlers from every cohort, where wins get celebrated and nobody builds alone."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 6: launch"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "→"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "30 days later: group check-in"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "→"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Alumni community"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Want more personal support?"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Book a 30-minute follow-up call with me at the alumni rate."
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "€49"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "per call"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "€129"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "3 calls"
+    }
+   ]
+  },
+  {
+   "name": "section_15",
+   "label": "Programme page › I know what it's like to build something after…",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-mia1.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana presenting to a room of professionals"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Where it started"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "€50 a month"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Where it grew"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "€5,000 a month"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Money Coaching Hub, built on the side. Bars drawn to scale."
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Meet Luca"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "textarea",
+     "default": "I know what it's like to build something after the kids are asleep and the day job is done."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I started Money Coaching Hub with €50 a month. Step by step, alongside a full-time job, two kids and Monipal, it grew to €5,000 a month."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Every week, I'll open with a chapter of that story. How I found my idea. What I first charged. Where my clients came from. And the mistakes that cost me the most, so they don't cost you."
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "[Add from January: “In December 2026, I left my full-time job to go all in on what I built on the side.”]"
+    },
+    {
+     "name": "item",
+     "label": "List item",
+     "kind": "item",
+     "type": "text",
+     "default": "Certified money coach"
+    },
+    {
+     "name": "item_2",
+     "label": "List item 2",
+     "kind": "item",
+     "type": "text",
+     "default": "300+ clients coached"
+    },
+    {
+     "name": "item_3",
+     "label": "List item 3",
+     "kind": "item",
+     "type": "text",
+     "default": "1,000+ workshop participants"
+    },
+    {
+     "name": "item_4",
+     "label": "List item 4",
+     "kind": "item",
+     "type": "text",
+     "default": "Founder, Money Coaching Hub"
+    },
+    {
+     "name": "item_5",
+     "label": "List item 5",
+     "kind": "item",
+     "type": "text",
+     "default": "CEO, Monipal"
+    }
+   ]
+  },
+  {
+   "name": "pg_join",
+   "label": "Programme page › Join / booking",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Investment"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "6 Wednesday evenings, live online"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 1"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 17 Feb"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 2"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 24 Feb"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 3"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 3 Mar"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 4"
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 10 Mar"
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 5"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 17 Mar"
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "Week 6"
+    },
+    {
+     "name": "text_13",
+     "label": "Text 13",
+     "kind": "text",
+     "type": "text",
+     "default": "Wed 24 Mar"
+    },
+    {
+     "name": "text_14",
+     "label": "Text 14",
+     "kind": "text",
+     "type": "text",
+     "default": "Founding cohort"
+    },
+    {
+     "name": "text_15",
+     "label": "Text 15",
+     "kind": "text",
+     "type": "text",
+     "default": "€295"
+    },
+    {
+     "name": "text_16",
+     "label": "Text 16",
+     "kind": "text",
+     "type": "text",
+     "default": "regular price from cohort 2: €495"
+    },
+    {
+     "name": "text_17",
+     "label": "Text 17",
+     "kind": "text",
+     "type": "text",
+     "default": "Or"
+    },
+    {
+     "name": "text_18",
+     "label": "Text 18",
+     "kind": "text",
+     "type": "text",
+     "default": "2 instalments of *€150*",
+     "styled": true
+    },
+    {
+     "name": "text_19",
+     "label": "Text 19",
+     "kind": "text",
+     "type": "text",
+     "default": "Came to the intro?"
+    },
+    {
+     "name": "text_20",
+     "label": "Text 20",
+     "kind": "text",
+     "type": "text",
+     "default": "€25 off with your code"
+    },
+    {
+     "name": "text_21",
+     "label": "Text 21",
+     "kind": "text",
+     "type": "text",
+     "default": "Places"
+    },
+    {
+     "name": "text_22",
+     "label": "Text 22",
+     "kind": "text",
+     "type": "text",
+     "default": "*15* only, so everyone gets real attention",
+     "styled": true
+    },
+    {
+     "name": "text_23",
+     "label": "Text 23",
+     "kind": "text",
+     "type": "text",
+     "default": "Booking closes"
+    },
+    {
+     "name": "text_24",
+     "label": "Text 24",
+     "kind": "text",
+     "type": "text",
+     "default": "Wednesday 10 February 2027"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Join the founding cohort"
+    }
+   ]
+  },
+  {
+   "name": "section_17",
+   "label": "Programme page › Questions",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Questions"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "How much time do I need?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "One 90-minute live session a week, plus about 2 hours for that week's action."
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "I don't have an idea yet. Can I still join?"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Yes. Week 1 is all about finding it."
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "What if I miss a session?"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "Every session is recorded and shared in the cohort group."
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "Do I need to be good with technology?"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "No. If you can use WhatsApp and your phone's camera, you can do this. We use free tools, and AI does the heavy lifting."
+    },
+    {
+     "name": "heading_6",
+     "label": "Heading 6",
+     "kind": "heading",
+     "type": "text",
+     "default": "How much will it cost me to launch?"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "The aim is under €100, using free and low-cost tools."
+    },
+    {
+     "name": "heading_7",
+     "label": "Heading 7",
+     "kind": "heading",
+     "type": "text",
+     "default": "Will I make money?"
+    },
+    {
+     "name": "paragraph_5",
+     "label": "Paragraph 5",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Honest answer: that depends on your idea, your effort and your market. What I can promise is that by week 6, you'll have a real offer, a price, and your first customer conversations already started."
+    },
+    {
+     "name": "heading_8",
+     "label": "Heading 8",
+     "kind": "heading",
+     "type": "text",
+     "default": "Do I need to register a business?"
+    },
+    {
+     "name": "paragraph_6",
+     "label": "Paragraph 6",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "You'll get a one-page checklist on the basics, and we'll point you to an accountant for your own situation."
+    },
+    {
+     "name": "heading_9",
+     "label": "Heading 9",
+     "kind": "heading",
+     "type": "text",
+     "default": "What if it's not for me?"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Refund policy to confirm."
+    }
+   ]
+  },
+  {
+   "name": "section_18",
+   "label": "Programme page › Six weeks from now, your side hustle could be …",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Six weeks from now, your side hustle could be live. Or it could still be “one day”."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "Founding cohort · Starts Wednesday 17 February 2027 · *15* places",
+     "styled": true
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Join the founding cohort, €295"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#pg-join"
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "card",
+     "label": "Card link",
+     "kind": "card",
+     "type": "text",
+     "default": "/"
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/logo.png"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Money Coaching Hub"
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Notify me"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#nt-notify"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "MONEY COACHING HUB"
+    },
+    {
+     "name": "link",
+     "label": "Link",
+     "kind": "link",
+     "type": "text",
+     "default": "Privacy"
+    },
+    {
+     "name": "link_link",
+     "label": "Link: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/privacy-policy/"
+    },
+    {
+     "name": "link_2",
+     "label": "Link 2",
+     "kind": "link",
+     "type": "text",
+     "default": "Cookies"
+    },
+    {
+     "name": "link_2_link",
+     "label": "Link 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/cookie-policy/"
+    },
+    {
+     "name": "link_3",
+     "label": "Link 3",
+     "kind": "link",
+     "type": "text",
+     "default": "Terms"
+    },
+    {
+     "name": "link_3_link",
+     "label": "Link 3: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/website-terms-and-conditions/"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "This session is educational. Any earnings shared are real examples, not promises. What you earn depends on your idea, your effort and your market."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Money Coaching Hub provides financial education and coaching. Luca Caruana is a Certified Money Coach (CMC®), not a licensed investment adviser. Nothing on this website is financial advice or a personal recommendation."
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "© 2026 Money Coaching Hub. All rights reserved."
+    },
+    {
+     "name": "card_2",
+     "label": "Card link 2",
+     "kind": "card",
+     "type": "text",
+     "default": "/"
+    },
+    {
+     "name": "image_2",
+     "label": "Image 2",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/logo.png"
+    },
+    {
+     "name": "image_2_alt",
+     "label": "Image 2: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Money Coaching Hub"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "Save my seat, €25"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#in-book"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "MONEY COACHING HUB"
+    },
+    {
+     "name": "link_4",
+     "label": "Link 4",
+     "kind": "link",
+     "type": "text",
+     "default": "Privacy"
+    },
+    {
+     "name": "link_4_link",
+     "label": "Link 4: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/privacy-policy/"
+    },
+    {
+     "name": "link_5",
+     "label": "Link 5",
+     "kind": "link",
+     "type": "text",
+     "default": "Cookies"
+    },
+    {
+     "name": "link_5_link",
+     "label": "Link 5: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/cookie-policy/"
+    },
+    {
+     "name": "link_6",
+     "label": "Link 6",
+     "kind": "link",
+     "type": "text",
+     "default": "Terms"
+    },
+    {
+     "name": "link_6_link",
+     "label": "Link 6: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/website-terms-and-conditions/"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "This session is educational. Any earnings shared are real examples, not promises. What you earn depends on your idea, your effort and your market."
+    },
+    {
+     "name": "paragraph_5",
+     "label": "Paragraph 5",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Money Coaching Hub provides financial education and coaching. Luca Caruana is a Certified Money Coach (CMC®), not a licensed investment adviser. Nothing on this website is financial advice or a personal recommendation."
+    },
+    {
+     "name": "paragraph_6",
+     "label": "Paragraph 6",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "© 2026 Money Coaching Hub. All rights reserved."
+    },
+    {
+     "name": "card_3",
+     "label": "Card link 3",
+     "kind": "card",
+     "type": "text",
+     "default": "/"
+    },
+    {
+     "name": "image_3",
+     "label": "Image 3",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/logo.png"
+    },
+    {
+     "name": "image_3_alt",
+     "label": "Image 3: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Money Coaching Hub"
+    },
+    {
+     "name": "button_3",
+     "label": "Button 3",
+     "kind": "button",
+     "type": "text",
+     "default": "Join the founding cohort"
+    },
+    {
+     "name": "button_3_link",
+     "label": "Button 3: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#pg-join"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "MONEY COACHING HUB"
+    },
+    {
+     "name": "link_7",
+     "label": "Link 7",
+     "kind": "link",
+     "type": "text",
+     "default": "Privacy"
+    },
+    {
+     "name": "link_7_link",
+     "label": "Link 7: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/privacy-policy/"
+    },
+    {
+     "name": "link_8",
+     "label": "Link 8",
+     "kind": "link",
+     "type": "text",
+     "default": "Cookies"
+    },
+    {
+     "name": "link_8_link",
+     "label": "Link 8: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/cookie-policy/"
+    },
+    {
+     "name": "link_9",
+     "label": "Link 9",
+     "kind": "link",
+     "type": "text",
+     "default": "Terms"
+    },
+    {
+     "name": "link_9_link",
+     "label": "Link 9: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/website-terms-and-conditions/"
+    },
+    {
+     "name": "paragraph_7",
+     "label": "Paragraph 7",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "This programme is educational. Any earnings shared are real examples, not promises. What you earn depends on your idea, your effort and your market."
+    },
+    {
+     "name": "paragraph_8",
+     "label": "Paragraph 8",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Money Coaching Hub provides financial education and coaching. Luca Caruana is a Certified Money Coach (CMC®), not a licensed investment adviser. Nothing on this website is financial advice or a personal recommendation."
+    },
+    {
+     "name": "paragraph_9",
+     "label": "Paragraph 9",
+     "kind": "paragraph",
+     "type": "text",
+     "default": "© 2026 Money Coaching Hub. All rights reserved."
+    }
+   ]
+  }
+ ]
+}

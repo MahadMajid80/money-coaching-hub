@@ -1,31 +1,33 @@
 import { SiteFooter, SiteHeader } from "@/components/chrome";
-import { categories, categoryName, pageCount, type Post, postsOnPage } from "@/lib/blog";
+import { type Category, categoryName, getCategories, getPosts, type Post } from "@/lib/blog";
 
 const monthYear = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
 
-export function PostCard({ p }: { p: Post }) {
+export function PostCard({ p, cats }: { p: Post; cats: Category[] }) {
   return (
     <a href={p.path} className="post-card">
       <span className="post-card__img">{p.image && <img src={p.image.src} alt={p.image.alt} loading="lazy" />}</span>
       <span className="post-card__meta">
-        {categoryName(p.category)} · {monthYear(p.date)} · {p.readingTime} min read
+        {categoryName(p.category, cats)} · {monthYear(p.date)} · {p.readingTime} min read
       </span>
       <span className="post-card__title">{p.title}</span>
     </a>
   );
 }
 
-export function PostGrid({ items }: { items: Post[] }) {
+export async function PostGrid({ items }: { items: Post[] }) {
+  const cats = await getCategories();
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "40px 20px" }}>
       {items.map((p) => (
-        <PostCard key={p.id} p={p} />
+        <PostCard key={p.id} p={p} cats={cats} />
       ))}
     </div>
   );
 }
 
-export function BlogShell({ eyebrow, title, lead, current, children }: { eyebrow: string; title: string; lead: string; current?: string; children: React.ReactNode }) {
+export async function BlogShell({ eyebrow, title, lead, current, children }: { eyebrow: string; title: string; lead: string; current?: string; children: React.ReactNode }) {
+  const categories = (await getCategories()).filter((c) => c.count > 0);
   return (
     <div className="home" style={{ width: "100%", display: "flex", flexDirection: "column" }}>
       <SiteHeader />
@@ -61,9 +63,8 @@ export function BlogShell({ eyebrow, title, lead, current, children }: { eyebrow
   );
 }
 
-export default function BlogIndex({ page }: { page: number }) {
-  const total = pageCount();
-  const items = postsOnPage(page);
+export default async function BlogIndex({ page }: { page: number }) {
+  const { items, totalPages: total } = await getPosts({ page });
   const href = (n: number) => (n === 1 ? "/blog/" : `/blog/${n}/`);
   return (
     <BlogShell eyebrow="Knowledge hub" title={page === 1 ? "Fresh from the blog" : `Fresh from the blog · page ${page}`} lead="Real stories and practical guides on investing, budgeting, money mindset and making smarter financial choices.">

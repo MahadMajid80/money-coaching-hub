@@ -1,0 +1,232 @@
+{
+ "slug": "luca",
+ "label": "My story page",
+ "groups": [
+  {
+   "name": "hero",
+   "label": "Hero",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "My story"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Hello, I'm Luca. Your money coach."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "I brought money coaching to Malta in January 2023, when nobody here had heard of it. Since then I've coached hundreds of Maltese and European professionals who earn well but feel stuck: the ones who never learnt how money works and were told not to ask."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "Read my column"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "https://timesofmalta.com/author/luca-caruana.537"
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-seated.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca Caruana, Certified Money Coach"
+    }
+   ]
+  },
+  {
+   "name": "stats",
+   "label": "Numbers strip",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    }
+   ]
+  },
+  {
+   "name": "story",
+   "label": "Story",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Why I do this"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "My financial health wasn't always great."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "In my 20s, I thought strict money management and saving every cent was the key to financial success. I tracked everything down to the smallest detail and became obsessed with staying on top of my finances."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Then, in March 2019, I had two unexpected seizures while asleep. That experience forced me to reflect on how I was living. Financial wellbeing is far more than managing your cash flow: it's about balancing the practical side of money with your emotional and psychological needs."
+    },
+    {
+     "name": "quote",
+     "label": "Quote",
+     "kind": "quote",
+     "type": "textarea",
+     "default": "I don't sell products and I don't tell you what to buy. I help you understand your money story."
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Today I balance ambition with joy, logic with emotion, and purpose with impact, and teach others to do the same: on stage, on screen, in the Times of Malta, and one-to-one."
+    },
+    {
+     "name": "image",
+     "label": "Image",
+     "kind": "image",
+     "type": "upload",
+     "default": "/img/luca-mic.jpg"
+    },
+    {
+     "name": "image_alt",
+     "label": "Image: description",
+     "kind": "alt",
+     "type": "text",
+     "default": "Luca speaking on stage"
+    }
+   ]
+  },
+  {
+   "name": "reviews",
+   "label": "Reviews",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "What people say"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Don't take my word for it"
+    }
+   ]
+  },
+  {
+   "name": "cta",
+   "label": "Closing call to action",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Ten minutes. No pitch. Just a conversation."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Tell me what's going on with your money. I'll tell you honestly whether coaching will help."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    }
+   ]
+  }
+ ]
+}

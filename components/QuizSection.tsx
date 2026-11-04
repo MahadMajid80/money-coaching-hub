@@ -2,7 +2,7 @@
 
 // The design's quiz + result sections, working: 78 words, live counter, scored result.
 import { useMemo, useState } from "react";
-import { WORDS, score, type TypeSlug } from "@/lib/quiz";
+import { DEFAULT_QUIZ, scoreWith, type QuizWord, type TypeSlug } from "@/lib/quiz";
 
 const TYPES: Record<TypeSlug, { name: string; line: string }> = {
   innocent: { name: "Innocent", line: "Avoids looking at money and hopes it all works out." },
@@ -18,10 +18,12 @@ const TYPES: Record<TypeSlug, { name: string; line: string }> = {
 const tile = (bg: string, color: string, weight: string, size: string) =>
   ({ aspectRatio: "1", borderRadius: "16px", background: bg, color, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "16px", boxSizing: "border-box", fontFamily: "Raleway,sans-serif", fontWeight: weight, fontSize: size }) as const;
 
-export default function QuizSection() {
+export default function QuizSection({ words: list }: { words?: QuizWord[] }) {
+  const quiz = list && list.length ? list : DEFAULT_QUIZ;
+  const WORDS = quiz.map((w) => w.word);
   const [picked, setPicked] = useState<Set<string>>(new Set());
   const [shown, setShown] = useState(false);
-  const results = useMemo(() => score(picked), [picked]);
+  const results = useMemo(() => scoreWith(quiz, picked), [quiz, picked]);
   const ranked = results.filter((r) => r.hits > 0);
   const top = ranked.slice(0, 2);
   const tiles = results.slice(0, 4);

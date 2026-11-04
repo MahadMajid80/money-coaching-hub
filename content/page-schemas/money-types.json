@@ -1,0 +1,437 @@
+{
+ "slug": "money-types",
+ "label": "Money types page",
+ "groups": [
+  {
+   "name": "section_1",
+   "label": "The 8 Money Types",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Money psychology"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "The 8 Money Types"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Your relationship with money isn't about maths. It's about the patterns you learnt long before you had a salary. The eight money types, developed by Deborah Price of the Money Coaching Institute, give those patterns names. Most people carry three or four, with one or two in charge, and they shift as life does."
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Below, each type as I see it in the coaching room. Read them, notice which ones sting, then take the quiz."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Take the 3-minute quiz"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/take-money-type-quiz/"
+    }
+   ]
+  },
+  {
+   "name": "section_2",
+   "label": "The Innocent",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "I"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 1"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Innocent"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Money feels big, confusing and slightly frightening, so the Innocent looks away and hopes it sorts itself out. Bills stay unopened, statements unread. They'd much rather someone they trust handled it. Underneath is not laziness but anxiety: looking means finding out."
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: \"I know I should check. I just… don't.\""
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "V"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 2"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Victim"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Money happens *to* the Victim. The economy, the landlord, the ex, the boss: there's always someone or something to blame, and often a real wound behind it. The pattern is waiting to be rescued rather than acting, which keeps the story true.",
+     "styled": true
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: \"What's the point, it never works out for people like me.\""
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "W"
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 3"
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Warrior"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Confident, disciplined, goal-driven. The Warrior sets a target, makes a plan, and uses both logic and gut to get there. This is the type most of us want more of. Its shadow is impatience with people who don't think the same way, including partners."
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: \"Just tell me the numbers and I'll do it.\""
+    },
+    {
+     "name": "text_10",
+     "label": "Text 10",
+     "kind": "text",
+     "type": "text",
+     "default": "M"
+    },
+    {
+     "name": "text_11",
+     "label": "Text 11",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 4"
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Martyr"
+    },
+    {
+     "name": "paragraph_4",
+     "label": "Paragraph 4",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Generous to a fault. The Martyr pays for everyone, lends to anyone, and puts their own future last. Often there's a quiet expectation that it will be repaid, in money or gratitude, and quiet resentment when it isn't. Very common among parents and eldest siblings."
+    },
+    {
+     "name": "text_12",
+     "label": "Text 12",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: \"I can't say no to my family.\""
+    },
+    {
+     "name": "text_13",
+     "label": "Text 13",
+     "kind": "text",
+     "type": "text",
+     "default": "F"
+    },
+    {
+     "name": "text_14",
+     "label": "Text 14",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 5"
+    },
+    {
+     "name": "heading_5",
+     "label": "Heading 5",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Fool"
+    },
+    {
+     "name": "paragraph_5",
+     "label": "Paragraph 5",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The Fool loves the thrill: the splurge, the hot tip, the crypto at 2am. Optimistic and lucky, money comes easily and leaves just as fast, because the pull of now beats the plan for later. Fun at dinner, dangerous in a bull market."
+    },
+    {
+     "name": "text_15",
+     "label": "Text 15",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: \"I'll make it back next month.\""
+    },
+    {
+     "name": "text_16",
+     "label": "Text 16",
+     "kind": "text",
+     "type": "text",
+     "default": "C"
+    },
+    {
+     "name": "text_17",
+     "label": "Text 17",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 6"
+    },
+    {
+     "name": "heading_6",
+     "label": "Heading 6",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Creator"
+    },
+    {
+     "name": "paragraph_6",
+     "label": "Paragraph 6",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The Creator wants freedom, meaning and time, and suspects money is a bit grubby. So they under-charge, avoid the business side, and quietly block the wealth that would actually buy the freedom they want. The work is making peace with being paid well for good work."
+    },
+    {
+     "name": "text_18",
+     "label": "Text 18",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: \"I didn't get into this for the money.\""
+    },
+    {
+     "name": "text_19",
+     "label": "Text 19",
+     "kind": "text",
+     "type": "text",
+     "default": "T"
+    },
+    {
+     "name": "text_20",
+     "label": "Text 20",
+     "kind": "text",
+     "type": "text",
+     "default": "Type 7"
+    },
+    {
+     "name": "heading_7",
+     "label": "Heading 7",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Tyrant"
+    },
+    {
+     "name": "paragraph_7",
+     "label": "Paragraph 7",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "A Warrior who went too far. The Tyrant uses money to control: the partner, the children, the staff. Every euro is tracked, every purchase questioned. It looks like strength, but it's fear of losing control, and it costs relationships long before it costs money."
+    },
+    {
+     "name": "text_21",
+     "label": "Text 21",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: usually it's the partner who books the session."
+    },
+    {
+     "name": "text_22",
+     "label": "Text 22",
+     "kind": "text",
+     "type": "text",
+     "default": "✦"
+    },
+    {
+     "name": "text_23",
+     "label": "Text 23",
+     "kind": "text",
+     "type": "text",
+     "default": "The goal"
+    },
+    {
+     "name": "heading_8",
+     "label": "Heading 8",
+     "kind": "heading",
+     "type": "text",
+     "default": "The Magician"
+    },
+    {
+     "name": "paragraph_8",
+     "label": "Paragraph 8",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The Magician knows their money story, where the patterns came from, and chooses differently. Decisions line up with values. Money is a tool, not a threat. There's security without obsession, generosity without martyrdom, ambition without tyranny. Nobody is born one. Everyone can become one."
+    },
+    {
+     "name": "text_24",
+     "label": "Text 24",
+     "kind": "text",
+     "type": "text",
+     "default": "In the coaching room: this is where we're heading."
+    }
+   ]
+  },
+  {
+   "name": "section_3",
+   "label": "Which two are running your money life?",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Which two are running your money life?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Three minutes, 78 words, instant result. Then, if you want, we talk about what to do with it."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Take the quiz"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/take-money-type-quiz/"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "header_button",
+     "label": "Header button",
+     "kind": "text",
+     "type": "text",
+     "default": "Take the quiz"
+    },
+    {
+     "name": "header_button_link",
+     "label": "Header button: link",
+     "kind": "text",
+     "type": "text",
+     "default": "/take-money-type-quiz/"
+    },
+    {
+     "name": "footer_note",
+     "label": "Footer note",
+     "kind": "text",
+     "type": "textarea",
+     "default": "The Money Types were developed by Deborah L. Price, founder of the Money Coaching Institute, and are used with permission. Descriptions on this page are Luca Caruana's own."
+    }
+   ]
+  }
+ ]
+}

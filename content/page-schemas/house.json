@@ -1,0 +1,377 @@
+{
+ "slug": "house",
+ "label": "Investment House page",
+ "groups": [
+  {
+   "name": "hero",
+   "label": "Hero",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "Free tool · No sign-up to play"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Build your €10,000 Investment House."
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Most people's first portfolio is a guess. This is a way to see it instead: lay a foundation, stack bricks of different risk, and watch what €10,000 could become over 10, 20 or 30 years."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Start building"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#tool"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "How it works"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "#how"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "€10,000"
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "starting amount"
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "15"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "instruments to choose from"
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "30 yrs"
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "longest projection"
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "EMERGENCY FUND · 3 TO 6 MONTHS"
+    }
+   ]
+  },
+  {
+   "name": "how",
+   "label": "How it works",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "How it works"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Foundation first. Then bricks. Then time."
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "text",
+     "default": "01"
+    },
+    {
+     "name": "heading_2",
+     "label": "Heading 2",
+     "kind": "heading",
+     "type": "text",
+     "default": "Lay the foundation"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Three to six months of expenses in a savings account before a single brick goes down. This one's not negotiable; it's what stops you selling at the worst moment."
+    },
+    {
+     "name": "text_2",
+     "label": "Text 2",
+     "kind": "text",
+     "type": "text",
+     "default": "02"
+    },
+    {
+     "name": "heading_3",
+     "label": "Heading 3",
+     "kind": "heading",
+     "type": "text",
+     "default": "Stack your bricks"
+    },
+    {
+     "name": "paragraph_2",
+     "label": "Paragraph 2",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "Fifteen instruments: cash, bonds, gold, core ETFs, sector and thematic funds. Each is colour-coded by risk. Darker bricks swing harder, both ways."
+    },
+    {
+     "name": "text_3",
+     "label": "Text 3",
+     "kind": "text",
+     "type": "text",
+     "default": "03"
+    },
+    {
+     "name": "heading_4",
+     "label": "Heading 4",
+     "kind": "heading",
+     "type": "text",
+     "default": "See your future value"
+    },
+    {
+     "name": "paragraph_3",
+     "label": "Paragraph 3",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The projection updates as you build: 10, 20 and 30 years, using approximate 10-year average annual returns. Then you can analyse the house and start over."
+    },
+    {
+     "name": "eyebrow_2",
+     "label": "Small label 2",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "The risk colours"
+    },
+    {
+     "name": "text_4",
+     "label": "Text 4",
+     "kind": "text",
+     "type": "text",
+     "default": "**Very low** · cash, short bonds · ~1–3%",
+     "styled": true
+    },
+    {
+     "name": "text_5",
+     "label": "Text 5",
+     "kind": "text",
+     "type": "text",
+     "default": "**Low** · bonds, gold, infrastructure · ~1–15%",
+     "styled": true
+    },
+    {
+     "name": "text_6",
+     "label": "Text 6",
+     "kind": "text",
+     "type": "text",
+     "default": "**Medium** · core equity ETFs · ~8–14%",
+     "styled": true
+    },
+    {
+     "name": "text_7",
+     "label": "Text 7",
+     "kind": "text",
+     "type": "text",
+     "default": "**High** · tech, defence, emerging markets · ~10–24%",
+     "styled": true
+    },
+    {
+     "name": "text_8",
+     "label": "Text 8",
+     "kind": "text",
+     "type": "text",
+     "default": "**Very high** · AI, clean energy · ~3–15%",
+     "styled": true
+    },
+    {
+     "name": "text_9",
+     "label": "Text 9",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Approximate 10-year annualised returns in USD, from PortfoliosLab, Morningstar, JustETF, Yahoo Finance and the World Gold Council. Past returns don't guarantee future results."
+    }
+   ]
+  },
+  {
+   "name": "tool",
+   "label": "Tool",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "eyebrow",
+     "label": "Small label",
+     "kind": "eyebrow",
+     "type": "text",
+     "default": "The tool"
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Build your house."
+    }
+   ]
+  },
+  {
+   "name": "cta",
+   "label": "Closing call to action",
+   "fields": [
+    {
+     "name": "hidden",
+     "label": "Hide this section",
+     "kind": "hide",
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "name": "heading",
+     "label": "Heading",
+     "kind": "heading",
+     "type": "text",
+     "default": "Ready to build the real one?"
+    },
+    {
+     "name": "paragraph",
+     "label": "Paragraph",
+     "kind": "paragraph",
+     "type": "textarea",
+     "default": "The tool uses round numbers and average returns. Your life doesn't. In a coaching session we build it with your actual income, goals and timeline, and you leave with a plan you understand."
+    },
+    {
+     "name": "button",
+     "label": "Button",
+     "kind": "button",
+     "type": "text",
+     "default": "Book a 10-minute call"
+    },
+    {
+     "name": "button_link",
+     "label": "Button: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/contact-us/"
+    },
+    {
+     "name": "button_2",
+     "label": "Button 2",
+     "kind": "button",
+     "type": "text",
+     "default": "Or learn to do it yourself"
+    },
+    {
+     "name": "button_2_link",
+     "label": "Button 2: link",
+     "kind": "url",
+     "type": "text",
+     "default": "/investing-made-simple/"
+    },
+    {
+     "name": "text",
+     "label": "Text",
+     "kind": "text",
+     "type": "textarea",
+     "default": "This tool is for education only. Luca Caruana is a Certified Money Coach, not a licensed financial adviser. Nothing on this page is financial advice or a personal recommendation."
+    }
+   ]
+  },
+  {
+   "name": "general",
+   "label": "Header & footer",
+   "fields": [
+    {
+     "name": "header_button",
+     "label": "Header button",
+     "kind": "text",
+     "type": "text",
+     "default": "Start building"
+    },
+    {
+     "name": "header_button_link",
+     "label": "Header button: link",
+     "kind": "text",
+     "type": "text",
+     "default": "#tool"
+    },
+    {
+     "name": "footer_note",
+     "label": "Footer note",
+     "kind": "text",
+     "type": "textarea",
+     "default": "Money Coaching Hub provides financial education and coaching. It is not licensed to provide investment advice and does not sell financial products."
+    }
+   ]
+  }
+ ]
+}
