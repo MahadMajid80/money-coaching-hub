@@ -44,6 +44,8 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     avatar: "default",
+    // Always the light, on-brand look, whatever the computer's dark-mode setting is.
+    theme: "light",
     importMap: { baseDir: path.resolve(dirname) },
     meta: {
       titleSuffix: " · Money Coaching Hub",
