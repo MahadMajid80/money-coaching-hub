@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
@@ -28,13 +29,18 @@ if (onVercel && dbUrl.startsWith("file:")) {
   console.error("[cms] On Vercel the dashboard needs a hosted database: set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN.");
 }
 
-if (!process.env.PAYLOAD_SECRET && process.env.NODE_ENV === "production") {
+// Signs dashboard logins. Uses PAYLOAD_SECRET when set; otherwise it is derived from the
+// (private) database token, so a Vercel deploy with Turso connected needs no extra setup.
+const secret =
+  process.env.PAYLOAD_SECRET ||
+  (dbToken ? createHash("sha256").update(`payload:${dbToken}`).digest("hex") : "local-development-secret-change-me");
+if (secret === "local-development-secret-change-me" && process.env.NODE_ENV === "production") {
   console.warn("[cms] PAYLOAD_SECRET is not set. Set it before going live.");
 }
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SITE_URL || "",
-  secret: process.env.PAYLOAD_SECRET || "local-development-secret-change-me",
+  secret,
   admin: {
     user: Users.slug,
     avatar: "default",
