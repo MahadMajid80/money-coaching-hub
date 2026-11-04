@@ -22,7 +22,7 @@ The website for [moneycoachinghub.com](https://moneycoachinghub.com) with its ow
 | Logo, menu, header button, announcement bar, footer, contact details, social links, default SEO, sharing image, Google Analytics, Meta Pixel, Search Console | Settings → Site settings |
 | Redirects from old addresses | Settings → Redirects |
 | Contact and workshop enquiries, newsletter sign-ups | Inbox |
-| Logins (Admin and Editor roles) | Settings → Users |
+| The single admin login (no sign-up, no extra users) | Settings → Admin login |
 
 Edits show on the site as soon as they're saved, because pages are rendered from the database on each visit. The eye icon on each page opens a side-by-side live preview.
 
@@ -44,7 +44,7 @@ Vercel's disk is read-only, so the database and photos must live in hosted servi
 2. Create a database at [turso.tech](https://turso.tech) (free plan), or add Turso from Vercel → Storage / Marketplace. Set `TURSO_DATABASE_URL` (`libsql://…`) and `TURSO_AUTH_TOKEN`.
 3. Set `PAYLOAD_SECRET` (long random string), `NEXT_PUBLIC_SITE_URL` and `CRON_SECRET`.
 4. Redeploy. On first load the database tables are created automatically.
-5. Open `/admin`, create the first login, then press **Load starting content** on the dashboard home.
+5. Create the one admin login with `SEED_ADMIN_EMAIL=… SEED_ADMIN_PASSWORD=… npm run seed` (run it pointed at the same database). There is no sign-up page. Then log in at `/admin` and press **Load starting content**.
 
 Scheduled publishing runs through Vercel Cron (`vercel.json`). The Hobby plan allows one run a day, so scheduled posts go live at 06:00 UTC on their day. On Pro, change the schedule to every few minutes.
 
@@ -60,7 +60,7 @@ The site needs a host that runs **Node.js 20 or newer** as a long-running proces
    npm start                 # serves on $PORT (default 3000)
    ```
    On first start the database tables are created automatically from `migrations/`.
-3. Load the current content once: `npm run seed`. Add `SEED_ADMIN_EMAIL=… SEED_ADMIN_PASSWORD=…` to create the first login, or skip that and create it at `/admin` (the first visitor there is asked to create the admin account).
+3. Load the current content and create the single admin login: `SEED_ADMIN_EMAIL=… SEED_ADMIN_PASSWORD=… npm run seed`. There is no sign-up page, and no further users can be added.
 4. Move the blog over (it needs internet access to moneycoachinghub.com while the old site is still up): `npm run import:wordpress`. Posts keep their exact old addresses. Images go into the media library, and the legal pages are filled in.
 5. Back-ups: copy the database file and the media folder, for example nightly with cron.
 

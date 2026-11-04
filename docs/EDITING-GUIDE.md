@@ -47,7 +47,7 @@ Client logos → open a client → upload the logo (white or transparent works b
 - **An old link that should go somewhere new:** Settings → Redirects.
 - **Messages from the site:** Inbox → Enquiries. Tick *Dealt with* when you've replied. Newsletter sign-ups are listed under Inbox too.
 - **Undo a change:** open the page or post → **Versions** (top right) → pick an earlier version → Restore.
-- **Give someone else access:** Settings → Users → Create new. *Editor* can change content. *Admin* can also manage logins.
+- **Your login:** there is one admin login (yours). Change your name, email or password from the account page: your picture, top right.
 
 ## Photos
 

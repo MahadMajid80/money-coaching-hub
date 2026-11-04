@@ -48,7 +48,7 @@ export async function Welcome({ payload, user }: ServerProps) {
           View the website ↗
         </a>
       </div>
-      {empty && (user as { role?: string } | undefined)?.role === "admin" && <SeedButton />}
+      {empty && <SeedButton />}
       {newEnquiries > 0 && (
         <a href="/admin/collections/enquiries?where[handled][not_equals]=true" style={{ ...card, borderColor: "#FAAC15", background: "rgba(250,172,21,.12)" }}>
           <strong>

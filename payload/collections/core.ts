@@ -1,38 +1,30 @@
 import type { CollectionConfig } from "payload";
-import { adminOnly, adminOnlyField, anyone, loggedIn } from "../access";
+import { anyone, loggedIn } from "../access";
 import { revalidateAfterChange, revalidateAfterDelete } from "../hooks/revalidate";
 
+/**
+ * The single admin login. Nobody can sign up or add more users: the only account
+ * is the one that already exists (or the one created with `npm run seed`).
+ * The admin can change their own name, email and password from the account page.
+ */
 export const Users: CollectionConfig = {
   slug: "users",
-  labels: { singular: "User", plural: "Users" },
+  labels: { singular: "Admin login", plural: "Admin login" },
   auth: { tokenExpiration: 60 * 60 * 24 * 14, maxLoginAttempts: 8, lockTime: 10 * 60 * 1000 },
   admin: {
     useAsTitle: "name",
-    defaultColumns: ["name", "email", "role"],
+    defaultColumns: ["name", "email"],
     group: "Settings",
-    description: "People who can log in to this dashboard.",
+    description: "Your login. Change your password from the account page (your picture, top right).",
   },
   access: {
-    read: loggedIn,
-    create: adminOnly,
-    delete: adminOnly,
-    update: ({ req, id }) => req.user?.role === "admin" || req.user?.id === id,
+    read: ({ req }) => (req.user ? { id: { equals: req.user.id } } : false),
+    create: () => false,
+    delete: () => false,
+    update: ({ req, id }) => Boolean(req.user) && req.user?.id === id,
+    unlock: () => false,
   },
-  fields: [
-    { name: "name", type: "text", required: true },
-    {
-      name: "role",
-      type: "select",
-      required: true,
-      defaultValue: "admin",
-      options: [
-        { label: "Admin (everything, including users)", value: "admin" },
-        { label: "Editor (content only)", value: "editor" },
-      ],
-      access: { update: adminOnlyField },
-      admin: { position: "sidebar" },
-    },
-  ],
+  fields: [{ name: "name", type: "text", required: true }],
 };
 
 export const Media: CollectionConfig = {

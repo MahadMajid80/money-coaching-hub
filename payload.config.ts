@@ -69,11 +69,11 @@ export default buildConfig({
   editor: lexicalEditor({}),
   endpoints: [
     {
-      // Used by the "Load starting content" button on the dashboard home (admins only).
+      // Used by the "Load starting content" button on the dashboard home (logged-in admin only).
       path: "/seed-content",
       method: "post",
       handler: async (req) => {
-        if (req.user?.role !== "admin") return Response.json({ error: "Only admins can do this." }, { status: 403 });
+        if (!req.user) return Response.json({ error: "Please log in." }, { status: 403 });
         const { seedContent } = await import("./lib/cms/seed");
         const origin = process.env.NEXT_PUBLIC_SITE_URL || req.origin || new URL(req.url || "http://localhost").origin;
         try {

@@ -46,10 +46,11 @@ export async function seedContent(payload: Payload, opts: SeedOptions = {}): Pro
   }
 
   /* Admin user */
-  if (opts.admin && !(await exists("users", { email: { equals: opts.admin.email } }))) {
+  if (opts.admin && !(await exists("users", {}))) {
     await payload.create({
       collection: "users",
-      data: { email: opts.admin.email, password: opts.admin.password, name: opts.admin.name || "Admin", role: "admin" },
+      overrideAccess: true,
+      data: { email: opts.admin.email, password: opts.admin.password, name: opts.admin.name || "Admin" },
     });
     log("admin user", opts.admin.email);
   }

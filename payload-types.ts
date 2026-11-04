@@ -252,7 +252,6 @@ export interface Media {
    * Optional. Shown under the image in blog posts.
    */
   caption?: string | null;
-  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -599,7 +598,7 @@ export interface Subscriber {
   createdAt: string;
 }
 /**
- * People who can log in to this dashboard.
+ * Your login. Change your password from the account page (your picture, top right).
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
@@ -607,7 +606,6 @@ export interface Subscriber {
 export interface User {
   id: number;
   name: string;
-  role: 'admin' | 'editor';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -1096,7 +1094,6 @@ export interface SubscribersSelect<T extends boolean = true> {
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   caption?: T;
-  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1149,7 +1146,6 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
-  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
