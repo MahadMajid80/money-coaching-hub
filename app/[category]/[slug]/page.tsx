@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PostGrid } from "@/components/PostCard";
-import { Crumbs } from "@/components/ui";
+import { PostGrid } from "@/components/BlogIndex";
+import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { categoryName, findPost, formatDate, posts, related } from "@/lib/blog";
 import { SITE_URL } from "@/lib/site";
 
@@ -43,7 +41,6 @@ export default async function PostPage({ params }: Params) {
   const { category, slug } = await params;
   const post = findPost(category, slug);
   if (!post) notFound();
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -53,77 +50,78 @@ export default async function PostPage({ params }: Params) {
     dateModified: post.modified,
     image: post.image ? `${SITE_URL}${post.image.src}` : undefined,
     author: { "@type": "Person", name: "Luca Caruana", url: `${SITE_URL}/luca/` },
-    publisher: { "@type": "Organization", name: "Money Coaching Hub", logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.webp` } },
+    publisher: { "@type": "Organization", name: "Money Coaching Hub", logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.png` } },
     mainEntityOfPage: `${SITE_URL}${post.path}`,
   };
 
   return (
-    <div className="frame">
+    <div className="home" style={{ width: "100%", display: "flex", flexDirection: "column" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <article>
-        <header className="row row--first article-head">
-          <div className="pad">
-            <Crumbs items={[{ label: "Knowledge Hub", href: "/blog/" }, { label: categoryName(post.category), href: `/category/${post.category}/` }]} />
-            <p className="mono mono--gold">
-              {categoryName(post.category)} · {formatDate(post.date)} · {post.readingTime} min read
-            </p>
-            <h1 className="article-title">{post.title}</h1>
-            <div className="article-byline">
-              <Image src="/images/luca.webp" alt="" width={48} height={48} className="avatar avatar--lg article-byline__img" />
-              <span>
-                <strong>Luca Caruana</strong>
-                <small>Certified Money Coach (CMC®)</small>
-              </span>
+      <SiteHeader />
+      <main id="main" style={{ display: "contents" }}>
+        <article>
+          <section style={{ background: "#FDF7E8", padding: "72px 0 56px" }}>
+            <div className="wrap" style={{ maxWidth: "860px", display: "flex", flexDirection: "column", gap: "20px" }}>
+              <nav aria-label="Breadcrumb" style={{ fontSize: "14px", color: "#6B6248" }}>
+                <a href="/blog/" style={{ color: "#6B6248" }}>Knowledge hub</a> ·{" "}
+                <a href={`/category/${post.category}/`} style={{ color: "#6B6248" }}>
+                  {categoryName(post.category)}
+                </a>
+              </nav>
+              <h1 style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "52px", lineHeight: "1.06", letterSpacing: "-0.02em", margin: "0" }}>{post.title}</h1>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <img src="/img/luca-close.jpg" alt="" style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover", display: "block" }} />
+                <span style={{ display: "flex", flexDirection: "column" }}>
+                  <strong style={{ fontSize: "15px" }}>Luca Caruana</strong>
+                  <span style={{ fontSize: "13px", color: "#6B6248" }}>
+                    {formatDate(post.date)} · {post.readingTime} min read
+                  </span>
+                </span>
+              </div>
             </div>
-          </div>
+          </section>
           {post.image && (
-            <div className="article-cover">
-              <Image src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} priority sizes="(max-width: 900px) 100vw, 1000px" />
+            <div className="wrap" style={{ maxWidth: "1000px", marginTop: "-8px" }}>
+              <img src={post.image.src} alt={post.image.alt} style={{ width: "100%", maxHeight: "560px", objectFit: "cover", borderRadius: "20px", display: "block", marginTop: "40px" }} />
             </div>
           )}
-        </header>
-
-        <div className="row">
-          <div className="pad">
-            <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
-
-            <aside className="author-box">
-              <Image src="/images/luca.webp" alt="Luca Caruana" width={360} height={515} className="author-box__img" />
-              <div>
-                <p className="mono mono--gold">About the author</p>
-                <h2>Luca Caruana</h2>
-                <p>
-                  Certified Money Coach (CMC®) and founder of Money Coaching Hub. Luca has coached 300+ clients one-on-one, trained 1,000+ people in
-                  workshops, and answers readers&apos; money stories in his Times of Malta column. He doesn&apos;t sell financial products: he helps
-                  people understand their money.
-                </p>
-                <div className="btn-row" style={{ marginTop: 16 }}>
-                  <Link href="/contact-us/" className="btn btn--dark">
-                    Book a free 10-minute call
-                  </Link>
-                  <Link href="/luca/" className="btn btn--line">
-                    More about Luca
-                  </Link>
+          <section style={{ background: "#ffffff", padding: "64px 0 96px" }}>
+            <div className="wrap">
+              <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+              <aside style={{ maxWidth: "720px", margin: "56px auto 0", display: "flex", gap: "24px", alignItems: "center", flexWrap: "wrap", padding: "28px", borderRadius: "20px", background: "#FDF7E8" }}>
+                <img src="/img/luca-close.jpg" alt="Luca Caruana" style={{ width: "88px", height: "88px", borderRadius: "50%", objectFit: "cover", display: "block" }} />
+                <div style={{ flex: "1 1 320px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <span className="eyebrow">About the author</span>
+                  <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "22px" }}>Luca Caruana</span>
+                  <p className="body" style={{ fontSize: "16px" }}>
+                    Certified Money Coach (CMC®). Brought money coaching to Malta in 2023, columnist in the Times of Malta. No products, no commissions.
+                  </p>
+                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", paddingTop: "6px" }}>
+                    <a href="/contact-us/" className="btn btn-gold">Book a 10-minute call</a>
+                    <a href="/luca/" className="btn btn-ghost">My story</a>
+                  </div>
                 </div>
+              </aside>
+              <p className="compliance" style={{ maxWidth: "720px", margin: "24px auto 0" }}>
+                This article is general financial education, not personal financial advice.
+              </p>
+            </div>
+          </section>
+        </article>
+        <section style={{ background: "#FDF7E8", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "24px", flexWrap: "wrap" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <span className="eyebrow">Keep reading</span>
+                <h2 className="h2">Related articles</h2>
               </div>
-            </aside>
-            <p className="article-disclaimer">This article is general financial education, not personal financial advice.</p>
+              <a href="/blog/" style={{ fontWeight: "700", fontSize: "15px" }}>All articles →</a>
+            </div>
+            <PostGrid items={related(post)} />
           </div>
-        </div>
-      </article>
-
-      <section className="row">
-        <div className="pad pad--tight-bottom section-head">
-          <div className="section-head__text">
-            <p className="mono">Keep reading</p>
-            <h2 className="h2">Related articles</h2>
-          </div>
-          <Link href="/blog/" className="link">
-            All articles →
-          </Link>
-        </div>
-        <PostGrid items={related(post)} />
-      </section>
+        </section>
+      </main>
+      <SiteFooter />
     </div>
   );
 }

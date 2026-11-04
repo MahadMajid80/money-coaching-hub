@@ -1,44 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
-import { A, CheckList, Crumbs, Faq, SectionHead, delay } from "@/components/ui";
+// Course page template for the courses the design pack doesn't cover
+// (Crypto, Crypto Masterclass, Technical Analysis, Money Management).
+// Built section-for-section on the design's Investing Made Simple page.
+
+import { PageFooter, PageHeader, Tick } from "@/components/chrome";
 import type { Course } from "@/lib/courses";
 import { courses } from "@/lib/courses";
 
-function BookingCard({ c, id }: { c: Course; id?: string }) {
+export default function CourseLayout({ c }: { c: Course }) {
   const open = c.status === "open";
   const href = open && c.checkout ? c.checkout : `/contact-us/?subject=${encodeURIComponent(c.name)}`;
-  return (
-    <aside className="cohort" id={id} aria-label={`${c.name} booking`}>
-      <div className="cohort__badge">
-        <span className="pulse" />
-        {open ? "APPLICATIONS OPEN" : "REGISTER YOUR INTEREST"}
-      </div>
-      <p className="cohort__label">{open ? "Next cohort" : "Next dates"}</p>
-      <p className="cohort__date">{c.dates.replace(/^Starts /, "")}</p>
-      <dl className="cohort__facts">
-        <div>
-          <dt>Format</dt>
-          <dd>{c.format}</dd>
-        </div>
-        <div>
-          <dt>Investment</dt>
-          <dd className="price">{c.price}</dd>
-        </div>
-      </dl>
-      <p className="cohort__note">
-        {c.time}
-        {c.seats ? ` · ${c.seats}` : ""}
-        {c.priceNote ? `. ${c.priceNote}.` : "."}
-      </p>
-      <A href={href} className="btn btn--gold btn--block">
-        {open ? `${c.ctaLabel} · ${c.price}` : "Notify me about the next dates"}
-      </A>
-      {!open && <p className="cohort__more">I&apos;ll email you as soon as the next dates are confirmed.</p>}
-    </aside>
-  );
-}
-
-export default function CourseLayout({ c }: { c: Course }) {
+  const cta = open ? `${c.ctaLabel}` : "Notify me about the next dates";
   const others = courses.filter((o) => o.slug !== c.slug);
   const jsonLd = {
     "@context": "https://schema.org",
@@ -50,188 +21,263 @@ export default function CourseLayout({ c }: { c: Course }) {
   };
 
   return (
-    <div className="frame">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
-      {/* HERO */}
-      <section className="row row--first page-hero">
-        <div className="pad split split--top page-hero__inner">
-          <div className="page-hero__text">
-            <Crumbs items={[{ label: "Courses", href: "/investing-made-simple/" }, { label: c.name }]} />
-            <p className="mono mono--gold up">{c.eyebrow}</p>
-            <h1 className="page-hero__title up d1">{c.name}</h1>
-            <div className="page-hero__lead up d2">
-              <p>{c.tagline}</p>
+      <PageHeader cta={{ label: open ? c.ctaLabel : "Get notified", href: "#apply" }} />
+      <main id="main">
+        {/* HERO */}
+        <section style={{ background: "#FDF7E8", padding: "72px 0" }}>
+          <div className="wrap" style={{ display: "flex", gap: "56px", flexWrap: "wrap", alignItems: "center" }}>
+            <div style={{ flex: "1 1 520px", minWidth: "0", display: "flex", flexDirection: "column", gap: "24px" }}>
+              <span className="eyebrow">{c.eyebrow}</span>
+              <h1 style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "64px", lineHeight: "1.02", letterSpacing: "-0.02em", margin: "0" }}>{c.name}</h1>
+              <p className="body" style={{ fontSize: "21px", maxWidth: "560px" }}>{c.tagline}</p>
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                {[c.format, c.time, c.seats || "Education, not advice"].map((t) => (
+                  <span key={t} className="chip" style={{ borderColor: "#E0D5B7", background: "transparent", fontSize: "14px", padding: "8px 14px" }}>
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
-            <ul className="hero__badges up d3">
-              {[c.format, c.time, c.seats || "Recordings included"].map((b) => (
-                <li key={b}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  {b}
-                </li>
-              ))}
-            </ul>
+            <div style={{ flex: "0 1 420px", minWidth: "300px" }}>
+              <div style={{ background: "#111111", color: "#ffffff", borderRadius: "24px", padding: "40px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "22px" }}>
+                <span style={{ display: "inline-flex", alignSelf: "flex-start", padding: "8px 14px", borderRadius: "999px", background: "#FAAC15", color: "#111111", fontWeight: "700", fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  {open ? "Booking open" : "Register your interest"}
+                </span>
+                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                  <span style={{ fontSize: "14px", color: "#C9C3B1", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: "700" }}>{open ? "Dates" : "Next dates"}</span>
+                  <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "34px", lineHeight: "1.05" }}>{c.dates}</span>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "16px" }}>
+                  <div style={{ background: "#1F1F1F", borderRadius: "14px", padding: "16px", display: "flex", flexDirection: "column", gap: "4px" }}>
+                    <span style={{ fontSize: "13px", color: "#C9C3B1" }}>Format</span>
+                    <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "18px", color: "#FFD112" }}>{c.format}</span>
+                  </div>
+                  <div style={{ background: "#1F1F1F", borderRadius: "14px", padding: "16px", display: "flex", flexDirection: "column", gap: "4px" }}>
+                    <span style={{ fontSize: "13px", color: "#C9C3B1" }}>Investment</span>
+                    <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "26px", color: "#FFD112" }}>{c.price}</span>
+                  </div>
+                </div>
+                <p style={{ margin: "0", fontSize: "15px", lineHeight: "1.5", color: "#C9C3B1" }}>
+                  {c.time}
+                  {c.priceNote ? `. ${c.priceNote}.` : "."}
+                </p>
+                <a href={href} className="btn btn-gold" style={{ width: "100%" }}>
+                  {cta}
+                </a>
+                <span className="compliance" style={{ color: "#8E8878" }}>
+                  Education, not advice. No financial products are sold and nothing here is a personal recommendation.
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="up d2" style={{ flex: "1 1 380px", minWidth: 0 }}>
-            <BookingCard c={c} />
-          </div>
-        </div>
-        <p className="disclaimer-strip">{c.disclaimer}</p>
-      </section>
+        </section>
 
-      {/* INTRO + FOR YOU */}
-      <section className="row">
-        <div className="pad split split--top">
-          <div style={{ flex: "1 1 440px" }} className="reveal">
-            <p className="mono">Why this course</p>
-            <h2 className="h2">{c.intro.title}</h2>
+        {/* WHO IT'S FOR */}
+        <section style={{ background: "#ffffff", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "32px", alignItems: "center", textAlign: "center" }}>
+            <span className="eyebrow">{c.forYou.title}</span>
+            <h2 className="h2" style={{ maxWidth: "800px" }}>{c.intro.title}</h2>
             {c.intro.paras.map((p) => (
-              <p key={p.slice(0, 20)} className="lead">
+              <p key={p.slice(0, 24)} className="body" style={{ maxWidth: "640px" }}>
                 {p}
               </p>
             ))}
-          </div>
-          <div style={{ flex: "1 1 440px" }} className="card card--soft reveal">
-            <p className="mono mono--gold">{c.forYou.title}</p>
-            <CheckList items={c.forYou.items} />
-            {c.forYou.note && <p style={{ marginTop: 20, fontWeight: 500, color: "var(--ink)" }}>{c.forYou.note}</p>}
-          </div>
-        </div>
-      </section>
-
-      {/* SESSIONS */}
-      <section className="row">
-        <SectionHead eyebrow="The curriculum" title={c.sessionsTitle} lead={c.sessionsNote} />
-        <ol className="sessions">
-          {c.sessions.map((s, i) => (
-            <li key={s.title} className="session-row reveal" style={delay(0.04 * i)}>
-              <div className="session-row__num">{c.sessions.length > 1 ? String(i + 1).padStart(2, "0") : "→"}</div>
-              <div className="session-row__body">
-                <h3>{s.title}</h3>
-                {s.meta && <p className="mono">{s.meta}</p>}
-                <ul>
-                  {s.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-                {s.outcome && (
-                  <p className="session-row__outcome">
-                    <strong>Outcome:</strong> {s.outcome}
-                  </p>
-                )}
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* INCLUDED */}
-      {c.included && (
-        <section className="row row--soft">
-          <SectionHead eyebrow="Everything included" title={c.includedValue ? c.includedValue : "Everything you get, one price."} />
-          <div className={`cols cols--${c.included.length % 3 === 0 ? 3 : c.included.length === 4 ? 4 : 3}`}>
-            {c.included.map((it, i) => (
-              <div key={it.title} className="cell reveal" style={delay(0.04 * i)}>
-                <span className="check">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center", maxWidth: "980px" }}>
+              {c.forYou.items.map((t) => (
+                <span key={t} className="chip">
+                  {t}
                 </span>
-                <h3>{it.title}</h3>
-                <p>{it.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+            {c.forYou.note && (
+              <p className="body" style={{ maxWidth: "640px" }}>
+                <strong style={{ color: "#111111" }}>{c.forYou.note}</strong>
+              </p>
+            )}
           </div>
         </section>
-      )}
 
-      {/* INSTRUCTOR */}
-      <section className="row row--dark">
-        <div className="pad split">
-          <div className="about__photo reveal" style={{ background: "var(--sun)" }}>
-            <Image src="/images/luca.webp" alt="Luca Caruana, Certified Money Coach" width={360} height={515} />
-          </div>
-          <div className="workshop__text reveal">
-            <p className="mono mono--sun">Who is teaching this</p>
-            <h2 className="h2">Luca Caruana, CMC®</h2>
-            {c.instructor.map((p) => (
-              <p key={p.slice(0, 20)} className="lead">
-                {p}
-              </p>
-            ))}
-            <div className="btn-row">
-              <Link href="/luca/" className="btn btn--line">
-                More about Luca
-              </Link>
+        {/* SESSIONS */}
+        <section style={{ background: "#111111", color: "#ffffff", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "720px" }}>
+              <span className="eyebrow" style={{ color: "#FFD112" }}>{c.sessionsTitle}</span>
+              <h2 className="h2" style={{ color: "#ffffff" }}>
+                {c.format}. {c.time}.
+              </h2>
+              {c.sessionsNote && (
+                <p className="body" style={{ color: "#C9C3B1" }}>
+                  {c.sessionsNote}
+                </p>
+              )}
+            </div>
+            <div className="g2" style={{ display: "grid", gridTemplateColumns: `repeat(${c.sessions.length === 1 ? 1 : 2}, minmax(0, 1fr))`, gap: "20px" }}>
+              {c.sessions.map((s, i) => (
+                <article key={s.title} className="session">
+                  <span className="num">{c.sessions.length === 1 ? "→" : String(i + 1).padStart(2, "0")}</span>
+                  <h3>{s.title}</h3>
+                  {s.meta && <span style={{ fontSize: "14px", color: "#C9C3B1" }}>{s.meta}</span>}
+                  <ul>
+                    {s.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                  {s.outcome && <p className="outcome">{s.outcome}</p>}
+                </article>
+              ))}
+            </div>
+            <div>
+              <a href="#apply" className="btn btn-gold">
+                {cta}
+              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* TESTIMONIALS */}
-      <section className="row row--soft">
-        <SectionHead eyebrow="From past students and clients" title="People who've learned with Luca" center />
-        <div className={`cols cols--3 reviews`}>
-          {c.testimonials.slice(0, 6).map((r, i) => (
-            <figure key={r.name} className="cell review reveal" style={delay(0.05 * (i % 3))}>
-              <blockquote>&ldquo;{r.text}&rdquo;</blockquote>
-              <figcaption>
-                <span className="avatar avatar--lg avatar--initial" aria-hidden="true">
-                  {r.name.charAt(0)}
-                </span>
-                <span>
-                  <strong>{r.name}</strong>
-                  {r.role && <small>{r.role}</small>}
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+        {/* INCLUDED */}
+        {c.included && (
+          <section style={{ background: "#FDF7E8", padding: "96px 0" }}>
+            <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "720px" }}>
+                <span className="eyebrow">Everything included</span>
+                <h2 className="h2">{c.includedValue || "Everything you get, one price."}</h2>
+              </div>
+              <div className="g3" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "20px" }}>
+                {c.included.map((it) => (
+                  <div key={it.title} className="card">
+                    <span className="tick">
+                      <Tick />
+                    </span>
+                    <h3 style={{ fontFamily: "Raleway,sans-serif", fontWeight: "700", fontSize: "20px", margin: "0" }}>{it.title}</h3>
+                    <p className="body" style={{ fontSize: "16px" }}>
+                      {it.text}
+                    </p>
+                  </div>
+                ))}
+                <div className="card" style={{ background: "#111111", color: "#ffffff", borderColor: "#111111", justifyContent: "center" }}>
+                  <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "40px", lineHeight: "1", color: "#FFD112" }}>{c.price}</span>
+                  <span style={{ fontSize: "15px", color: "#C9C3B1" }}>One payment. No upsells inside the course.</span>
+                  <a href="#apply" className="btn btn-gold" style={{ alignSelf: "flex-start", marginTop: "6px" }}>
+                    {open ? "Book now" : "Get notified"}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
-      {/* FAQ */}
-      {c.faqs && (
-        <section className="row">
-          <SectionHead eyebrow="Before you decide" title="The questions people actually ask" center />
-          <div className="pad" style={{ paddingTop: 0 }}>
-            <Faq items={c.faqs} />
+        {/* WHO IS TEACHING */}
+        <section style={{ background: "#ffffff", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", gap: "64px", alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ flex: "0 1 400px", minWidth: "280px", display: "flex", justifyContent: "center" }}>
+              <div style={{ position: "relative", width: "380px", maxWidth: "100%", marginLeft: "20px" }}>
+                <div aria-hidden="true" style={{ position: "absolute", left: "-20px", top: "20px", width: "100%", height: "100%", background: "#FAAC15", borderRadius: "24px" }}></div>
+                <img src="/img/luca-tv2.jpg" alt="Luca Caruana explaining a point" loading="lazy" style={{ position: "relative", width: "100%", aspectRatio: "4/5", objectFit: "cover", objectPosition: "center 10%", borderRadius: "24px", display: "block" }} />
+              </div>
+            </div>
+            <div style={{ flex: "1 1 480px", minWidth: "0", display: "flex", flexDirection: "column", gap: "22px" }}>
+              <span className="eyebrow">Who is teaching this</span>
+              <h2 className="h2">Luca Caruana</h2>
+              {c.instructor.map((p, i) =>
+                i === 1 ? (
+                  <blockquote key={i} style={{ margin: "0", padding: "20px 24px", borderLeft: "4px solid #FAAC15", background: "#FDF7E8", borderRadius: "0 16px 16px 0", fontFamily: "Raleway,sans-serif", fontWeight: "700", fontSize: "20px", lineHeight: "1.35" }}>
+                    {p}
+                  </blockquote>
+                ) : (
+                  <p key={i} className="body">
+                    {p}
+                  </p>
+                )
+              )}
+            </div>
           </div>
         </section>
-      )}
 
-      {/* CLOSING */}
-      <section className="row row--gold" id="apply">
-        <div className="pad split">
-          <div style={{ flex: "1 1 460px" }} className="reveal">
-            <h2 className="h2 h2--xl">{c.status === "open" ? "Ready to take your seat?" : "Want a place next time?"}</h2>
-            <p style={{ fontSize: 18, lineHeight: 1.6, marginTop: 16, color: "#1f1600" }}>
-              {c.status === "open"
-                ? "You have been meaning to sort this out for a while. Places are limited, and when they're gone, they're gone until the next cohort."
-                : "Leave your details and I'll let you know the moment the next dates are confirmed."}
+        {/* TESTIMONIALS */}
+        <section style={{ background: "#FDF7E8", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "720px" }}>
+              <span className="eyebrow">From past students and clients</span>
+              <h2 className="h2">People who&apos;ve learned with Luca.</h2>
+            </div>
+            <div className="quotes" style={{ columns: "2", columnGap: "20px" }}>
+              {c.testimonials.map((t) => (
+                <blockquote key={t.name} className="quote" style={{ margin: "0 0 20px", background: "#ffffff" }}>
+                  <p>&ldquo;{t.text}&rdquo;</p>
+                  <cite>
+                    {t.name}
+                    {t.role && <span style={{ fontWeight: "400", color: "#6B6248" }}> · {t.role}</span>}
+                  </cite>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        {c.faqs && (
+          <section style={{ background: "#ffffff", padding: "96px 0" }}>
+            <div className="wrap" style={{ maxWidth: "860px", display: "flex", flexDirection: "column", gap: "28px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                <span className="eyebrow">Before you decide</span>
+                <h2 className="h2">The questions people actually ask.</h2>
+              </div>
+              <div style={{ borderTop: "1px solid #E6E0D0" }}>
+                {c.faqs.map((f, i) => (
+                  <details key={f.q} open={i === 0}>
+                    <summary>{f.q}</summary>
+                    <div className="answer">{f.a}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* APPLY */}
+        <section id="apply" style={{ background: "#FAAC15", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "24px", alignItems: "center", textAlign: "center" }}>
+            <span className="eyebrow" style={{ color: "#111111" }}>
+              {c.name} · {c.dates}
+            </span>
+            <h2 className="h2" style={{ fontSize: "48px", maxWidth: "760px" }}>
+              {open ? "Places are limited. Take yours." : "Want a place next time?"}
+            </h2>
+            <p className="body" style={{ color: "#111111", maxWidth: "560px" }}>
+              {open ? c.short : "Leave your details and you'll hear the moment the next dates are confirmed."}
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", alignItems: "center" }}>
+              <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "800", fontSize: "40px", lineHeight: "1" }}>{c.price}</span>
+              <a href={href} className="btn btn-dark" style={{ minWidth: "280px" }}>
+                {cta}
+              </a>
+              <span className="compliance" style={{ color: "#5A4A1A", maxWidth: "460px" }}>
+                {c.disclaimer}
+              </span>
+            </div>
           </div>
-          <div style={{ flex: "1 1 380px", minWidth: 0 }} className="reveal">
-            <BookingCard c={c} />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* OTHER COURSES */}
-      <section className="row">
-        <SectionHead eyebrow="Keep learning" title="Other courses" />
-        <div className="cols cols--4">
-          {others.map((o, i) => (
-            <Link key={o.slug} href={`/${o.slug}/`} className="cell service hover-soft reveal" style={delay(0.04 * i)}>
-              <span className="mono">{o.price}</span>
-              <h3>{o.name}</h3>
-              <p>{o.short}</p>
-              <span className="service__cta">View course →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </div>
+        {/* OTHER PROGRAMMES */}
+        <section style={{ background: "#ffffff", padding: "96px 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <span className="eyebrow" style={{ color: "#6B6248" }}>Other programmes</span>
+            <div className="g3" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "20px" }}>
+              {others.slice(0, 3).map((o) => (
+                <a key={o.slug} href={`/${o.slug}/`} style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", padding: "24px", borderRadius: "16px", background: "#FDF7E8", color: "#111111" }}>
+                  <span style={{ fontSize: "13px", color: "#6B6248" }}>{o.eyebrow}</span>
+                  <span style={{ fontFamily: "Raleway,sans-serif", fontWeight: "700", fontSize: "20px" }}>{o.name}</span>
+                  <span style={{ fontSize: "15px", color: "#3A3A3A", lineHeight: "1.5" }}>{o.short}</span>
+                  <span style={{ fontSize: "14px", fontWeight: "700", marginTop: "auto", paddingTop: "8px" }}>Learn more →</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <PageFooter />
+    </>
   );
 }

@@ -7,14 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const fixed: [string, number][] = [
     ["/", 1],
-    ["/money-coaching-mindset-budgeting/", 0.7],
     ["/luca/", 0.7],
     ["/services/", 0.9],
-    ["/services/one-time-session/", 0.8],
-    ["/services/individual-coaching/", 0.8],
-    ["/services/couples-coaching/", 0.8],
     ["/services/financial-workshops/", 0.8],
     ["/portfolio-management/", 0.7],
+    ["/side-hustle/", 0.8],
     ["/take-money-type-quiz/", 0.7],
     ["/the-8-money-archetypes/", 0.6],
     ["/blog/", 0.8],

@@ -2,7 +2,11 @@
 
 // Old WordPress URLs that no longer have their own page → where they go now.
 const legacy = [
-  ["/about-us/", "/money-coaching-mindset-budgeting/"],
+  ["/about-us/", "/luca/"],
+  ["/money-coaching-mindset-budgeting/", "/luca/"],
+  ["/services/one-time-session/", "/services/#options"],
+  ["/services/individual-coaching/", "/services/#options"],
+  ["/services/couples-coaching/", "/services/#options"],
   ["/companies/", "/services/financial-workshops/"],
   ["/services/financial-workshop/", "/services/financial-workshops/"],
   ["/service-page/", "/services/"],
