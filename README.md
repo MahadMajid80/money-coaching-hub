@@ -38,6 +38,8 @@ The local database is `data/payload.db` and uploads go to `media/`. Both are git
 
 ## Hosting on Vercel
 
+The live site deploys from `main` of **github.com/luca19900/moneycoachinghub**: every push to `main` goes live in a minute or two. It runs in the Money Coaching Hub team on Vercel, with the database `mch-site-db` (Turso, connected with the prefix `MCH`, so its variables are `MCH_TURSO_DATABASE_URL` and `MCH_TURSO_AUTH_TOKEN`) and a Vercel Blob store for photos.
+
 Vercel's disk is read-only, so the database and photos must live in hosted services:
 
 1. Vercel → your project → **Storage** → create a **Blob** store and connect it. This sets `BLOB_READ_WRITE_TOKEN`.
