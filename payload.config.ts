@@ -22,8 +22,14 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 // Database: a hosted Turso/libSQL database when its address is set (needed on Vercel,
 // whose disk is read-only), otherwise a local SQLite file (own server / local dev).
-const dbUrl = process.env.TURSO_DATABASE_URL || process.env.DATABASE_URI || `file:${path.resolve(dirname, "data/payload.db")}`;
-const dbToken = process.env.TURSO_AUTH_TOKEN || process.env.DATABASE_AUTH_TOKEN || undefined;
+// (MCH_TURSO_* is the database in Luca's Vercel team; TURSO_* the original one, used until it's removed.)
+const dbUrl =
+  process.env.TURSO_DATABASE_URL || process.env.MCH_TURSO_DATABASE_URL || process.env.DATABASE_URI || `file:${path.resolve(dirname, "data/payload.db")}`;
+const dbToken = process.env.TURSO_DATABASE_URL
+  ? process.env.TURSO_AUTH_TOKEN
+  : process.env.MCH_TURSO_DATABASE_URL
+    ? process.env.MCH_TURSO_AUTH_TOKEN
+    : process.env.DATABASE_AUTH_TOKEN || undefined;
 // Photos: Vercel Blob when its token is set (Vercel), otherwise a folder on the server.
 const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
 const onVercel = Boolean(process.env.VERCEL);
@@ -97,6 +103,27 @@ export default buildConfig({
   globals: [...pageGlobals, SiteSettings, SideHustleSettings, QuizSettings],
   editor: lexicalEditor({}),
   endpoints: [
+    {
+      // One-time move of all content into the new database (logged-in admin only).
+      path: "/copy-database",
+      method: "post",
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: "Please log in." }, { status: 403 });
+        const target = process.env.MCH_TURSO_DATABASE_URL;
+        if (!target || !process.env.TURSO_DATABASE_URL) return Response.json({ error: "Nothing to copy: the new database isn't connected, or the site already uses it." }, { status: 400 });
+        const { copyDatabase } = await import("./lib/cms/copyDatabase");
+        try {
+          const result = await copyDatabase(
+            { url: process.env.TURSO_DATABASE_URL, authToken: process.env.TURSO_AUTH_TOKEN },
+            { url: target, authToken: process.env.MCH_TURSO_AUTH_TOKEN },
+          );
+          return Response.json(result);
+        } catch (e) {
+          req.payload.logger.error(e);
+          return Response.json({ error: (e as Error).message }, { status: 500 });
+        }
+      },
+    },
     {
       // Used by the "Load starting content" button on the dashboard home (logged-in admin only).
       path: "/seed-content",

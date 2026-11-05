@@ -16,6 +16,7 @@
   "dependencies": {
     "@fontsource/lato": "5.3.0",
     "@fontsource/raleway": "5.3.0",
+    "@libsql/client": "0.14.0",
     "@payloadcms/db-sqlite": "3.92.0",
     "@payloadcms/email-nodemailer": "3.92.0",
     "@payloadcms/live-preview-react": "3.92.0",
