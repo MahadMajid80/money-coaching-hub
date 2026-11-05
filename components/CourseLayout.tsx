@@ -2,6 +2,7 @@
 // (Crypto, Crypto Masterclass, Technical Analysis, Money Management).
 // Built section-for-section on the design's Investing Made Simple page.
 
+import { jsonLd as toJsonLd } from "@/lib/security/sanitize";
 import { PageFooter, PageHeader, Tick } from "@/components/chrome";
 import { notFound } from "next/navigation";
 import { getCourse, getCourses } from "@/lib/cms/data";
@@ -25,7 +26,7 @@ export default async function CourseLayout({ slug }: { slug: string }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
       <PageHeader cta={{ label: open ? c.ctaLabel : "Get notified", href: "#apply" }} />
       <main id="main">
         {/* HERO */}

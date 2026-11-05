@@ -252,6 +252,7 @@ export interface Media {
    * Optional. Shown under the image in blog posts.
    */
   caption?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -577,6 +578,7 @@ export interface Enquiry {
     | boolean
     | null;
   handled?: boolean | null;
+  ipHash?: string | null;
   notes?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -594,6 +596,7 @@ export interface Subscriber {
   source?: string | null;
   list?: string | null;
   syncedToMailerLite?: boolean | null;
+  ipHash?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1070,6 +1073,7 @@ export interface EnquiriesSelect<T extends boolean = true> {
   message?: T;
   details?: T;
   handled?: T;
+  ipHash?: T;
   notes?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1084,6 +1088,7 @@ export interface SubscribersSelect<T extends boolean = true> {
   source?: T;
   list?: T;
   syncedToMailerLite?: T;
+  ipHash?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1094,6 +1099,7 @@ export interface SubscribersSelect<T extends boolean = true> {
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   caption?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

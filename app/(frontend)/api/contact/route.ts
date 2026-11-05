@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { getSettings } from "@/lib/cms/data";
 import { cms } from "@/lib/cms/payload";
+import { cleanLine, cleanText, clientIp, ipHash, readFormBody, tooMany } from "@/lib/security/rateLimit";
 
 // Every message is saved in the dashboard (Inbox → Enquiries) and, when email is set up, emailed too.
 // Environment variables for the email copy:
@@ -11,51 +12,46 @@ import { cms } from "@/lib/cms/payload";
 
 export const runtime = "nodejs";
 
-const hits = new Map<string, number[]>();
-function rateLimited(ip: string) {
-  const now = Date.now();
-  const recent = (hits.get(ip) || []).filter((t) => now - t < 10 * 60 * 1000);
-  recent.push(now);
-  hits.set(ip, recent);
-  return recent.length > 5;
-}
-
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
-const clean = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 
 export async function POST(req: Request) {
-  let body: Record<string, unknown>;
-  try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
-  }
+  const parsed = await readFormBody(req);
+  if ("error" in parsed) return NextResponse.json({ error: parsed.error }, { status: parsed.status });
+  const body = parsed.body;
 
   // Honeypot: real people never fill this hidden field.
-  if (clean(body.website, 200)) return NextResponse.json({ ok: true });
+  if (cleanText(body.website, 200)) return NextResponse.json({ ok: true });
 
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-  if (rateLimited(ip)) return NextResponse.json({ error: "Too many messages. Please try again later." }, { status: 429 });
+  // At most 5 messages per visitor per 10 minutes, 20 per day.
+  const hash = ipHash(clientIp(req));
+  if ((await tooMany("enquiries", hash, 5, 10)) || (await tooMany("enquiries", hash, 20, 24 * 60))) {
+    return NextResponse.json({ error: "Too many messages. Please try again later." }, { status: 429 });
+  }
 
-  const name = clean(body.name, 120);
-  const email = clean(body.email, 200);
-  const phone = clean(body.phone, 40);
-  const topic = clean(body.topic, 120);
-  const message = clean(body.message, 5000);
+  const name = cleanLine(body.name, 120);
+  const email = cleanLine(body.email, 200);
+  const phone = cleanLine(body.phone, 40);
+  const topic = cleanLine(body.topic, 120);
+  const message = cleanText(body.message, 5000);
 
   if (!name || !email || !message) return NextResponse.json({ error: "Please fill in your name, email and message." }, { status: 400 });
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+  if (!/^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(email)) return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
 
   // 1. Save it in the dashboard.
   let saved = false;
   try {
     const known = new Set(["name", "email", "phone", "topic", "message", "website", "kind"]);
-    const details = Object.fromEntries(Object.entries(body).filter(([k, v]) => !known.has(k) && typeof v === "string" && v.trim()).map(([k, v]) => [k, String(v).slice(0, 500)]));
+    const details = Object.fromEntries(
+      Object.entries(body)
+        .filter(([k, v]) => !known.has(k) && /^[a-zA-Z][\w-]{0,40}$/.test(k) && typeof v === "string" && v.trim())
+        .slice(0, 15)
+        .map(([k, v]) => [k, cleanText(v, 500)]),
+    );
     const payload = await cms();
     await payload.create({
       collection: "enquiries",
       overrideAccess: true,
-      data: { name, email, phone, kind: clean(body.kind, 60) || "Contact form", subject: topic, message, details },
+      data: { name, email, phone, kind: cleanLine(body.kind, 60) || "Contact form", subject: topic, message, details, ipHash: hash },
     });
     saved = true;
   } catch (err) {

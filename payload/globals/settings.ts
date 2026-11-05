@@ -161,6 +161,8 @@ export const SiteSettings: GlobalConfig = {
             {
               name: "notifyEmail",
               type: "email",
+              // Private: not readable through the public API.
+              access: { read: ({ req }) => Boolean(req.user) },
               label: "Send form messages to",
               admin: { description: "Where contact and workshop enquiries are emailed. Leave empty to use the email above." },
             },

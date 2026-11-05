@@ -4,6 +4,7 @@ import { cache } from "react";
 import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import type { Where } from "payload";
 import { cms, mediaAlt, mediaUrl } from "@/lib/cms/payload";
+import { cleanHtml } from "@/lib/security/sanitize";
 
 export type Post = {
   id: number | string;
@@ -34,7 +35,7 @@ function toPost(d: Doc, withHtml = false): Post {
   let html = "";
   if (withHtml) {
     const hasContent = d.content?.root?.children?.some((n: Doc) => (n.children?.length ?? 0) > 0 || n.type !== "paragraph");
-    html = hasContent ? convertLexicalToHTML({ data: d.content, disableContainer: true }) : d.legacyHtml || "";
+    html = cleanHtml(hasContent ? convertLexicalToHTML({ data: d.content, disableContainer: true }) : d.legacyHtml || "");
   }
   const date = d.publishedAt || d.createdAt;
   return {

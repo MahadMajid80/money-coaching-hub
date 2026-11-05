@@ -1,4 +1,4 @@
-import type { CollectionConfig } from "payload";
+import { APIError, type CollectionBeforeValidateHook, type CollectionConfig } from "payload";
 import { anyone, loggedIn } from "../access";
 import { revalidateAfterChange, revalidateAfterDelete } from "../hooks/revalidate";
 
@@ -7,10 +7,35 @@ import { revalidateAfterChange, revalidateAfterDelete } from "../hooks/revalidat
  * is the one that already exists (or the one created with `npm run seed`).
  * The admin can change their own name, email and password from the account page.
  */
+/** A strong password: at least 12 characters, with letters and numbers, not the email. */
+const strongPassword: CollectionBeforeValidateHook = ({ data }) => {
+  const pw = data?.password;
+  if (typeof pw !== "string" || !pw) return data;
+  const problems: string[] = [];
+  if (pw.length < 12) problems.push("at least 12 characters");
+  if (!/[a-z]/i.test(pw) || !/\d/.test(pw)) problems.push("letters and numbers");
+  if (data?.email && pw.toLowerCase().includes(String(data.email).split("@")[0].toLowerCase())) problems.push("not containing your email name");
+  if (/^(password|moneycoach|moneycoachinghub|luca)/i.test(pw)) problems.push("not an easy-to-guess word");
+  if (problems.length) throw new APIError(`Please choose a stronger password: ${problems.join(", ")}.`, 400, null, true);
+  return data;
+};
+
 export const Users: CollectionConfig = {
   slug: "users",
   labels: { singular: "Admin login", plural: "Admin login" },
-  auth: { tokenExpiration: 60 * 60 * 24 * 14, maxLoginAttempts: 8, lockTime: 10 * 60 * 1000 },
+  auth: {
+    // Logged out after 8 hours without activity (the dashboard refreshes the login while it's open).
+    tokenExpiration: 60 * 60 * 8,
+    // 5 wrong passwords lock the login for 15 minutes (stops password guessing).
+    maxLoginAttempts: 5,
+    lockTime: 15 * 60 * 1000,
+    // Server-side sessions: logging out really ends the session.
+    useSessions: true,
+    // The login token stays in a protected cookie that page scripts can't read; it is never sent back in responses.
+    removeTokenFromResponses: true,
+    cookies: { secure: process.env.NODE_ENV === "production", sameSite: "Strict" },
+  },
+  hooks: { beforeValidate: [strongPassword] },
   admin: {
     useAsTitle: "name",
     defaultColumns: ["name", "email"],
@@ -38,7 +63,8 @@ export const Media: CollectionConfig = {
   access: { read: anyone, create: loggedIn, update: loggedIn, delete: loggedIn },
   upload: {
     staticDir: process.env.MEDIA_DIR || "media",
-    mimeTypes: ["image/*", "application/pdf"],
+    // No SVG: an SVG file can contain scripts. Photos and PDFs only.
+    mimeTypes: ["image/jpeg", "image/png", "image/webp", "image/avif", "image/gif", "application/pdf"],
     focalPoint: true,
     crop: true,
     adminThumbnail: "thumb",

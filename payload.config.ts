@@ -5,9 +5,11 @@ import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload";
 import sharp from "sharp";
+import { allowedOrigins } from "./lib/security/origins";
 import { migrations } from "./migrations";
 import { Categories, Posts } from "./payload/collections/blog";
 import { ClientLogos, Columns, Courses, Enquiries, SimplePages, Subscribers, Testimonials } from "./payload/collections/content";
@@ -31,16 +33,43 @@ if (onVercel && dbUrl.startsWith("file:")) {
 
 // Signs dashboard logins. Uses PAYLOAD_SECRET when set; otherwise it is derived from the
 // (private) database token, so a Vercel deploy with Turso connected needs no extra setup.
+const DEV_SECRET = "local-development-secret-change-me";
 const secret =
   process.env.PAYLOAD_SECRET ||
-  (dbToken ? createHash("sha256").update(`payload:${dbToken}`).digest("hex") : "local-development-secret-change-me");
-if (secret === "local-development-secret-change-me" && process.env.NODE_ENV === "production") {
-  console.warn("[cms] PAYLOAD_SECRET is not set. Set it before going live.");
+  (dbToken ? createHash("sha256").update(`payload:${dbToken}`).digest("hex") : DEV_SECRET);
+// Never run a live site with the well-known development key (anyone could forge a login).
+if (secret === DEV_SECRET && process.env.NODE_ENV === "production" && process.env.NEXT_PHASE !== "phase-production-build") {
+  throw new Error("[cms] Set PAYLOAD_SECRET (a long random string) before starting the live site.");
 }
+
+const origins = allowedOrigins();
+
+// Email (password resets, and a copy of enquiries) only when an SMTP mailbox is configured.
+const smtp = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS;
+const email = smtp
+  ? nodemailerAdapter({
+      defaultFromAddress: process.env.CONTACT_FROM || process.env.SMTP_USER!,
+      defaultFromName: "Money Coaching Hub",
+      transportOptions: {
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT || 465),
+        secure: Number(process.env.SMTP_PORT || 465) === 465,
+        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      },
+    })
+  : undefined;
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SITE_URL || "",
   secret,
+  // Security: only these addresses may use the dashboard's login cookie or call the API from a browser.
+  csrf: origins,
+  cors: origins,
+  // Uploads: 15 MB max per file.
+  upload: { limits: { fileSize: 15_000_000 } },
+  // Limit how deeply linked documents can be expanded in one request.
+  maxDepth: 4,
+  email,
   admin: {
     user: Users.slug,
     avatar: "default",

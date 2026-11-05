@@ -2,6 +2,7 @@ import "server-only";
 import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { cms, mediaUrl } from "./payload";
 import { pageSchemas } from "./schemas";
+import { safeUrl } from "@/lib/security/sanitize";
 
 type Props = { style?: CSSProperties; className?: string };
 type Doc = Record<string, Record<string, unknown> | undefined> & { meta?: { title?: string; description?: string; image?: unknown } };
@@ -17,9 +18,14 @@ export type PageContent = {
 };
 
 const defaults = new Map<string, Map<string, string | boolean>>();
+const linkKeys = new Set<string>();
 for (const s of pageSchemas) {
   const m = new Map<string, string | boolean>();
-  for (const g of s.groups) for (const f of g.fields) m.set(`${g.name}.${f.name}`, f.default);
+  for (const g of s.groups)
+    for (const f of g.fields) {
+      m.set(`${g.name}.${f.name}`, f.default);
+      if (f.kind === "url" || f.kind === "card" || f.name === "header_button_link") linkKeys.add(`${s.slug}:${g.name}.${f.name}`);
+    }
   defaults.set(s.slug, m);
 }
 
@@ -39,9 +45,11 @@ export async function pageContent(slug: string): Promise<PageContent> {
   return {
     t(key) {
       const v = raw(key);
-      if (typeof v === "string" && v.trim()) return v;
       const d = defs.get(key);
-      return typeof d === "string" ? d : "";
+      const def = typeof d === "string" ? d : "";
+      const value = typeof v === "string" && v.trim() ? v : def;
+      // Links can only point to web pages, email or phone, never run code.
+      return linkKeys.has(`${slug}:${key}`) ? safeUrl(value, def) : value;
     },
     img(key) {
       const url = mediaUrl(raw(key), "large");

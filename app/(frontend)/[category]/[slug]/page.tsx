@@ -1,3 +1,4 @@
+import { jsonLd as toJsonLd } from "@/lib/security/sanitize";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
@@ -55,7 +56,7 @@ export default async function PostPage({ params }: Params) {
 
   return (
     <div className="home" style={{ width: "100%", display: "flex", flexDirection: "column" }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
       <SiteHeader />
       <main id="main" style={{ display: "contents" }}>
         <article>

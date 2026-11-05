@@ -281,6 +281,7 @@ export const Enquiries: CollectionConfig = {
     { name: "message", type: "textarea" },
     { name: "details", type: "json", admin: { readOnly: true, description: "Everything else the form sent." } },
     { name: "handled", type: "checkbox", label: "Dealt with", admin: { position: "sidebar" } },
+    { name: "ipHash", type: "text", index: true, admin: { hidden: true } },
     { name: "notes", type: "textarea", label: "Private notes", admin: { position: "sidebar" } },
   ],
 };
@@ -302,5 +303,6 @@ export const Subscribers: CollectionConfig = {
     { name: "source", type: "text", admin: { readOnly: true } },
     { name: "list", type: "text", admin: { readOnly: true } },
     { name: "syncedToMailerLite", type: "checkbox", label: "Added to MailerLite", admin: { readOnly: true } },
+    { name: "ipHash", type: "text", index: true, admin: { hidden: true } },
   ],
 };

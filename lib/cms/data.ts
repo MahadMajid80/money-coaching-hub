@@ -3,6 +3,7 @@ import "server-only";
 import { cache } from "react";
 import type { Course } from "@/lib/courses";
 import { cms, mediaUrl } from "./payload";
+import { safeUrl } from "@/lib/security/sanitize";
 
 type Doc = Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 export type Link = { label: string; url: string; newTab?: boolean | null };
@@ -62,7 +63,7 @@ export type SiteSettings = {
 };
 
 const links = (v: unknown): Link[] =>
-  Array.isArray(v) ? v.filter((l) => l?.label && l?.url).map((l) => ({ label: l.label, url: l.url, newTab: !!l.newTab })) : [];
+  Array.isArray(v) ? v.filter((l) => l?.label && l?.url).map((l) => ({ label: l.label, url: safeUrl(l.url), newTab: !!l.newTab })) : [];
 
 export const getSettings = cache(async (): Promise<SiteSettings> => {
   const s = await global("site-settings");
@@ -71,12 +72,12 @@ export const getSettings = cache(async (): Promise<SiteSettings> => {
   return {
     logo: mediaUrl(s.logo) || "/img/logo.png",
     nav: nav.length ? nav : DEFAULT_NAV,
-    headerCta: { label: s.headerCtaLabel || "Book a 10-minute call", url: s.headerCtaUrl || "/contact-us/" },
+    headerCta: { label: s.headerCtaLabel || "Book a 10-minute call", url: safeUrl(s.headerCtaUrl, "/contact-us/") },
     announcement: {
       enabled: !!s.announcement?.enabled && !!s.announcement?.text,
       text: s.announcement?.text || "",
       linkLabel: s.announcement?.linkLabel || "",
-      url: s.announcement?.url || "",
+      url: s.announcement?.url ? safeUrl(s.announcement.url, "") : "",
       style: s.announcement?.style === "dark" ? "dark" : "gold",
     },
     footerBrand: s.footerBrand || "MONEY COACHING HUB",
@@ -132,7 +133,7 @@ function toCourse(d: Doc): CmsCourse {
     price: d.price || "",
     priceNote: d.priceNote || undefined,
     seats: d.seats || undefined,
-    checkout: d.checkout || undefined,
+    checkout: d.checkout ? safeUrl(d.checkout, "") || undefined : undefined,
     ctaLabel: d.ctaLabel || "Book your place",
     intro: { title: d.intro?.title || "", paras: texts(d.intro?.paras) },
     forYou: { title: d.forYou?.title || "", items: texts(d.forYou?.items), note: d.forYou?.note || undefined },
@@ -176,7 +177,7 @@ export const getColumns = cache(async (limit = 10): Promise<Column[]> => {
   const docs = await list("columns", { sort: "-date", limit });
   return docs.map((d) => ({
     title: d.title,
-    url: d.url,
+    url: safeUrl(d.url),
     date: new Date(d.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }),
     excerpt: d.excerpt || "",
     image: mediaUrl(d.image, "card"),
@@ -187,7 +188,7 @@ export type ClientLogo = { name: string; logo: string | null; url: string };
 
 export const getClientLogos = cache(async (): Promise<ClientLogo[]> => {
   const docs = await list("client-logos", { sort: "order" });
-  return docs.map((d) => ({ name: d.name, logo: mediaUrl(d.logo, "thumb"), url: d.url || "" }));
+  return docs.map((d) => ({ name: d.name, logo: mediaUrl(d.logo, "thumb"), url: d.url ? safeUrl(d.url, "") : "" }));
 });
 
 /* ---------------- Quiz & side hustle ---------------- */
@@ -201,8 +202,8 @@ export const getSideHustle = cache(async () => {
   const g = await global("side-hustle-settings");
   return {
     stage: (["notify", "intro", "programme"].includes(g.stage) ? g.stage : "notify") as "notify" | "intro" | "programme",
-    introCheckout: g.introCheckout || "/contact-us/?subject=Side%20Hustle%20intro",
-    programmeCheckout: g.programmeCheckout || "/contact-us/?subject=Side%20Hustle%20programme",
+    introCheckout: safeUrl(g.introCheckout, "/contact-us/?subject=Side%20Hustle%20intro"),
+    programmeCheckout: safeUrl(g.programmeCheckout, "/contact-us/?subject=Side%20Hustle%20programme"),
   };
 });
 
@@ -234,7 +235,7 @@ export async function findRedirect(path: string): Promise<string | null> {
     const r = await payload.find({ collection: "redirects", where: { from: { in: variants } }, limit: 1, depth: 2 });
     const d = r.docs[0] as Doc | undefined;
     if (!d) return null;
-    if (d.to?.type === "custom") return d.to.url || null;
+    if (d.to?.type === "custom") return d.to.url ? safeUrl(d.to.url, "") || null : null;
     const ref = d.to?.reference;
     const doc = ref?.value;
     if (!doc || typeof doc !== "object") return null;

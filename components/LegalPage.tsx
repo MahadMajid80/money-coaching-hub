@@ -2,13 +2,14 @@ import { draftMode } from "next/headers";
 import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { getSettings, getSimplePage } from "@/lib/cms/data";
+import { cleanHtml } from "@/lib/security/sanitize";
 
 type Doc = Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 export function simpleHtml(page: Doc | null): string {
   if (!page) return "";
   const has = page.content?.root?.children?.some((n: Doc) => (n.children?.length ?? 0) > 0 || n.type !== "paragraph");
-  return has ? convertLexicalToHTML({ data: page.content, disableContainer: true }) : page.legacyHtml || "";
+  return cleanHtml(has ? convertLexicalToHTML({ data: page.content, disableContainer: true }) : page.legacyHtml || "");
 }
 
 /** A text page from the dashboard's "Simple pages" (privacy, cookies, terms, or any page Luca adds). */
