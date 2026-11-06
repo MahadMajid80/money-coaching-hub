@@ -14,6 +14,10 @@ img{max-width:100%}
 .btn-dark{background:#111111;color:#ffffff}.btn-dark:hover{background:#333333;color:#ffffff}
 .btn-ghost{border:2px solid #111111;color:#111111;background:transparent}.btn-ghost:hover{background:#111111;color:#ffffff}
 .btn-light{border:2px solid #ffffff;color:#ffffff;background:transparent}.btn-light:hover{background:#ffffff;color:#111111}
+.btn{transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(17,17,17,.16)}
+.btn:active{transform:translateY(0);box-shadow:none}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
 button.btn{border:0;cursor:pointer}
 button.btn-ghost{border:2px solid #111111}
 button.btn:disabled{opacity:.55;cursor:not-allowed}
