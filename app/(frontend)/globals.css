@@ -173,8 +173,9 @@ section.strip-28{padding-top:28px !important;padding-bottom:28px !important}
 .prose h2{font-family:Raleway,sans-serif;font-weight:800;font-size:32px;line-height:1.2;color:#111111;margin:1.7em 0 0}
 .prose h3{font-family:Raleway,sans-serif;font-weight:700;font-size:24px;line-height:1.3;color:#111111;margin:1.5em 0 0}
 .prose h4{font-family:Raleway,sans-serif;font-weight:700;font-size:20px;color:#111111;margin:1.4em 0 0}
-.prose :where(p){margin:0}
-.prose :where(ul,ol){margin:0;padding-left:1.3em}
+:where(.prose p){margin:0}
+:where(.prose ul,.prose ol){margin:0}
+.prose ul,.prose ol{padding-left:1.3em}
 .prose li + li{margin-top:.4em}
 .prose li::marker{color:#B07400}
 .prose a{color:#111111;text-decoration:underline;text-decoration-color:#FAAC15;text-decoration-thickness:2px;text-underline-offset:3px}
