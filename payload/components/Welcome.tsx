@@ -1,5 +1,6 @@
 import type { ServerProps } from "payload";
 import { SeedButton } from "./SeedButton";
+import { WordPressImportButton } from "./WordPressImportButton";
 
 const card: React.CSSProperties = {
   display: "flex",
@@ -27,8 +28,12 @@ const shortcuts = [
 export async function Welcome({ payload, user }: ServerProps) {
   let newEnquiries = 0;
   let empty = false;
+  let wpImported = 0;
   try {
     empty = (await payload.count({ collection: "courses" })).totalDocs === 0;
+  } catch {}
+  try {
+    wpImported = (await payload.count({ collection: "posts", where: { wpId: { exists: true } } })).totalDocs;
   } catch {}
   try {
     const r = await payload.count({ collection: "enquiries", where: { handled: { not_equals: true } } });
@@ -49,6 +54,7 @@ export async function Welcome({ payload, user }: ServerProps) {
         </a>
       </div>
       {empty && <SeedButton />}
+      {!empty && wpImported < 10 && <WordPressImportButton />}
       {newEnquiries > 0 && (
         <a href="/admin/collections/enquiries?where[handled][not_equals]=true" style={{ ...card, borderColor: "#FAAC15", background: "rgba(250,172,21,.12)" }}>
           <strong>

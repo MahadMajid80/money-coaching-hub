@@ -125,6 +125,25 @@ export default buildConfig({
       },
     },
     {
+      // Moves the blog from the old WordPress site, a few posts per call (logged-in admin only).
+      // POST /api/import-wordpress?offset=0 → { total, next, added, skipped, failed }; call again with offset=next until next is null.
+      path: "/import-wordpress",
+      method: "post",
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: "Please log in." }, { status: 403 });
+        const q = new URL(req.url || "http://localhost").searchParams;
+        const offset = Math.max(0, Number(q.get("offset")) || 0);
+        const limit = Math.min(10, Math.max(1, Number(q.get("limit")) || 4));
+        const { importWordPress } = await import("./lib/cms/wordpressImport");
+        try {
+          return Response.json(await importWordPress(req.payload, { offset, limit }));
+        } catch (e) {
+          req.payload.logger.error(e);
+          return Response.json({ error: (e as Error).message }, { status: 500 });
+        }
+      },
+    },
+    {
       // Used by the "Load starting content" button on the dashboard home (logged-in admin only).
       path: "/seed-content",
       method: "post",

@@ -33,6 +33,8 @@ const legacy = [
 
 const nextConfig = {
   poweredByHeader: false,
+  // Used by the WordPress import; it reads its own files at run time, so it must not be bundled.
+  serverExternalPackages: ["jsdom"],
   agentRules: false,
   trailingSlash: true,
   // The dashboard (/admin) and its API (/api) must not be redirected; proxy.ts adds the slash for site pages.
