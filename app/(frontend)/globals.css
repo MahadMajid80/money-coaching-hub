@@ -97,8 +97,25 @@ textarea.field-input{height:auto;padding:12px 14px;resize:vertical}
   h1{font-size:44px !important}.h2{font-size:34px !important}
   .wrap{padding:0 20px !important}
   section{padding-top:64px !important;padding-bottom:64px !important}
-  .site-nav{display:none !important}
 }
+/* header: the menu folds into the Menu button before it gets cramped; on phones the page's button moves into the menu */
+@media (max-width:1100px){.site-nav{display:none !important}.mnav{display:block !important}}
+@media (max-width:620px){.site-cta{display:none !important}}
+
+/* ---------- phone menu ---------- */
+.mnav{display:none;border-bottom:0}
+.mnav > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:46px;padding:0 16px;border:1.5px solid #111111;border-radius:999px;font-family:Raleway,sans-serif;font-weight:700;font-size:15px;color:#111111;user-select:none}
+.mnav > summary::-webkit-details-marker{display:none}
+.mnav > summary::after,.mnav[open] > summary::after{content:none}
+.mnav-bars,.mnav-bars::before,.mnav-bars::after{display:block;width:18px;height:2px;background:#111111;border-radius:2px;position:relative;transition:transform .2s ease,opacity .2s ease}
+.mnav-bars::before,.mnav-bars::after{content:"";position:absolute;left:0}
+.mnav-bars::before{top:-6px}.mnav-bars::after{top:6px}
+.mnav[open] .mnav-bars{background:transparent}
+.mnav[open] .mnav-bars::before{transform:translateY(6px) rotate(45deg)}
+.mnav[open] .mnav-bars::after{transform:translateY(-6px) rotate(-45deg)}
+.mnav-panel{position:absolute;left:0;right:0;top:100%;background:#ffffff;border-bottom:1px solid #EFE9D9;box-shadow:0 18px 30px rgba(17,17,17,.08);padding:12px 20px 24px;display:flex;flex-direction:column}
+.mnav-panel > a:not(.btn){padding:14px 0;border-bottom:1px solid #F3EEDF;font-weight:700;font-size:17px;color:#111111;text-decoration:none}
+@media (prefers-reduced-motion:reduce){.mnav-bars,.mnav-bars::before,.mnav-bars::after{transition:none}}
 @media (max-width:620px){h1{font-size:38px !important}.h2{font-size:30px !important}}
 
 /* sections that keep their own vertical padding on phones */

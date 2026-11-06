@@ -1,6 +1,6 @@
 // Header and footer variants from the design pack, filled from the dashboard's Site settings:
 // - SiteHeader / SiteFooter: the homepage's full navigation and footer
-// - PageHeader / PageFooter: the inner pages' compact header (logo + one action) and footer
+// - PageHeader: the same header with the page's own button; PageFooter: the inner pages' footer
 
 import { getSettings, type Link } from "@/lib/cms/data";
 
@@ -25,55 +25,67 @@ async function Announcement() {
   );
 }
 
-export async function SiteHeader() {
+/**
+ * The header on every page: logo, the main menu from Site settings and one button.
+ * Pages can swap the button for their own action (e.g. “Apply for January”); `plain` shows it as a text link.
+ * On phones the menu folds into a “Menu” button (no script needed).
+ */
+export async function SiteHeader({ cta, plain = false }: { cta?: { label: string; href: string }; plain?: boolean } = {}) {
   const s = await getSettings();
+  const action = cta ?? { label: s.headerCta.label, href: s.headerCta.url };
   return (
     <>
       <Announcement />
-      <header style={{ position: "relative", background: "#ffffff", borderBottom: "1px solid #EFE9D9" }}>
-        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap", height: "84px" }}>
-          <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center" }}>
+      <header className="site-header" style={{ position: "relative", background: "#ffffff", borderBottom: "1px solid #EFE9D9", zIndex: 50 }}>
+        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", height: "84px" }}>
+          <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
             <img src={s.logo} alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
           </a>
-          <nav aria-label="Main" className="site-nav" style={{ display: "flex", gap: "32px", flexWrap: "wrap", fontWeight: "700", fontSize: "15px" }}>
+          <nav aria-label="Main" className="site-nav" style={{ display: "flex", gap: "28px", flexWrap: "wrap", justifyContent: "center", fontWeight: "700", fontSize: "15px" }}>
             {s.nav.map((l) => (
               <a key={l.label + l.url} href={l.url} style={{ textDecoration: "none", color: "#111111" }} {...ext(l)}>
                 {l.label}
               </a>
             ))}
           </nav>
-          <a href={s.headerCta.url} className="btn btn-dark" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>
-            {s.headerCta.label}
-          </a>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
+            {plain ? (
+              <a href={action.href} className="site-cta" style={{ fontWeight: "700", fontSize: "15px", textDecoration: "none", color: "#111111" }}>
+                {action.label}
+              </a>
+            ) : (
+              <a href={action.href} className="btn btn-dark site-cta" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>
+                {action.label}
+              </a>
+            )}
+            <details className="mnav">
+              <summary aria-label="Open the menu">
+                <span aria-hidden="true" className="mnav-bars" />
+                Menu
+              </summary>
+              <nav aria-label="Main" className="mnav-panel">
+                {s.nav.map((l) => (
+                  <a key={l.label + l.url} href={l.url} {...ext(l)}>
+                    {l.label}
+                  </a>
+                ))}
+                {!plain && (
+                  <a href={action.href} className="btn btn-dark" style={{ marginTop: "16px" }}>
+                    {action.label}
+                  </a>
+                )}
+              </nav>
+            </details>
+          </div>
         </div>
       </header>
     </>
   );
 }
 
+/** Kept for the inner pages: the same full header, with the page's own button. */
 export async function PageHeader({ cta, plain = false }: { cta: { label: string; href: string }; plain?: boolean }) {
-  const s = await getSettings();
-  return (
-    <>
-      <Announcement />
-      <header style={{ background: "#ffffff", borderBottom: "1px solid #EFE9D9" }}>
-        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", height: "84px" }}>
-          <a href="/" aria-label="Money Coaching Hub home" style={{ display: "flex", alignItems: "center" }}>
-            <img src={s.logo} alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
-          </a>
-          {plain ? (
-            <a href={cta.href} style={{ fontWeight: "700", fontSize: "15px", textDecoration: "none" }}>
-              {cta.label}
-            </a>
-          ) : (
-            <a href={cta.href} className="btn btn-dark" style={{ minHeight: "46px", padding: "0 22px", fontSize: "15px" }}>
-              {cta.label}
-            </a>
-          )}
-        </div>
-      </header>
-    </>
-  );
+  return <SiteHeader cta={cta} plain={plain} />;
 }
 
 export async function PageFooter({ note, contactLine = true, back = true, divider = false }: { note?: React.ReactNode; contactLine?: boolean; back?: boolean; divider?: boolean }) {
