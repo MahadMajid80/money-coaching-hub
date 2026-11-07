@@ -131,7 +131,7 @@
      "label": "Button: link",
      "kind": "url",
      "type": "text",
-     "default": "#apply"
+     "default": ""
     },
     {
      "name": "text_8",
@@ -431,7 +431,7 @@
      "label": "Button: link",
      "kind": "url",
      "type": "text",
-     "default": "#apply"
+     "default": ""
     }
    ]
   },
@@ -632,7 +632,7 @@
      "label": "Button: link",
      "kind": "url",
      "type": "text",
-     "default": "#apply"
+     "default": ""
     }
    ]
   },
@@ -1096,7 +1096,7 @@
      "label": "Header button: link",
      "kind": "text",
      "type": "text",
-     "default": "#apply"
+     "default": ""
     }
    ]
   }

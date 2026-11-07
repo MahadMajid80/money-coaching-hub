@@ -17,6 +17,12 @@ export default async function Page() {
   const c = await pageContent("investing");
   const ims = await getCourse("investing-made-simple");
   const checkout = ims?.checkout || "/contact-us/?subject=Investing%20Made%20Simple";
+  // Every booking button goes straight to the Stripe checkout. A link typed into the dashboard
+  // still wins, unless it is empty or the old in-page "#apply" jump.
+  const book = (key: string) => {
+    const link = c.t(key).trim();
+    return !link || link === "#apply" ? checkout : link;
+  };
   // When a first-session date is set on the course in the dashboard, it drives every date on this page.
   const d = ims?.startDate ? new Date(ims.startDate) : null;
   const fmt = (o: Intl.DateTimeFormatOptions) => (d ? d.toLocaleDateString("en-GB", { ...o, timeZone: "Europe/Malta" }) : "");
@@ -25,7 +31,7 @@ export default async function Page() {
   return <>
       <PageHeader cta={{
       label: c.t("general.header_button"),
-      href: c.t("general.header_button_link")
+      href: book("general.header_button_link")
     }} />
       <main id="main">
       {/* HERO */}
@@ -203,7 +209,7 @@ export default async function Page() {
                 lineHeight: "1.5",
                 color: "#C9C3B1"
               }}>{R(c, "hero.paragraph_3")}</p>
-              <a href={c.t("hero.button_link")} className="btn btn-gold" style={{
+              <a href={book("hero.button_link")} className="btn btn-gold" style={{
                 width: "100%"
               }}>{R(c, "hero.button")}</a>
               <span className="compliance" style={{
@@ -312,7 +318,7 @@ export default async function Page() {
             <article className="session"><span className="num">{R(c, "the_four_evenings.text_3")}</span><h3>{R(c, "the_four_evenings.heading_4")}</h3><ul><li>{R(c, "the_four_evenings.item_9")}</li><li>{R(c, "the_four_evenings.item_10")}</li><li>{R(c, "the_four_evenings.item_11")}</li><li>{R(c, "the_four_evenings.item_12")}</li></ul></article>
             <article className="session"><span className="num">{R(c, "the_four_evenings.text_4")}</span><h3>{R(c, "the_four_evenings.heading_5")}</h3><ul><li>{R(c, "the_four_evenings.item_13")}</li><li>{R(c, "the_four_evenings.item_14")}</li><li>{R(c, "the_four_evenings.item_15")}</li><li>{R(c, "the_four_evenings.item_16")}</li></ul></article>
           </div>
-          <div><a href={c.t("the_four_evenings.button_link")} className="btn btn-gold">{R(c, "the_four_evenings.button")}</a></div>
+          <div><a href={book("the_four_evenings.button_link")} className="btn btn-gold">{R(c, "the_four_evenings.button")}</a></div>
         </div>
       </section>}
       {/* PHOTO STRIP */}
@@ -472,7 +478,7 @@ export default async function Page() {
               }}>{R(c, "included.text")}</span><span style={{
                 fontSize: "15px",
                 color: "#C9C3B1"
-              }}>{R(c, "included.text_2")}</span><a href={c.t("included.button_link")} className="btn btn-gold" style={{
+              }}>{R(c, "included.text_2")}</span><a href={book("included.button_link")} className="btn btn-gold" style={{
                 alignSelf: "flex-start",
                 marginTop: "6px"
               }}>{R(c, "included.button")}</a></div>
@@ -596,7 +602,7 @@ export default async function Page() {
             alignItems: "center",
             gap: "16px"
           }}>
-            <a href="#apply" className="btn btn-dark">{R(c, "apply.button")}</a>
+            <a href={checkout} className="btn btn-dark">{R(c, "apply.button")}</a>
             <span style={{
               fontSize: "15px",
               color: "#6B6248"
