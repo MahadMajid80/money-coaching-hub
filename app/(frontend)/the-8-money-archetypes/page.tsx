@@ -57,58 +57,37 @@ export default async function Page() {
           gap: "20px",
           maxWidth: "960px"
         }}>
-          <article id="innocent" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text")}</div><div style={{
+          <article id="innocent" className="tcard"><div className="icon type-icon"><img src="/images/money-types/innocent.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
             }}><span className="tag">{R(c, "section_2.text_2")}</span><h3>{R(c, "section_2.heading")}</h3><p>{R(c, "section_2.paragraph")}</p><span className="line">{R(c, "section_2.text_3")}</span></div></article>
-          <article id="victim" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text_4")}</div><div style={{
+          <article id="victim" className="tcard"><div className="icon type-icon"><img src="/images/money-types/victim.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
             }}><span className="tag">{R(c, "section_2.text_5")}</span><h3>{R(c, "section_2.heading_2")}</h3><p>{R(c, "section_2.paragraph_2", [{}], [])}</p><span className="line">{R(c, "section_2.text_6")}</span></div></article>
-          <article id="warrior" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text_7")}</div><div style={{
+          <article id="warrior" className="tcard"><div className="icon type-icon"><img src="/images/money-types/warrior.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
             }}><span className="tag">{R(c, "section_2.text_8")}</span><h3>{R(c, "section_2.heading_3")}</h3><p>{R(c, "section_2.paragraph_3")}</p><span className="line">{R(c, "section_2.text_9")}</span></div></article>
-          <article id="martyr" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text_10")}</div><div style={{
+          <article id="martyr" className="tcard"><div className="icon type-icon"><img src="/images/money-types/martyr.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
             }}><span className="tag">{R(c, "section_2.text_11")}</span><h3>{R(c, "section_2.heading_4")}</h3><p>{R(c, "section_2.paragraph_4")}</p><span className="line">{R(c, "section_2.text_12")}</span></div></article>
-          <article id="fool" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text_13")}</div><div style={{
+          <article id="fool" className="tcard"><div className="icon type-icon"><img src="/images/money-types/fool.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
             }}><span className="tag">{R(c, "section_2.text_14")}</span><h3>{R(c, "section_2.heading_5")}</h3><p>{R(c, "section_2.paragraph_5")}</p><span className="line">{R(c, "section_2.text_15")}</span></div></article>
-          <article id="creator" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text_16")}</div><div style={{
+          <article id="creator" className="tcard"><div className="icon type-icon"><img src="/images/money-types/creator.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
             }}><span className="tag">{R(c, "section_2.text_17")}</span><h3>{R(c, "section_2.heading_6")}</h3><p>{R(c, "section_2.paragraph_6")}</p><span className="line">{R(c, "section_2.text_18")}</span></div></article>
-          <article id="tyrant" className="tcard"><div className="icon" style={{
-              fontSize: "44px",
-              color: "#B07400"
-            }}>{R(c, "section_2.text_19")}</div><div style={{
+          <article id="tyrant" className="tcard"><div className="icon type-icon"><img src="/images/money-types/tyrant.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
@@ -116,11 +95,7 @@ export default async function Page() {
           <article id="magician" className="tcard" style={{
             background: "#FAAC15",
             borderColor: "#FAAC15"
-          }}><div className="icon" style={{
-              background: "#FFD112",
-              color: "#111111",
-              fontSize: "44px"
-            }}>{R(c, "section_2.text_22")}</div><div style={{
+          }}><div className="icon type-icon" style={{ background: "#FFD112" }}><img src="/images/money-types/magician.webp" alt="" loading="lazy" width={600} height={600} /></div><div style={{
               display: "flex",
               flexDirection: "column",
               gap: "10px"
