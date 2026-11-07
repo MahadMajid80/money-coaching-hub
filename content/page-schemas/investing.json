@@ -735,14 +735,14 @@
      "label": "Paragraph",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"I recently completed an online investment course with Luca Caruana and I cannot recommend it enough. He has a fantastic ability to simplify complex financial concepts, making them easy to understand even if you're a complete beginner. Luca is incredibly approachable, patient, and uses great real-life examples that really help everything click. If you've been intimidated by investing, this is the course for you.\""
+     "default": "\"I just finished Luca's investing course and I can say he managed to break down the complex concepts of investing into simple terms, to the point where he motivated me to start investing and not look back! The last lesson, 'the psychology of investing', was especially eye-opening and motivating. I recommend this course wholeheartedly to whoever is not clear about investing, or would like to take the first step but doesn't have a clear plan ahead.\""
     },
     {
      "name": "text",
      "label": "Text",
      "kind": "text",
      "type": "text",
-     "default": "Valerie Vella"
+     "default": "Joseph Meli"
     },
     {
      "name": "paragraph_2",
@@ -763,28 +763,28 @@
      "label": "Paragraph 3",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"On his newspaper column, Luca comes across as a nice guy. In person he is lovely. He is patient, passes on his knowledge using simple, everyday language. He has a hands-on approach and is highly receptive to questions from his audience. I thoroughly enjoyed his sessions and found them extremely informative.\""
+     "default": "\"Very informative course. For many people, setting up an investment account and making those initial deposits is the most intimidating step. Luca breaks everything down so clearly that he makes the entire setup process simple to execute and implement. Well done, Luca.\""
     },
     {
      "name": "text_3",
      "label": "Text 3",
      "kind": "text",
      "type": "text",
-     "default": "Bernard Busuttil"
+     "default": "Keith Grech"
     },
     {
      "name": "paragraph_4",
      "label": "Paragraph 4",
      "kind": "paragraph",
      "type": "text",
-     "default": "\"Very informative course with clear explanations and well-prepared materials.\""
+     "default": "\"A very practical and hands-on course, suitable for both beginner and intermediate investors. Luca provides a clear step-by-step guide, from building an emergency fund to investing in the market and letting compound interest work for you. He is also very responsive and generally replies to messages on the same day. Informative, easy to follow and definitely worth doing!\""
     },
     {
      "name": "text_4",
      "label": "Text 4",
      "kind": "text",
      "type": "text",
-     "default": "Clayton Camilleri"
+     "default": "Kurt Slattery"
     },
     {
      "name": "paragraph_5",
@@ -805,35 +805,35 @@
      "label": "Paragraph 6",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"Luca is very professional, knowledgeable, and trustworthy. He makes complex topics like crypto and investing easy to understand, especially for beginners. Highly recommend his courses and coaching sessions to anyone looking to grow their financial knowledge.\""
+     "default": "\"On his newspaper column, Luca comes across as a nice guy. In person he is lovely. He is patient, passes on his knowledge using simple, everyday language. He has a hands-on approach and is highly receptive to questions from his audience. I thoroughly enjoyed his sessions and found them extremely informative.\""
     },
     {
      "name": "text_6",
      "label": "Text 6",
      "kind": "text",
      "type": "text",
-     "default": "Kieran Vella"
+     "default": "Bernard Busuttil"
     },
     {
      "name": "paragraph_7",
      "label": "Paragraph 7",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"Finally I found a person who is very professional in his work and trustworthy. When you are learning, you need someone to come down to your level, especially when you are new. I recommend anyone who wants to learn to do a course with Luca. You can only gain in knowledge. 10/10\""
+     "default": "\"I recently completed an online investment course with Luca Caruana and I cannot recommend it enough. He has a fantastic ability to simplify complex financial concepts, making them easy to understand even if you're a complete beginner. Luca is incredibly approachable, patient, and uses great real-life examples that really help everything click. If you've been intimidated by investing, this is the course for you.\""
     },
     {
      "name": "text_7",
      "label": "Text 7",
      "kind": "text",
      "type": "text",
-     "default": "Alexander Pace"
+     "default": "Valerie Vella"
     },
     {
      "name": "text_8",
      "label": "Text 8",
      "kind": "text",
      "type": "text",
-     "default": "All reviews published on the Money Coaching Hub Facebook page."
+     "default": "All reviews are from Luca Caruana – The Money Coach on Facebook, where 100% of reviewers recommend him."
     }
    ]
   },
