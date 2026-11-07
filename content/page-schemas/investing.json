@@ -32,7 +32,7 @@
      "label": "Paragraph",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "Four live evenings on how to invest your own money, taught by someone who has **nothing to sell you.**",
+     "default": "Learn how investment options work, what to look for in a platform, and how to build a clear approach to investing, in **four live online sessions taught in Maltese.**",
      "styled": true
     },
     {
@@ -40,7 +40,7 @@
      "label": "Paragraph 2",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "The course that took hundreds of Maltese and European professionals from \"I don't know where to start\" to their first investment. No jargon, no products pushed, no pressure."
+     "default": "No experience needed. Four Mondays, 7.30pm to 8.30pm, starting 11 January 2027. Every session is recorded."
     },
     {
      "name": "chip",
@@ -117,14 +117,14 @@
      "label": "Paragraph 3",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "Live online, taught in Maltese, recorded if you miss one. Small group, so places are limited."
+     "default": "Live online, taught in Maltese, recorded if you miss one."
     },
     {
      "name": "button",
      "label": "Button",
      "kind": "button",
      "type": "text",
-     "default": "Apply for the January cohort"
+     "default": "Book my place · €175"
     },
     {
      "name": "button_link",
@@ -138,7 +138,7 @@
      "label": "Text 8",
      "kind": "text",
      "type": "textarea",
-     "default": "Education, not advice. No financial products are sold and nothing here is a personal recommendation."
+     "default": "No financial products sold. No commissions earned. Education, not personal advice."
     }
    ]
   },
@@ -305,35 +305,35 @@
      "label": "Heading 3",
      "kind": "heading",
      "type": "text",
-     "default": "Beyond the index fund"
+     "default": "Understanding your investment options"
     },
     {
      "name": "item_5",
      "label": "List item 5",
      "kind": "item",
      "type": "text",
-     "default": "What most beginner courses stop short of teaching"
+     "default": "Broad funds versus funds focused on one industry or theme"
     },
     {
      "name": "item_6",
      "label": "List item 6",
      "kind": "item",
      "type": "text",
-     "default": "Sector and thematic investing, and where it goes wrong"
+     "default": "Why a popular investment story can still be risky"
     },
     {
      "name": "item_7",
      "label": "List item 7",
      "kind": "item",
      "type": "text",
-     "default": "How to evaluate a theme without falling for the story"
+     "default": "How to look at a theme calmly, before you buy into the hype"
     },
     {
      "name": "item_8",
      "label": "List item 8",
      "kind": "item",
      "type": "text",
-     "default": "Worked portfolio examples, including my own"
+     "default": "Worked examples, including my own portfolio, and what they teach about diversification"
     },
     {
      "name": "text_3",
@@ -424,7 +424,7 @@
      "label": "Button",
      "kind": "button",
      "type": "text",
-     "default": "Apply for the January cohort"
+     "default": "Book my place · €175"
     },
     {
      "name": "button_link",
@@ -465,7 +465,7 @@
      "label": "Text",
      "kind": "text",
      "type": "text",
-     "default": "Small groups, not webinars"
+     "default": "Taught live, in Maltese"
     },
     {
      "name": "image_2",
@@ -625,7 +625,7 @@
      "label": "Button",
      "kind": "button",
      "type": "text",
-     "default": "Apply now"
+     "default": "Book my place"
     },
     {
      "name": "button_link",
@@ -687,7 +687,7 @@
      "label": "Quote",
      "kind": "quote",
      "type": "text",
-     "default": "I'm not a broker. I don't sell financial products. I teach people how to think."
+     "default": "I'm not a broker. I don't sell financial products or earn commissions. I teach people how to think."
     },
     {
      "name": "paragraph_2",
@@ -930,14 +930,14 @@
      "label": "Question 5",
      "kind": "question",
      "type": "text",
-     "default": "Why a small group?"
+     "default": "Can I ask my own questions?"
     },
     {
      "name": "text_4",
      "label": "Text 4",
      "kind": "text",
      "type": "textarea",
-     "default": "Because past a certain size it stops being a conversation and becomes a webinar. The whole format depends on being able to stop and answer a real question from a real person. When the places are gone, they're gone until the next cohort."
+     "default": "Yes, that's the point of doing it live. Questions are answered as we go, and you can send questions in advance if you can't make a session."
     },
     {
      "name": "question_6",
@@ -999,7 +999,7 @@
      "label": "Button",
      "kind": "button",
      "type": "text",
-     "default": "Apply for the January cohort"
+     "default": "Book my place · €175"
     },
     {
      "name": "text_2",
@@ -1089,7 +1089,7 @@
      "label": "Header button",
      "kind": "text",
      "type": "text",
-     "default": "Apply for January"
+     "default": "Book for January"
     },
     {
      "name": "header_button_link",

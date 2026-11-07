@@ -46,9 +46,7 @@ export const courses: Course[] = [
     format: "4 live sessions on Zoom",
     time: "Mondays, 7:30–8:30pm CET",
     price: "€175",
-    seats: "Strictly 20 seats",
-    // TODO: confirm this Stripe link is set up for the January 2027 cohort at €175.
-    checkout: "https://buy.stripe.com/aFadR98Hm0nFcEsgs25os0h",
+    checkout: "https://buy.stripe.com/4gMaEX3n20nF8oc4Jk5os0j",
     ctaLabel: "Take your seat",
     intro: {
       title: "You are not bad with money. You are just waiting for permission.",
@@ -155,10 +153,6 @@ export const courses: Course[] = [
       {
         q: "What if I cannot make a Monday?",
         a: "Every session is recorded and sent out afterwards, and you keep those recordings for good. You can also send questions in advance and they will be answered live. That said, the live sessions are where the value is, so come if you can.",
-      },
-      {
-        q: "Why only 20 people?",
-        a: "Because past 20, it stops being a conversation and becomes a webinar. The whole format depends on being able to stop and answer a real question from a real person. When the twenty seats are gone, they are gone until the next cohort.",
       },
       {
         q: "What exactly is the 1:1 session?",

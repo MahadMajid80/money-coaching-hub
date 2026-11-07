@@ -89,6 +89,29 @@ export default async function Page() {
                 padding: "8px 14px"
               }}>{R(c, "hero.chip_3")}</span>
             </div>
+            {/* Who teaches it, so visitors from Luca's reels recognise him straight away */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "14px"
+            }}>
+              <img src={c.img("who_is_teaching.image")} alt="" width={56} height={56} style={{
+                width: "56px",
+                height: "56px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                objectPosition: "center 12%",
+                border: "2px solid #FAAC15",
+                flex: "0 0 auto"
+              }} />
+              <span style={{
+                fontSize: "16px",
+                lineHeight: "1.4",
+                color: "#3A3A3A"
+              }}>With <strong style={{
+                  color: "#111111"
+                }}>{R(c, "who_is_teaching.heading")}</strong><br />Certified Money Coach and Times of Malta columnist</span>
+            </div>
           </div>
           <div style={{
             flex: "0 1 420px",
@@ -185,6 +208,27 @@ export default async function Page() {
               <span className="compliance" style={{
                 color: "#8E8878"
               }}>{R(c, "hero.text_8")}</span>
+              {/* One past student's words beside the first booking button */}
+              <figure style={{
+                margin: "0",
+                paddingTop: "18px",
+                borderTop: "1px solid #2A2A2A",
+                display: "flex",
+                flexDirection: "column",
+                gap: "8px"
+              }}>
+                <blockquote style={{
+                  margin: "0",
+                  fontSize: "15px",
+                  lineHeight: "1.55",
+                  color: "#E8E2D0",
+                  fontStyle: "italic"
+                }}>{R(c, "past_students.paragraph_2")}</blockquote>
+                <figcaption style={{
+                  fontSize: "13px",
+                  color: "#C9C3B1"
+                }}>{R(c, "past_students.text_2")}, past student</figcaption>
+              </figure>
             </div>
           </div>
         </div>
