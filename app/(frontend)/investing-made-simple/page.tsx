@@ -1,4 +1,5 @@
-import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
+import { pageContent, pageMetadata, R, renderMarkup } from "@/lib/cms/pageContent";
+import { initials } from "@/components/cms";
 import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
 import { getCourse } from "@/lib/cms/data";
@@ -223,7 +224,7 @@ export default async function Page() {
                   lineHeight: "1.55",
                   color: "#E8E2D0",
                   fontStyle: "italic"
-                }}>{R(c, "past_students.paragraph_2")}</blockquote>
+                }}>&ldquo;{renderMarkup(c.t("past_students.paragraph_2").trim().replace(/^["“]+|["”]+$/g, ""))}&rdquo;</blockquote>
                 <figcaption style={{
                   fontSize: "13px",
                   color: "#C9C3B1"
@@ -566,36 +567,41 @@ export default async function Page() {
             <span className="eyebrow">{R(c, "past_students.eyebrow")}</span>
             <h2 className="h2">{R(c, "past_students.heading")}</h2>
           </div>
+          <div className="proof-bar">
+            <strong>100%</strong>
+            <span>{R(c, "past_students.text_8")}</span>
+          </div>
           <div className="quotes" style={{
             columns: "2",
             columnGap: "20px"
           }}>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph")}</p><cite>{R(c, "past_students.text")}</cite></blockquote>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph_2")}</p><cite>{R(c, "past_students.text_2")}</cite></blockquote>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph_3")}</p><cite>{R(c, "past_students.text_3")}</cite></blockquote>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph_4")}</p><cite>{R(c, "past_students.text_4")}</cite></blockquote>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph_5")}</p><cite>{R(c, "past_students.text_5")}</cite></blockquote>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph_6")}</p><cite>{R(c, "past_students.text_6")}</cite></blockquote>
-            <blockquote className="quote" style={{
-              margin: "0 0 20px"
-            }}><p>{R(c, "past_students.paragraph_7")}</p><cite>{R(c, "past_students.text_7")}</cite></blockquote>
+            {(["", "_2", "_3", "_4", "_5", "_6", "_7"] as const).map((n) => {
+              const name = c.t(`past_students.text${n}`);
+              const quote = c.t(`past_students.paragraph${n}`);
+              if (!name || !quote) return null;
+              return <blockquote key={n || "_1"} className="quote" style={{
+                margin: "0 0 20px"
+              }}>
+                <p>{renderMarkup(quote.trim().replace(/^["“]+|["”]+$/g, ""))}</p>
+                <cite>
+                  <span aria-hidden="true" className="avatar">{initials(name)}</span>
+                  <span className="who">{name}<small>Facebook review · Recommends Luca</small></span>
+                </cite>
+              </blockquote>;
+            })}
           </div>
-          <span style={{
-            fontSize: "14px",
-            color: "#6B6248"
-          }}>{R(c, "past_students.text_8")}</span>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "16px"
+          }}>
+            <a href="#apply" className="btn btn-dark">{R(c, "apply.button")}</a>
+            <span style={{
+              fontSize: "15px",
+              color: "#6B6248"
+            }}>Next cohort starts 11 January 2027</span>
+          </div>
         </div>
       </section>}
       {/* FAQ */}
