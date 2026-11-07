@@ -735,7 +735,7 @@
      "label": "Paragraph",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"I just finished Luca's investing course and I can say he managed to break down the complex concepts of investing into simple terms, to the point where he motivated me to start investing and not look back! The last lesson, 'the psychology of investing', was especially eye-opening and motivating. I recommend this course wholeheartedly to whoever is not clear about investing, or would like to take the first step but doesn't have a clear plan ahead.\""
+     "default": "I just finished Luca's investing course and I can say he managed to break down the complex concepts of investing into simple terms, to the point where **he motivated me to start investing and not look back!** The last lesson, 'the psychology of investing', was especially eye-opening and motivating. I recommend this course wholeheartedly to whoever is not clear about investing, or would like to take the first step but doesn't have a clear plan ahead."
     },
     {
      "name": "text",
@@ -749,7 +749,7 @@
      "label": "Paragraph 2",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"His course helped me understand the world of investments and helped build my confidence. I learned a lot, well done.\""
+     "default": "His course helped me understand the world of investments and **helped build my confidence**. I learned a lot, well done."
     },
     {
      "name": "text_2",
@@ -763,7 +763,7 @@
      "label": "Paragraph 3",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"Very informative course. For many people, setting up an investment account and making those initial deposits is the most intimidating step. Luca breaks everything down so clearly that he makes the entire setup process simple to execute and implement. Well done, Luca.\""
+     "default": "Very informative course. For many people, setting up an investment account and making those initial deposits is the most intimidating step. Luca breaks everything down so clearly that **he makes the entire setup process simple to execute and implement**. Well done, Luca."
     },
     {
      "name": "text_3",
@@ -777,7 +777,7 @@
      "label": "Paragraph 4",
      "kind": "paragraph",
      "type": "text",
-     "default": "\"A very practical and hands-on course, suitable for both beginner and intermediate investors. Luca provides a clear step-by-step guide, from building an emergency fund to investing in the market and letting compound interest work for you. He is also very responsive and generally replies to messages on the same day. Informative, easy to follow and definitely worth doing!\""
+     "default": "A very practical and hands-on course, suitable for both beginner and intermediate investors. Luca provides a clear step-by-step guide, **from building an emergency fund to investing in the market** and letting compound interest work for you. He is also very responsive and generally replies to messages on the same day. Informative, easy to follow and definitely worth doing!"
     },
     {
      "name": "text_4",
@@ -791,7 +791,7 @@
      "label": "Paragraph 5",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"I recently attended the financial course and found it to be extremely informative and valuable. The content was well structured, easy to follow, and relevant to both beginners and those with some prior financial knowledge. I particularly appreciated the real-life examples and interactive discussions, which helped me better understand topics such as investment strategies and risk management. A course that I really recommend.\""
+     "default": "I recently attended the financial course and found it to be extremely informative and valuable. The content was well structured, easy to follow, and **relevant to both beginners and those with some prior financial knowledge**. I particularly appreciated the real-life examples and interactive discussions, which helped me better understand topics such as investment strategies and risk management. A course that I really recommend."
     },
     {
      "name": "text_5",
@@ -805,7 +805,7 @@
      "label": "Paragraph 6",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"On his newspaper column, Luca comes across as a nice guy. In person he is lovely. He is patient, passes on his knowledge using simple, everyday language. He has a hands-on approach and is highly receptive to questions from his audience. I thoroughly enjoyed his sessions and found them extremely informative.\""
+     "default": "On his newspaper column, Luca comes across as a nice guy. In person he is lovely. He is patient, **passes on his knowledge using simple, everyday language**. He has a hands-on approach and is highly receptive to questions from his audience. I thoroughly enjoyed his sessions and found them extremely informative."
     },
     {
      "name": "text_6",
@@ -819,7 +819,7 @@
      "label": "Paragraph 7",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "\"I recently completed an online investment course with Luca Caruana and I cannot recommend it enough. He has a fantastic ability to simplify complex financial concepts, making them easy to understand even if you're a complete beginner. Luca is incredibly approachable, patient, and uses great real-life examples that really help everything click. If you've been intimidated by investing, this is the course for you.\""
+     "default": "I recently completed an online investment course with Luca Caruana and I cannot recommend it enough. He has a fantastic ability to simplify complex financial concepts, making them **easy to understand even if you're a complete beginner**. Luca is incredibly approachable, patient, and uses great real-life examples that really help everything click. If you've been intimidated by investing, this is the course for you."
     },
     {
      "name": "text_7",
