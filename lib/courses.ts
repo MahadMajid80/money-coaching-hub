@@ -47,8 +47,7 @@ export const courses: Course[] = [
     time: "Mondays, 7:30–8:30pm CET",
     price: "€175",
     seats: "Strictly 20 seats",
-    // TODO: confirm this Stripe link is set up for the January 2027 cohort at €175.
-    checkout: "https://buy.stripe.com/aFadR98Hm0nFcEsgs25os0h",
+    checkout: "https://buy.stripe.com/4gMaEX3n20nF8oc4Jk5os0j",
     ctaLabel: "Take your seat",
     intro: {
       title: "You are not bad with money. You are just waiting for permission.",
