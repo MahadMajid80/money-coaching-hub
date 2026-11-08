@@ -68,7 +68,7 @@
      "label": "Text",
      "kind": "text",
      "type": "text",
-     "default": "Applications open for January"
+     "default": "Book by 31 December for €175"
     },
     {
      "name": "text_2",
@@ -117,7 +117,7 @@
      "label": "Paragraph 3",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "Live online, taught in Maltese, recorded if you miss one."
+     "default": "Live online, taught in Maltese, recorded if you miss one. **€175 if you book by 31 December. From 1 January the price goes up to €195.**"
     },
     {
      "name": "button",
@@ -618,7 +618,7 @@
      "label": "Text 2",
      "kind": "text",
      "type": "text",
-     "default": "One payment. No upsells inside the course."
+     "default": "One payment, no upsells inside the course. €175 until 31 December, €195 from 1 January."
     },
     {
      "name": "button",
@@ -985,7 +985,7 @@
      "label": "Paragraph",
      "kind": "paragraph",
      "type": "text",
-     "default": "You've been meaning to sort this out for a while. This is four Mondays."
+     "default": "You've been meaning to sort this out for a while. This is four Mondays. **Book by 31 December and it's €175. From 1 January it's €195.**"
     },
     {
      "name": "text",
