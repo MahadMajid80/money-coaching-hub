@@ -1027,109 +1027,15 @@ export default async function Home() {
             gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
             gap: "12px"
           }}>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_2")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_3")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_4")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_5")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_6")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#ffffff",
-              border: "1px solid #E6E0D0",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "700",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_7")}</div>
-            <div style={{
-              aspectRatio: "3/4",
-              borderRadius: "16px",
-              background: "#FAAC15",
-              display: "flex",
-              alignItems: "flex-end",
-              padding: "14px",
-              boxSizing: "border-box",
-              fontFamily: "Raleway,sans-serif",
-              fontWeight: "800",
-              fontSize: "15px"
-            }}>{R(c, "money_types.text_8")}</div>
+            {(["innocent","victim","warrior","martyr","fool","creator","tyrant","magician"] as const).map((slug, i) => (
+              <a key={slug} href={`/the-8-money-archetypes/#${slug}`} className="type-tile" style={{
+                background: slug === "magician" ? "#FAAC15" : "#ffffff",
+                borderColor: slug === "magician" ? "#FAAC15" : "#E6E0D0"
+              }}>
+                <img src={`/images/money-types/${slug}.webp`} alt="" loading="lazy" width={600} height={600} />
+                <span>{R(c, `money_types.${i === 0 ? "text" : `text_${i + 1}`}`)}</span>
+              </a>
+            ))}
           </div>
         </div>
         <div className="wrap" style={{
