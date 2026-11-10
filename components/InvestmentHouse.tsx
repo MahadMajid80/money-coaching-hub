@@ -5,7 +5,7 @@
 // Same maths as the original WordPress tool: each instrument gets a share (1–100%) of the €10,000,
 // the shares add up to 100%, and the projection grows €10,000 at the mix's weighted average return.
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Risk = "very-low" | "low" | "medium" | "high" | "very-high";
 type Cat = "Equities" | "Bonds" | "Thematic" | "Defensive";
@@ -53,7 +53,9 @@ export default function InvestmentHouse() {
   const [placed, setPlaced] = useState<Placed[]>([]);
   const [filter, setFilter] = useState<(typeof cats)[number]>("All");
   const [hover, setHover] = useState<Brick | null>(null);
-  const [pending, setPending] = useState<{ b: Brick; pct: number } | null>(null);
+  // The instrument being added (or, with editing, changed): its share and what's typed in the box.
+  const [pending, setPending] = useState<{ b: Brick; pct: number; typed: string; editing: boolean } | null>(null);
+  const pickRef = useRef<HTMLDivElement>(null);
   const [horizon, setHorizon] = useState<(typeof HORIZONS)[number]>(10);
   const [gate, setGate] = useState<"closed" | "open" | "sending" | "done">("closed");
   const [err, setErr] = useState("");
@@ -69,20 +71,42 @@ export default function InvestmentHouse() {
   const chosen = fv(avgRet, horizon);
   const gain = chosen - TOTAL;
 
+  // Most this instrument can take: what's unplaced, plus its own share when it's being changed.
+  const maxFor = (p: { b: Brick; editing: boolean }) => remaining + (p.editing ? placed.find((x) => x.id === p.b.id)?.pct ?? 0 : 0);
+  const clamp = (n: number, max: number) => Math.max(1, Math.min(Math.round(n) || 1, max));
+
   function pick(b: Brick) {
-    if (placed.some((x) => x.id === b.id) || full) return;
     setHover(b);
-    setPending({ b, pct: Math.max(1, Math.min(b.p, remaining)) });
+    const inHouse = placed.find((x) => x.id === b.id);
+    if (inHouse) {
+      setPending({ b, pct: inHouse.pct, typed: String(inHouse.pct), editing: true });
+      return;
+    }
+    if (full) return;
+    const pct = clamp(b.p, remaining);
+    setPending({ b, pct, typed: String(pct), editing: false });
+  }
+  function setPct(value: string) {
+    if (!pending) return;
+    const digits = value.replace(/[^\d]/g, "").slice(0, 3);
+    const n = Number(digits);
+    setPending({ ...pending, typed: digits, pct: digits ? clamp(n, maxFor(pending)) : pending.pct });
   }
   function confirm() {
     if (!pending) return;
-    const pct = Math.max(1, Math.min(pending.pct, remaining));
-    setPlaced((s) => [...s, { ...pending.b, pct }]);
+    const pct = clamp(pending.typed ? Number(pending.typed) : pending.pct, maxFor(pending));
+    setPlaced((s) => (pending.editing ? s.map((x) => (x.id === pending.b.id ? { ...x, pct } : x)) : [...s, { ...pending.b, pct }]));
     setPending(null);
   }
   function remove(id: string) {
     setPlaced((s) => s.filter((x) => x.id !== id));
+    setPending((p) => (p?.b.id === id ? null : p));
   }
+
+  // Changing a brick from the house opens the panel in the picker column; bring it into view on phones.
+  useEffect(() => {
+    if (pending?.editing) pickRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [pending?.editing, pending?.b.id]);
 
   const analysis = () => {
     const share = (f: (b: Placed) => boolean) => Math.round((placed.filter(f).reduce((s, b) => s + b.pct, 0) / (allocated || 1)) * 100);
@@ -140,9 +164,9 @@ export default function InvestmentHouse() {
               type="button"
               className="ih-brick"
               style={{ background: RISK[b.risk].bg, color: RISK[b.risk].fg, minHeight: `${Math.round(40 + b.pct * 1.6)}px` }}
-              onClick={() => remove(b.id)}
-              aria-label={`Remove ${b.name} (${b.pct}%)`}
-              title="Click to remove"
+              onClick={() => pick(b)}
+              aria-label={`Change or remove ${b.name} (${b.pct}%)`}
+              title="Click to change the amount or remove it"
             >
               <strong>
                 {b.name} · {b.pct}%
@@ -268,22 +292,55 @@ export default function InvestmentHouse() {
           ))}
         </div>
         {pending && (
-          <div className="ih-pick" role="group" aria-label={`How much goes into ${pending.b.name}`}>
+          <div ref={pickRef} className="ih-pick" role="group" aria-label={`How much goes into ${pending.b.name}`}>
             <div className="ih-pick-prev" style={{ background: RISK[pending.b.risk].bg, color: RISK[pending.b.risk].fg }}>
               {pending.b.name} · ~{pending.b.ret.toFixed(1)}%/yr
             </div>
-            <label htmlFor="ih-pct" className="ih-pick-row">
-              <span>How much of your €10,000?</span>
-              <strong>
-                {pending.pct}% · {eur((pending.pct / 100) * TOTAL)}
-              </strong>
-            </label>
-            <input id="ih-pct" type="range" min={1} max={Math.max(1, remaining)} step={1} value={pending.pct} onChange={(e) => setPending({ ...pending, pct: Number(e.target.value) })} />
-            <small style={{ color: "#6B6248" }}>{remaining}% remaining</small>
+            <div className="ih-pick-row">
+              <label htmlFor="ih-pct-num">How much of your €10,000?</label>
+              <span className="ih-pct-box">
+                <input
+                  id="ih-pct-num"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  aria-describedby="ih-pct-hint"
+                  value={pending.typed}
+                  onChange={(e) => setPct(e.target.value)}
+                  onBlur={() => setPending({ ...pending, typed: String(pending.pct) })}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      confirm();
+                    }
+                  }}
+                />
+                <span aria-hidden="true">%</span>
+              </span>
+            </div>
+            <input
+              id="ih-pct"
+              type="range"
+              aria-label={`Share for ${pending.b.name}`}
+              min={1}
+              max={Math.max(1, maxFor(pending))}
+              step={1}
+              value={pending.pct}
+              onChange={(e) => setPending({ ...pending, pct: Number(e.target.value), typed: e.target.value })}
+            />
+            <small id="ih-pct-hint" style={{ color: "#6B6248" }}>
+              {pending.pct}% = <strong style={{ color: "#111111" }}>{eur((pending.pct / 100) * TOTAL)}</strong> · type any amount from 1% to {maxFor(pending)}%
+              {pending.typed && Number(pending.typed) > maxFor(pending) ? ` (only ${maxFor(pending)}% is left, so it's capped there)` : ""}
+            </small>
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
               <button type="button" className="btn btn-dark" onClick={confirm} style={{ minHeight: "44px" }}>
-                Add to my house
+                {pending.editing ? "Save" : "Add to my house"}
               </button>
+              {pending.editing && (
+                <button type="button" className="btn btn-ghost" onClick={() => remove(pending.b.id)} style={{ minHeight: "44px" }}>
+                  Remove from house
+                </button>
+              )}
               <button type="button" className="btn btn-ghost" onClick={() => setPending(null)} style={{ minHeight: "44px" }}>
                 Cancel
               </button>
@@ -295,7 +352,7 @@ export default function InvestmentHouse() {
             const inHouse = placed.find((x) => x.id === b.id);
             return (
               <li key={b.id}>
-                <button type="button" className="brick" disabled={!!inHouse || (full && !inHouse)} aria-pressed={pending?.b.id === b.id} onClick={() => pick(b)} onMouseEnter={() => setHover(b)} onFocus={() => setHover(b)}>
+                <button type="button" className="brick" disabled={full && !inHouse} aria-pressed={pending?.b.id === b.id} onClick={() => pick(b)} onMouseEnter={() => setHover(b)} onFocus={() => setHover(b)}>
                   <span className="swatch" style={{ background: RISK[b.risk].bg, border: b.risk === "very-low" ? "1px solid #E0D5B7" : undefined }} />
                   <span className="ih-name">
                     <strong>{b.name}</strong>
@@ -313,7 +370,7 @@ export default function InvestmentHouse() {
         </ul>
         <p className="ih-info" aria-live="polite">
           {full
-            ? "Your house is complete: all €10,000 is placed. Click a brick in the house to remove it and change your mix."
+            ? "Your house is complete: all €10,000 is placed. Click any brick to change its amount or remove it."
             : hover
               ? `${hover.name}: ${hover.info}`
               : "Hover or tap an instrument to learn more, then choose how much of your €10,000 goes into it."}
