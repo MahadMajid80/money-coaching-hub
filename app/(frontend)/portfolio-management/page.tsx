@@ -59,7 +59,7 @@ export default async function Page() {
               <a href={c.t("hero.button_link")} className="btn btn-gold">{R(c, "hero.button")}</a>
               <a href={c.t("hero.button_2_link")} className="btn btn-ghost">{R(c, "hero.button_2")}</a>
             </div>
-            <div style={{
+            <div className="stat-row" style={{
               display: "flex",
               gap: "28px",
               flexWrap: "wrap",

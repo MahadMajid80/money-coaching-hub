@@ -2,6 +2,7 @@ import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
 import type { Metadata } from "next";
 import { NotifyForm } from "@/components/forms";
 import HashViews from "@/components/HashViews";
+import { SiteHeader } from "@/components/chrome";
 import { getSideHustle } from "@/lib/cms/data";
 import "./side-hustle.css";
 const baseMetadata: Metadata = {
@@ -33,37 +34,7 @@ export default async function Page() {
         display: "flex",
         flexDirection: "column"
       }}>
-        <header style={{
-          background: "#FFFFFF",
-          borderBottom: "1px solid #EFE6CF"
-        }}>
-          <div style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            width: "100%",
-            padding: "12px clamp(20px,4vw,40px)",
-            boxSizing: "border-box",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "16px",
-            flexWrap: "wrap"
-          }}>
-            <a href={c.t("general.card")} aria-label="Money Coaching Hub home" style={{
-              display: "flex",
-              alignItems: "center"
-            }}><img src={c.img("general.image")} alt={c.t("general.image_alt")} style={{
-                height: "60px",
-                width: "auto",
-                display: "block"
-              }} /></a>
-            <a href={c.t("general.button_link")} className="btn btn-dark" style={{
-              minHeight: "46px",
-              padding: "0 22px",
-              fontSize: "15px"
-            }}>{R(c, "general.button")}</a>
-          </div>
-        </header>
+        <SiteHeader cta={{ label: c.t("general.button"), href: c.t("general.button_link") }} />
         {c.show("nt_top") && <section id="nt-top" style={{
           background: "#FDF7E8",
           overflow: "hidden"
@@ -252,37 +223,7 @@ export default async function Page() {
         display: "flex",
         flexDirection: "column"
       }}>
-        <header style={{
-          background: "#FFFFFF",
-          borderBottom: "1px solid #EFE6CF"
-        }}>
-          <div style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            width: "100%",
-            padding: "12px clamp(20px,4vw,40px)",
-            boxSizing: "border-box",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "16px",
-            flexWrap: "wrap"
-          }}>
-            <a href={c.t("general.card_2")} aria-label="Money Coaching Hub home" style={{
-              display: "flex",
-              alignItems: "center"
-            }}><img src={c.img("general.image_2")} alt={c.t("general.image_2_alt")} style={{
-                height: "60px",
-                width: "auto",
-                display: "block"
-              }} /></a>
-            <a href={c.t("general.button_2_link")} className="btn btn-dark" style={{
-              minHeight: "46px",
-              padding: "0 22px",
-              fontSize: "15px"
-            }}>{R(c, "general.button_2")}</a>
-          </div>
-        </header>
+        <SiteHeader cta={{ label: c.t("general.button_2"), href: c.t("general.button_2_link") }} />
         {c.show("in_top") && <section id="in-top" style={{
           background: "#FDF7E8",
           overflow: "hidden"
@@ -1293,37 +1234,7 @@ export default async function Page() {
         display: "flex",
         flexDirection: "column"
       }}>
-        <header style={{
-          background: "#FFFFFF",
-          borderBottom: "1px solid #EFE6CF"
-        }}>
-          <div style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            width: "100%",
-            padding: "12px clamp(20px,4vw,40px)",
-            boxSizing: "border-box",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "16px",
-            flexWrap: "wrap"
-          }}>
-            <a href={c.t("general.card_3")} aria-label="Money Coaching Hub home" style={{
-              display: "flex",
-              alignItems: "center"
-            }}><img src={c.img("general.image_3")} alt={c.t("general.image_3_alt")} style={{
-                height: "60px",
-                width: "auto",
-                display: "block"
-              }} /></a>
-            <a href={c.t("general.button_3_link")} className="btn btn-dark" style={{
-              minHeight: "46px",
-              padding: "0 22px",
-              fontSize: "15px"
-            }}>{R(c, "general.button_3")}</a>
-          </div>
-        </header>
+        <SiteHeader cta={{ label: c.t("general.button_3"), href: c.t("general.button_3_link") }} />
         {c.show("pg_top") && <section id="pg-top" style={{
           background: "#FDF7E8",
           overflow: "hidden"

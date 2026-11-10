@@ -59,7 +59,8 @@ export default async function Home() {
               gap: "12px"
             }}>
               <div style={{
-                display: "flex"
+                display: "flex",
+                flexShrink: 0
               }}>
                 <img src={c.img("hero.image")} alt="" style={{
                   width: "36px",
@@ -745,7 +746,7 @@ export default async function Home() {
             <h2 className="h2">{R(c, "about.heading")}</h2>
             <p className="body">{R(c, "about.paragraph")}</p>
             <p className="body">{R(c, "about.paragraph_2")}</p>
-            <div style={{
+            <div className="stat-row" style={{
               display: "flex",
               gap: "28px",
               flexWrap: "wrap",
@@ -1061,7 +1062,7 @@ export default async function Home() {
             }}>
               <div aria-hidden="true" style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(3, 18px)",
+                gridTemplateColumns: "18px 18px 18px",
                 gap: "3px"
               }}><span style={{
                   height: "14px",

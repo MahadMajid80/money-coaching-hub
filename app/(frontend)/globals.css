@@ -89,7 +89,6 @@ textarea.field-input{height:auto;padding:12px 14px;resize:vertical}
 @media (max-width:900px){
   .home [style*="grid-template-columns: repeat(4"],.home [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2, minmax(0,1fr)) !important}
   .home [style*="grid-template-columns: repeat(3"],.home [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important}
-  .home nav[aria-label="Main"]{display:none !important}
 }
 @media (max-width:600px){
   .home [style*="grid-template-columns: repeat(2"],.home [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr !important}
@@ -103,7 +102,9 @@ textarea.field-input{height:auto;padding:12px 14px;resize:vertical}
   .g2{grid-template-columns:1fr !important}
   .quotes{columns:1 !important}
   h1{font-size:44px !important}.h2{font-size:34px !important}
-  .wrap{padding:0 20px !important}
+  /* side gutters only: blocks that space themselves out vertically keep doing so (smaller) */
+  .wrap{padding-left:20px !important;padding-right:20px !important}
+  .wrap[style*="padding-top"]{padding-top:40px !important}
   section{padding-top:64px !important;padding-bottom:64px !important}
 }
 /* header: the menu folds into the Menu button before it gets cramped; on phones the page's button moves into the menu */
@@ -125,6 +126,8 @@ textarea.field-input{height:auto;padding:12px 14px;resize:vertical}
 .mnav-panel > a:not(.btn){padding:14px 0;border-bottom:1px solid #F3EEDF;font-weight:700;font-size:17px;color:#111111;text-decoration:none}
 @media (prefers-reduced-motion:reduce){.mnav-bars,.mnav-bars::before,.mnav-bars::after{transition:none}}
 @media (max-width:620px){h1{font-size:38px !important}.h2{font-size:30px !important}}
+/* small stat rows (2023 · 1,000+ · 70+): three across on phones */
+@media (max-width:620px){.stat-row{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px !important}.stat-row > div > span:first-child{font-size:24px !important}.stat-row > div > span + span{font-size:13px !important;line-height:1.35}}
 
 /* sections that keep their own vertical padding on phones */
 section.pad-0{padding-top:0 !important;padding-bottom:0 !important}
