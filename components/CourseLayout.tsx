@@ -117,7 +117,7 @@ export default async function CourseLayout({ slug }: { slug: string }) {
                 </p>
               )}
             </div>
-            <div className="g2" style={{ display: "grid", gridTemplateColumns: `repeat(${c.sessions.length === 1 ? 1 : 2}, minmax(0, 1fr))`, gap: "20px" }}>
+            <div className="g2" style={{ display: "grid", gridTemplateColumns: `repeat(${c.sessions.length === 1 ? 1 : c.sessions.length === 3 ? 3 : 2}, minmax(0, 1fr))`, gap: "20px" }}>
               {c.sessions.map((s, i) => (
                 <article key={s.title} className="session">
                   <span className="num">{c.sessions.length === 1 ? "→" : String(i + 1).padStart(2, "0")}</span>
