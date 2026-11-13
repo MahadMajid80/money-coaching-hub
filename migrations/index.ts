@@ -3,6 +3,7 @@ import * as migration_20261104_152122_blob_storage from './20261104_152122_blob_
 import * as migration_20261104_153200_single_admin from './20261104_153200_single_admin';
 import * as migration_20261105_081630_security_hardening from './20261105_081630_security_hardening';
 import * as migration_20261112_090000_crypto_three_sessions from './20261112_090000_crypto_three_sessions';
+import * as migration_20261113_160000_blog_article_1 from './20261113_160000_blog_article_1';
 
 export const migrations = [
   {
@@ -29,5 +30,10 @@ export const migrations = [
     up: migration_20261112_090000_crypto_three_sessions.up,
     down: migration_20261112_090000_crypto_three_sessions.down,
     name: '20261112_090000_crypto_three_sessions',
+  },
+  {
+    up: migration_20261113_160000_blog_article_1.up,
+    down: migration_20261113_160000_blog_article_1.down,
+    name: '20261113_160000_blog_article_1',
   },
 ];
