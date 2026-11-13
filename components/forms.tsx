@@ -50,7 +50,7 @@ export function UnspokenForm() {
       </p>
       {state === "ok" ? (
         <p className="form-msg form-msg--ok" role="status">
-          You&apos;re in. Look out for the next story in your inbox (and check your spam folder for the confirmation).
+          You&apos;re in. Look out for the next story in your inbox.
         </p>
       ) : (
         <>
