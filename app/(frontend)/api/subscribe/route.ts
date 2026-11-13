@@ -47,7 +47,7 @@ export async function POST(req: Request) {
   };
 
   // Email each new sign-up to the site owner (same address as contact enquiries).
-  const listName = list === "side-hustle" ? "Side Hustle (notify me)" : "UNSPOKEN newsletter";
+  const listName = list === "side-hustle" ? "Side Hustle (notify me)" : "Newsletter";
   const emailed = await notifyOwner({
     subject: `New sign-up: ${email} – ${listName}`,
     text: `New newsletter sign-up\n\nEmail: ${email}\nName: ${name || "-"}\nList: ${listName}\nForm: ${source}`,
