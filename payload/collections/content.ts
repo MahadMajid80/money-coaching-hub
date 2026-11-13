@@ -293,7 +293,7 @@ export const Subscribers: CollectionConfig = {
     useAsTitle: "email",
     group: "Inbox",
     defaultColumns: ["email", "firstName", "source", "createdAt", "syncedToMailerLite"],
-    description: "Everyone who signed up on the site. They are also added to MailerLite when it's connected.",
+    description: "Everyone who signed up on the site. Each new sign-up is also emailed to you (Site settings → Contact & social → “Send form messages to”), and added to MailerLite when it's connected.",
   },
   access: { read: loggedIn, create: () => false, update: loggedIn, delete: loggedIn },
   defaultSort: "-createdAt",

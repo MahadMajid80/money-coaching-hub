@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { cms } from "@/lib/cms/payload";
+import { notifyOwner } from "@/lib/mail";
 import { cleanLine, clientIp, ipHash, readFormBody, tooMany } from "@/lib/security/rateLimit";
 
-// Adds a subscriber to MailerLite (the UNSPOKEN list).
+// Saves a newsletter sign-up in the dashboard, emails it to the site owner, and (when connected) adds it to MailerLite.
 // Set in Vercel → Settings → Environment Variables:
 //   MAILERLITE_API_KEY     – MailerLite → Integrations → API → generate a token
 //   MAILERLITE_GROUP_ID    – the UNSPOKEN group's ID (MailerLite → Subscribers → Groups)
@@ -45,11 +46,24 @@ export async function POST(req: Request) {
     } catch {}
   };
 
+  // Email each new sign-up to the site owner (same address as contact enquiries).
+  const listName = list === "side-hustle" ? "Side Hustle (notify me)" : "UNSPOKEN newsletter";
+  const emailed = await notifyOwner({
+    subject: `New sign-up: ${email} – ${listName}`,
+    text: `New newsletter sign-up\n\nEmail: ${email}\nName: ${name || "-"}\nList: ${listName}\nForm: ${source}`,
+    rows: [
+      ["Email", email],
+      ["Name", name],
+      ["List", listName],
+      ["Form", source],
+    ],
+    replyTo: { name: name || email, email },
+  });
+
   const key = process.env.MAILERLITE_API_KEY;
   const group = list === "side-hustle" ? process.env.MAILERLITE_GROUP_SIDE_HUSTLE || process.env.MAILERLITE_GROUP_ID : process.env.MAILERLITE_GROUP_ID;
   if (!key || !group) {
-    console.error("Subscribe: MAILERLITE_API_KEY / MAILERLITE_GROUP_ID not set.");
-    if (recordId != null) return NextResponse.json({ ok: true });
+    if (recordId != null || emailed) return NextResponse.json({ ok: true });
     return NextResponse.json({ error: "Sign-up is being set up. Please email info@moneycoachinghub.com and we'll add you." }, { status: 503 });
   }
 
@@ -61,13 +75,14 @@ export async function POST(req: Request) {
     });
     if (!res.ok) {
       console.error("MailerLite error", res.status, await res.text());
-      if (recordId != null) return NextResponse.json({ ok: true });
+      if (recordId != null || emailed) return NextResponse.json({ ok: true });
       return NextResponse.json({ error: "Sorry, that didn't work. Please try again." }, { status: 502 });
     }
     await markSynced();
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("MailerLite request failed", e);
+    if (recordId != null || emailed) return NextResponse.json({ ok: true });
     return NextResponse.json({ error: "Sorry, that didn't work. Please try again." }, { status: 502 });
   }
 }
