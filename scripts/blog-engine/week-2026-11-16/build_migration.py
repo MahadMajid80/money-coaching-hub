@@ -51,7 +51,8 @@ for a in ARTICLES:
     items.append({k: a[k] for k in ('slug', 'category', 'when', 'title', 'excerpt', 'meta_title', 'meta_desc', 'alt_wide', 'alt_share')}
                  | {'content': content, 'images': images, 'wide': b64(C + a['key'] + '-wide.webp'), 'share': b64(C + a['key'] + '-share.webp')})
 
-ts = """import { MigrateUpArgs, MigrateDownArgs } from '@payloadcms/db-sqlite'
+ts = """/* eslint-disable @typescript-eslint/no-explicit-any */
+import { MigrateUpArgs, MigrateDownArgs } from '@payloadcms/db-sqlite'
 
 // Blog week of 16 November 2026: four articles, each with a text-free blog image, a titled share image,
 // and in-article charts/tables (uploaded to Media and placed in the content as image blocks).

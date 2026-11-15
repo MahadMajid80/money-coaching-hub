@@ -30,6 +30,8 @@ def md(text):
             out.append(f'<li>{inline(s[2:] if tag == "ul" else m.group(1))}</li>'); continue
         if lst: out.append(f'</{lst}>'); lst = None
         if not s: continue
+        mi = re.match(r'^\{\{img:([\w-]+)\|(.*)\}\}$', s)
+        if mi: out.append(f'<figure class="inl"><img src="{img(C + "v-" + mi.group(1) + ".webp")}" alt="{html.escape(mi.group(2))}"></figure>'); continue
         if s.startswith('> '): out.append(f'<blockquote>{inline(s[2:])}</blockquote>')
         elif s.startswith('### '): out.append(f'<h4>{inline(s[4:])}</h4>')
         elif s.startswith('## '): out.append(f'<h3>{inline(s[3:])}</h3>')
@@ -82,11 +84,11 @@ pre{{white-space:pre-wrap;font:15px/1.55 Lato,sans-serif;background:var(--cream)
 .hint{{font-size:13px;color:var(--mute)}}code{{font-size:12px;word-break:break-all}}
 .prose h3{{font:800 19px Raleway,sans-serif;margin:22px 0 6px}}.prose h4{{font:700 16px Raleway,sans-serif;margin:16px 0 4px}}
 blockquote{{margin:12px 0;padding:12px 16px;background:var(--cream);border-left:4px solid var(--gold);border-radius:4px}}
-a{{color:#9a6a00}}
+a{{color:#9a6a00}}.inl{{margin:16px 0}}.inl img{{width:100%;border-radius:10px;display:block}}
 </style></head><body>
 <header><div class="wrap"><div class="kick">Money Coaching Hub · Blog</div>
 <h1>This week's four articles, ready for your OK</h1>
-<p>Monday 16 to Saturday 21 November. Each goes live at 07:00 Malta time on its day.</p></div></header>
+<p>Monday 16 to Saturday 21 November. Each goes live at 07:00 Malta time on its day. Charts and tables are inside each article: tap Read the full article.</p></div></header>
 <div class="how"><b>To approve:</b> merge <a href="https://github.com/luca19900/moneycoachinghub/pull/14">pull request #14 on GitHub</a>. Monday's article goes live as soon as you merge; the other three publish themselves on their mornings. <b>Want changes?</b> Tell me what to change and I'll update it before you merge.</div>
 <main>{cards}</main></body></html>'''
 open('/home/claude/work/blog/w1/review.html', 'w').write(page)
