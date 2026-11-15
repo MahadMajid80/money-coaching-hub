@@ -11,6 +11,7 @@ import { LivePreviewListener } from "@/components/LivePreviewListener";
 import { getSettings } from "@/lib/cms/data";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
+import { WhatsAppFloat } from "@/components/WhatsAppButton";
 
 // Content comes from the dashboard, so pages are rendered fresh on each visit.
 export const dynamic = "force-dynamic";
@@ -51,6 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           Skip to content
         </a>
         {children}
+        <WhatsAppFloat />
         <LivePreviewListener />
         {ga && (
           <>

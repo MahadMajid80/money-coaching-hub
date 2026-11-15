@@ -54,6 +54,9 @@ export const mainNav: NavItem[] = [
 
 export const bookCall = "/contact-us/";
 
+// WhatsApp Business short link (keeps the phone number off the page).
+export const whatsapp = "https://wa.me/message/6QZWZO5REG65M1";
+
 export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/moneycoachluca/" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/money-coaching-hub/" },

@@ -4,6 +4,7 @@ import { cache } from "react";
 import type { Course } from "@/lib/courses";
 import { cms, mediaUrl } from "./payload";
 import { safeUrl } from "@/lib/security/sanitize";
+import { whatsapp } from "@/lib/site";
 
 type Doc = Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 export type Link = { label: string; url: string; newTab?: boolean | null };
@@ -93,13 +94,15 @@ export const getSettings = cache(async (): Promise<SiteSettings> => {
     email: s.email || "info@moneycoachinghub.com",
     phone: s.phone || "",
     location: s.location || "Malta",
-    socials: socials.length
-      ? socials
-      : [
-          { label: "Instagram", url: "https://www.instagram.com/moneycoachluca/", newTab: true },
-          { label: "LinkedIn", url: "https://www.linkedin.com/company/money-coaching-hub/", newTab: true },
-          { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61575551973728", newTab: true },
-        ],
+    socials: withWhatsApp(
+      socials.length
+        ? socials
+        : [
+            { label: "Instagram", url: "https://www.instagram.com/moneycoachluca/", newTab: true },
+            { label: "LinkedIn", url: "https://www.linkedin.com/company/money-coaching-hub/", newTab: true },
+            { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61575551973728", newTab: true },
+          ],
+    ),
     notifyEmail: s.notifyEmail || s.email || "",
     seoTitle: s.seoTitle || "Money Coaching Hub – Luca Caruana, Certified Money Coach, Malta",
     seoDescription:
@@ -244,4 +247,9 @@ export async function findRedirect(path: string): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+/** Adds the WhatsApp Business link to the footer socials unless the dashboard already lists one. */
+function withWhatsApp(list: Link[]): Link[] {
+  return list.some((l) => /wa\.me|whatsapp/i.test(l.url)) ? list : [...list, { label: "WhatsApp", url: whatsapp, newTab: true } as Link];
 }
