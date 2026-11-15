@@ -6,6 +6,7 @@ import * as migration_20261112_090000_crypto_three_sessions from './20261112_090
 import * as migration_20261113_160000_blog_article_1 from './20261113_160000_blog_article_1';
 import * as migration_20261113_170000_blog_article_1_cover from './20261113_170000_blog_article_1_cover';
 import * as migration_20261114_140000_column_bets_husband from './20261114_140000_column_bets_husband';
+import * as migration_20261115_230000_blog_week_16_nov from './20261115_230000_blog_week_16_nov';
 
 export const migrations = [
   {
@@ -47,5 +48,10 @@ export const migrations = [
     up: migration_20261114_140000_column_bets_husband.up,
     down: migration_20261114_140000_column_bets_husband.down,
     name: '20261114_140000_column_bets_husband',
+  },
+  {
+    up: migration_20261115_230000_blog_week_16_nov.up,
+    down: migration_20261115_230000_blog_week_16_nov.down,
+    name: '20261115_230000_blog_week_16_nov',
   },
 ];
