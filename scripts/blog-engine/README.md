@@ -18,5 +18,7 @@ Four articles a week (Mon, Tue, Thu, Sat at 07:00 Malta) drafted from Luca's Mon
 5. Build the migration with build_migration.py (copy and edit the ARTICLES list), register it in
    migrations/index.ts, open a PR. Future-dated posts are saved as drafts plus a `schedulePublish` job
    (waitUntil 05:55 UTC on the day); the daily Vercel cron (06:00 UTC) publishes them. Merge = approval.
-   Data migrations must refuse to run when VERCEL_ENV === 'preview' (shared live DB).
+   Data migrations must refuse to run when VERCEL_ENV === 'preview' (shared live DB). Right after a merge,
+   several server instances can run the migration at the same time: keep the try/catch around the post create
+   (it removes the images it uploaded and skips the post if another instance got there first).
 6. Build the review page with review.py, publish it as an artifact, set the calendar rows to "Ready for Luca".
