@@ -118,7 +118,12 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
     const content = withImageIds(it.content, ids)
 
     const publishNow = new Date(it.when).getTime() <= now
-    const post = await payload.create({
+    // Several server instances can start at once and run this migration side by side. If another one
+    // already created this post, tidy up the images we just uploaded and move on instead of crashing.
+    const created = [wideMedia.id, shareMedia.id, ...Object.values(ids)]
+    let post: any
+    try {
+      post = await payload.create({
       collection: 'posts',
       draft: !publishNow,
       data: {
@@ -134,6 +139,12 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
       } as any,
       req,
     })
+    } catch (err) {
+      const again = await payload.find({ collection: 'posts', where: { slug: { equals: it.slug } }, limit: 1, depth: 0, draft: true, req })
+      if (!again.docs.length) throw err
+      for (const id of created) await payload.delete({ collection: 'media', id, req }).catch(() => {})
+      continue
+    }
 
     if (!publishNow) {
       await payload.jobs.queue({
