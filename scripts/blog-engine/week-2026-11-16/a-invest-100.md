@@ -16,6 +16,8 @@ If you invest €100 every month and your investments grow by an average of 7% a
 - After 20 years: about **€52,400**, from €24,000 put in.
 - After 30 years: about **€122,700**, from €36,000 put in.
 
+{{img:a-growth|Bar chart: €100 a month at 7% a year grows to about €17,409 after 10 years (€12,000 put in), €52,397 after 20 years (€24,000 put in) and €122,709 after 30 years (€36,000 put in).}}
+
 Look at that last line again. Over 30 years, more than two thirds of the final amount is growth, not money you put in. That's compound growth: your returns start earning returns of their own.
 
 *Illustration only. It assumes a steady 7% a year, which markets never deliver in a straight line, and ignores fees, tax and inflation. Returns can be lower, and you can lose money.*
@@ -40,6 +42,8 @@ Two things make ETFs popular with beginners:
 - **Low fees.** Many index ETFs charge around 0.1% to 0.3% a year. Some actively managed funds charge 1% to 2.5% a year, plus entry fees.
 
 Fees sound small. They're not. On €100 a month over 30 years, the difference between paying 0.2% and 1.5% a year could be around **€26,000** in my example above. Same money in, very different result.
+
+{{img:a-fees|Bar chart: €100 a month for 30 years grows to about €117,955 in a fund charging 0.2% a year, and about €91,780 in one charging 1.5% a year.}}
 
 Having said that, "an ETF" is not one thing. Some hold the 500 largest American companies. Others hold the whole world, bonds, or a single sector. Read the fund's factsheet before you buy. It tells you what it holds, where, and what it costs.
 

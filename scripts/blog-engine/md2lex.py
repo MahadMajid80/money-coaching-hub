@@ -47,6 +47,10 @@ def convert(md):
             kind = 'number'; lst.append(m.group(2)); continue
         flush()
         if not s: continue
+        mi = re.match(r'^\{\{img:([\w-]+)\|(.*)\}\}$', s)
+        if mi:
+            nodes.append({"type": "upload", "version": 3, "format": "", "id": "img" + re.sub(r'[^a-z0-9]', '', mi.group(1)),
+                          "fields": None, "relationTo": "media", "value": "__IMG_" + mi.group(1) + "__"}); continue
         if s.startswith('> '): nodes.append(base("quote", runs(s[2:])))
         elif s.startswith('### '): nodes.append(base("heading", runs(s[4:]), tag='h3'))
         elif s.startswith('## '): nodes.append(base("heading", runs(s[3:]), tag='h2'))

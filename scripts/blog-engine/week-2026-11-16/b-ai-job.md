@@ -25,6 +25,8 @@ Your emergency fund should be based on your **essential** monthly costs, not you
 - Childcare and school costs
 - Loan repayments
 
+{{img:b-worksheet|Worksheet: list your essential monthly costs (home loan or rent, groceries, utilities, insurance, childcare, loan repayments, transport to work), add them up, then multiply by 6 and by 12.}}
+
 Add them up. For someone who is the main earner, with children and a mortgage, six to twelve months of these essentials is a sensible buffer. If that truly comes to €100,000, then aim for it. Most people are surprised at how much lower it comes out once they strip it back to the needs.
 
 And remember, your partner's income counts. If the household still has one salary coming in, the gap you need to cover is smaller.

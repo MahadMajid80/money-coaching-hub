@@ -24,6 +24,8 @@ You can't control his gambling. You can control how exposed your family's money 
 
 None of this cuts him off. He still has his own income. It simply means the family's foundations are no longer within reach of the next bet.
 
+{{img:d-checklist|Checklist for this week: keep only a working balance in the joint account, lower daily limits, move the children's savings into your name, keep your salary in your own account, turn on notifications, pause any new loan. Support in Malta: Supportline 179.}}
+
 ## Pause the big decisions
 
 This is the hard one. If you're about to take on a new loan, a second property or any big financial commitment, pause it.

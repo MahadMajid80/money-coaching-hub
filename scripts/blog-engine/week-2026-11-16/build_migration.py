@@ -41,15 +41,20 @@ ARTICLES = [
 
 def b64(p): return base64.b64encode(open(p, 'rb').read()).decode()
 
+import re as _re
+V = '/home/claude/work/covers/'
 items = []
 for a in ARTICLES:
+    md_text = open(W + a['md']).read()
+    images = [{'key': k, 'alt': alt, 'data': b64(V + 'v-' + k + '.webp')} for k, alt in _re.findall(r'\{\{img:([\w-]+)\|(.*)\}\}', md_text)]
     content = convert(open(W + a['md']).read())
     items.append({k: a[k] for k in ('slug', 'category', 'when', 'title', 'excerpt', 'meta_title', 'meta_desc', 'alt_wide', 'alt_share')}
-                 | {'content': content, 'wide': b64(C + a['key'] + '-wide.webp'), 'share': b64(C + a['key'] + '-share.webp')})
+                 | {'content': content, 'images': images, 'wide': b64(C + a['key'] + '-wide.webp'), 'share': b64(C + a['key'] + '-share.webp')})
 
 ts = """import { MigrateUpArgs, MigrateDownArgs } from '@payloadcms/db-sqlite'
 
-// Blog week of 16 November 2026: four articles, each with a text-free blog image and a titled share image.
+// Blog week of 16 November 2026: four articles, each with a text-free blog image, a titled share image,
+// and in-article charts/tables (uploaded to Media and placed in the content as image blocks).
 // Each post is saved as a draft with its publish date, and a scheduled-publish job is queued for 07:00 Malta time
 // on that date (the daily Vercel Cron runs the queue). A post whose date has already passed is published straight away.
 // Preview deployments share the live database, so this refuses to run there; it runs on the live site.
@@ -58,6 +63,21 @@ type Item = {
   slug: string; category: string; when: string; title: string; excerpt: string
   meta_title: string; meta_desc: string; alt_wide: string; alt_share: string
   content: unknown; wide: string; share: string
+  images: { key: string; alt: string; data: string }[]
+}
+
+// Swap each inline-image placeholder ("__IMG_<key>__") in the content for the uploaded media id.
+function withImageIds(node: any, ids: Record<string, number | string>): any {
+  if (Array.isArray(node)) return node.map((n) => withImageIds(n, ids))
+  if (node && typeof node === 'object') {
+    const out: any = {}
+    for (const [k, v] of Object.entries(node)) {
+      const m = typeof v === 'string' ? v.match(/^__IMG_(.+)__$/) : null
+      out[k] = m ? ids[m[1]] : withImageIds(v, ids)
+    }
+    return out
+  }
+  return node
 }
 
 const ITEMS: Item[] = __ITEMS__
@@ -85,6 +105,17 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
       file: { data: share, mimetype: 'image/webp', name: `${it.slug}.webp`, size: share.length }, req,
     })
 
+    const ids: Record<string, number | string> = {}
+    for (const im of it.images) {
+      const buf = Buffer.from(im.data, 'base64')
+      const m = await payload.create({
+        collection: 'media', data: { alt: im.alt } as any,
+        file: { data: buf, mimetype: 'image/webp', name: `${it.slug}-${im.key}.webp`, size: buf.length }, req,
+      })
+      ids[im.key] = m.id
+    }
+    const content = withImageIds(it.content, ids)
+
     const publishNow = new Date(it.when).getTime() <= now
     const post = await payload.create({
       collection: 'posts',
@@ -95,7 +126,7 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
         category: categoryId,
         featuredImage: wideMedia.id,
         excerpt: it.excerpt,
-        content: it.content as any,
+        content: content as any,
         publishedAt: publishNow ? new Date(now).toISOString() : it.when,
         _status: publishNow ? 'published' : 'draft',
         meta: { title: it.meta_title, description: it.meta_desc, image: shareMedia.id },

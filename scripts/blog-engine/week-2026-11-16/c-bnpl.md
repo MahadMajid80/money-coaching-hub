@@ -14,6 +14,8 @@ Let's start with the part that matters most. That plan cost her **€565 extra**
 
 Put another way, she paid more than a quarter of a phone for the privilege of not paying for it today. Sometimes that's a fair trade. Often it isn't.
 
+{{img:c-table|Table: paying in full costs €2,000 and leaves no cash from that €2,000; buy now, pay later costs €2,565 in total, €565 extra (about 28%), but keeps €2,000 in the bank as a buffer.}}
+
 The trouble with buy now, pay later is that it's designed to feel free. Small monthly amounts. One tap at checkout. No forms. And that's exactly why it's easy to stack three or four plans without noticing.
 
 ## Firstly, when it can make sense
