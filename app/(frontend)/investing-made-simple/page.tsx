@@ -3,6 +3,7 @@ import { initials } from "@/components/cms";
 import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
 import { getCourse } from "@/lib/cms/data";
+import { WhatsAppInline } from "@/components/WhatsAppButton";
 const baseMetadata: Metadata = {
   title: "Investing Made Simple – Live Online Course in Maltese",
   description: "Four live online sessions, in Maltese, on how to invest your own money. Taught by a Certified Money Coach who sells no financial products. Next cohort starts 11 January 2027.",
@@ -212,6 +213,7 @@ export default async function Page() {
               <a href={book("hero.button_link")} className="btn btn-gold" style={{
                 width: "100%"
               }}>{R(c, "hero.button")}</a>
+              <WhatsAppInline dark />
               <span className="compliance" style={{
                 color: "#8E8878"
               }}>{R(c, "hero.text_8")}</span>
@@ -679,6 +681,7 @@ export default async function Page() {
             <a href={checkout} className="btn btn-dark" style={{
               minWidth: "280px"
             }}>{R(c, "apply.button")}</a>
+            <WhatsAppInline />
             <span className="compliance" style={{
               color: "#5A4A1A",
               maxWidth: "460px"

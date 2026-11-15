@@ -3,6 +3,7 @@ import { QuoteCards } from "@/components/cms";
 import { getReviews } from "@/lib/cms/data";
 import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
+import { WhatsAppInline } from "@/components/WhatsAppButton";
 const baseMetadata: Metadata = {
   title: "Coaching, one-to-one – Individual & Couples Money Coaching",
   description: "One-to-one and couples money coaching with Luca Caruana, Certified Money Coach. Online from anywhere, or in person in Malta.",
@@ -459,6 +460,7 @@ export default async function Page() {
           <a href={c.t("cta.button_link")} className="btn btn-dark" style={{
             minWidth: "280px"
           }}>{R(c, "cta.button")}</a>
+          <WhatsAppInline text="Prefer to message first? Ask me on WhatsApp" />
         </div>
       </section>}
 
