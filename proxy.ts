@@ -15,7 +15,8 @@ const emailConfigured = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER &
 function csp(nonce: string, admin: boolean) {
   const directives: Record<string, string[]> = {
     "default-src": ["'self'"],
-    "script-src": ["'self'", `'nonce-${nonce}'`, "'strict-dynamic'", ...(isDev ? ["'unsafe-eval'"] : [])],
+    // Google reCAPTCHA (forms): loaded by the site's own script, so 'strict-dynamic' allows it; the hosts are for older browsers.
+    "script-src": ["'self'", `'nonce-${nonce}'`, "'strict-dynamic'", "https://www.google.com/recaptcha/", "https://www.gstatic.com/recaptcha/", ...(isDev ? ["'unsafe-eval'"] : [])],
     "style-src": ["'self'", "'unsafe-inline'", ...(admin ? ["https://cdn.jsdelivr.net"] : [])],
     "img-src": ["'self'", "data:", "blob:", "https:"],
     "font-src": ["'self'", "data:", ...(admin ? ["https://cdn.jsdelivr.net"] : [])],
@@ -28,11 +29,13 @@ function csp(nonce: string, admin: boolean) {
       "https://www.googletagmanager.com",
       "https://www.facebook.com",
       "https://connect.facebook.net",
+      "https://www.google.com",
+      "https://www.gstatic.com",
       ...(admin ? ["https://cdn.jsdelivr.net"] : []),
       ...(isDev ? ["ws:"] : []),
     ],
     "media-src": ["'self'", "https:"],
-    "frame-src": ["'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com", "https://player.vimeo.com"],
+    "frame-src": ["'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com", "https://player.vimeo.com", "https://www.google.com", "https://recaptcha.google.com"],
     "worker-src": ["'self'", "blob:"],
     "frame-ancestors": ["'self'"],
     "form-action": ["'self'"],

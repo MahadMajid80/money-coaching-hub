@@ -2,7 +2,8 @@
 
 // Working versions of the design's forms. Markup and inline styles follow the design pack.
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Recaptcha, captchaToken, type RecaptchaHandle } from "./Recaptcha";
 
 type State = "idle" | "sending" | "ok" | "err";
 
@@ -28,14 +29,24 @@ const Honeypot = ({ id }: { id: string }) => (
 export function UnspokenForm() {
   const [state, setState] = useState<State>("idle");
   const [err, setErr] = useState("");
+  const cap = useRef<RecaptchaHandle>(null);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    let recaptcha: string;
+    try {
+      recaptcha = captchaToken(cap);
+    } catch (x) {
+      setErr((x as Error).message);
+      setState("err");
+      return;
+    }
     setState("sending");
     try {
-      await post("/api/subscribe/", { name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "homepage" });
+      await post("/api/subscribe/", { recaptcha, name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "homepage" });
       setState("ok");
     } catch (x) {
+      cap.current?.reset();
       setErr((x as Error).message);
       setState("err");
     }
@@ -61,6 +72,7 @@ export function UnspokenForm() {
           <label htmlFor="nl-email" style={labelStyle}>Email address</label>
           <input id="nl-email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" style={inputStyle} />
           <Honeypot id="nl-web" />
+          <Recaptcha ref={cap} />
           {state === "err" && <p className="form-msg form-msg--err" role="alert">{err}</p>}
           <button type="submit" className="btn btn-dark" style={{ border: "0", cursor: "pointer", width: "100%" }} disabled={state === "sending"}>
             {state === "sending" ? "Sending…" : "Send me the next story"}
@@ -76,12 +88,21 @@ export function UnspokenForm() {
 export function EnquiryForm() {
   const [state, setState] = useState<State>("idle");
   const [err, setErr] = useState("");
+  const cap = useRef<RecaptchaHandle>(null);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    let recaptcha: string;
+    try {
+      recaptcha = captchaToken(cap);
+    } catch (x) {
+      setErr((x as Error).message);
+      setState("err");
+      return;
+    }
     setState("sending");
     try {
-      await post("/api/contact/", {
+      await post("/api/contact/", { recaptcha,
         kind: "Workshop enquiry",
         name: f.get("name"),
         email: f.get("email"),
@@ -91,6 +112,7 @@ export function EnquiryForm() {
       });
       setState("ok");
     } catch (x) {
+      cap.current?.reset();
       setErr((x as Error).message);
       setState("err");
     }
@@ -115,6 +137,7 @@ export function EnquiryForm() {
           <label htmlFor="c-size" style={labelStyle}>Team size and what you have in mind</label>
           <textarea id="c-size" name="message" rows={3} required style={{ border: "1.5px solid #D9CFB3", borderRadius: "12px", padding: "12px 14px", fontFamily: "Lato,sans-serif", fontSize: "16px", resize: "vertical" }}></textarea>
           <Honeypot id="c-web" />
+          <Recaptcha ref={cap} />
           {state === "err" && <p className="form-msg form-msg--err" role="alert">{err}</p>}
           <button type="submit" className="btn btn-dark" style={{ border: "0", cursor: "pointer", width: "100%" }} disabled={state === "sending"}>
             {state === "sending" ? "Sending…" : "Send enquiry"}
@@ -129,12 +152,21 @@ export function EnquiryForm() {
 export function CallRequestForm() {
   const [state, setState] = useState<State>("idle");
   const [err, setErr] = useState("");
+  const cap = useRef<RecaptchaHandle>(null);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    let recaptcha: string;
+    try {
+      recaptcha = captchaToken(cap);
+    } catch (x) {
+      setErr((x as Error).message);
+      setState("err");
+      return;
+    }
     setState("sending");
     try {
-      await post("/api/contact/", {
+      await post("/api/contact/", { recaptcha,
         kind: "Call request",
         name: f.get("name"),
         email: f.get("email"),
@@ -145,6 +177,7 @@ export function CallRequestForm() {
       });
       setState("ok");
     } catch (x) {
+      cap.current?.reset();
       setErr((x as Error).message);
       setState("err");
     }
@@ -178,6 +211,7 @@ export function CallRequestForm() {
       <label htmlFor="b-msg" style={labelStyle}>Anything you&apos;d like Luca to know (optional)</label>
       <textarea id="b-msg" name="message" rows={3} style={{ border: "1.5px solid #D9CFB3", borderRadius: "12px", padding: "12px 14px", fontFamily: "Lato,sans-serif", fontSize: "16px", resize: "vertical" }}></textarea>
       <Honeypot id="b-web" />
+      <Recaptcha ref={cap} />
       {state === "err" && <p className="form-msg form-msg--err" role="alert">{err}</p>}
       <button type="submit" className="btn btn-gold" style={{ width: "100%" }} disabled={state === "sending"}>
         {state === "sending" ? "Sending…" : "Request my call"}
@@ -190,14 +224,24 @@ export function CallRequestForm() {
 export function NotifyForm({ id, note }: { id: string; note: string }) {
   const [state, setState] = useState<State>("idle");
   const [err, setErr] = useState("");
+  const cap = useRef<RecaptchaHandle>(null);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    let recaptcha: string;
+    try {
+      recaptcha = captchaToken(cap);
+    } catch (x) {
+      setErr((x as Error).message);
+      setState("err");
+      return;
+    }
     setState("sending");
     try {
-      await post("/api/subscribe/", { email: f.get("email"), website: f.get("website"), list: "side-hustle", source: "side-hustle" });
+      await post("/api/subscribe/", { recaptcha, email: f.get("email"), website: f.get("website"), list: "side-hustle", source: "side-hustle" });
       setState("ok");
     } catch (x) {
+      cap.current?.reset();
       setErr((x as Error).message);
       setState("err");
     }
@@ -227,6 +271,7 @@ export function NotifyForm({ id, note }: { id: string; note: string }) {
             </button>
           </div>
           <Honeypot id={`${id}-web`} />
+          <Recaptcha ref={cap} />
           {state === "err" && <p className="form-msg form-msg--err" role="alert">{err}</p>}
           <p style={{ margin: "0", fontSize: "15px", lineHeight: "1.5", color: "#3A3A3A" }}>{note}</p>
         </>

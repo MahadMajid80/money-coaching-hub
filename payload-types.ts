@@ -583,7 +583,7 @@ export interface Enquiry {
   createdAt: string;
 }
 /**
- * Everyone who signed up on the site. They are also added to MailerLite when it's connected.
+ * Everyone who signed up on the site. Each new sign-up is also emailed to you (Site settings → Contact & social → “Send form messages to”), and added to MailerLite when it's connected.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "subscribers".
@@ -3253,7 +3253,7 @@ export interface SiteSetting {
       }[]
     | null;
   /**
-   * Where contact and workshop enquiries are emailed. Leave empty to use the email above.
+   * Where contact and workshop enquiries, and new newsletter sign-ups, are emailed. Leave empty to use the email above.
    */
   notifyEmail?: string | null;
   seoTitle?: string | null;

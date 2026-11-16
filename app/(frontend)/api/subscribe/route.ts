@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { cms } from "@/lib/cms/payload";
 import { notifyOwner } from "@/lib/mail";
 import { checkSpam } from "@/lib/security/spam";
+import { verifyRecaptcha } from "@/lib/security/recaptcha";
 import { cleanLine, clientIp, ipHash, readFormBody, tooMany } from "@/lib/security/rateLimit";
 
 // Saves a newsletter sign-up in the dashboard, emails it to the site owner, and (when connected) adds it to MailerLite.
@@ -22,6 +23,13 @@ export async function POST(req: Request) {
   const hash = ipHash(clientIp(req));
   if ((await tooMany("subscribers", hash, 5, 10)) || (await tooMany("subscribers", hash, 15, 24 * 60))) {
     return NextResponse.json({ error: "Too many attempts. Please try again later." }, { status: 429 });
+  }
+
+  // reCAPTCHA "I'm not a robot" (checked with Google when RECAPTCHA_SECRET_KEY is set).
+  const captcha = await verifyRecaptcha(body.recaptcha, clientIp(req));
+  if (!captcha.ok) {
+    console.log(`reCAPTCHA failed (${captcha.reason})`);
+    return NextResponse.json({ error: "Please tick “I'm not a robot” and try again." }, { status: 400 });
   }
 
   const email = cleanLine(body.email, 200).toLowerCase();

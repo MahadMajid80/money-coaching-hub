@@ -6,6 +6,7 @@
 // the shares add up to 100%, and the projection grows €10,000 at the mix's weighted average return.
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Recaptcha, captchaToken, type RecaptchaHandle } from "./Recaptcha";
 
 type Risk = "very-low" | "low" | "medium" | "high" | "very-high";
 type Cat = "Equities" | "Bonds" | "Thematic" | "Defensive";
@@ -56,6 +57,7 @@ export default function InvestmentHouse() {
   // The instrument being added (or, with editing, changed): its share and what's typed in the box.
   const [pending, setPending] = useState<{ b: Brick; pct: number; typed: string; editing: boolean } | null>(null);
   const pickRef = useRef<HTMLDivElement>(null);
+  const cap = useRef<RecaptchaHandle>(null);
   const [horizon, setHorizon] = useState<(typeof HORIZONS)[number]>(10);
   const [gate, setGate] = useState<"closed" | "open" | "sending" | "done">("closed");
   const [err, setErr] = useState("");
@@ -127,18 +129,26 @@ export default function InvestmentHouse() {
   async function unlock(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    let recaptcha: string;
+    try {
+      recaptcha = captchaToken(cap);
+    } catch (x) {
+      setErr((x as Error).message);
+      return;
+    }
     setGate("sending");
     setErr("");
     try {
       const res = await fetch("/api/subscribe/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formAge: Math.round(performance.now()),  name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "investment-house" }),
+        body: JSON.stringify({ formAge: Math.round(performance.now()), recaptcha, name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "investment-house" }),
       });
       const j = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(j.error || "Something went wrong.");
       setGate("done");
     } catch (x) {
+      cap.current?.reset();
       setErr((x as Error).message);
       setGate("open");
     }
@@ -254,6 +264,7 @@ export default function InvestmentHouse() {
               <label htmlFor="ih-web">Website</label>
               <input id="ih-web" name="website" tabIndex={-1} autoComplete="off" />
             </div>
+            <Recaptcha ref={cap} />
             {err && <p className="form-msg form-msg--err" role="alert">{err}</p>}
             <button type="submit" className="btn btn-gold" disabled={gate === "sending"}>
               {gate === "sending" ? "One moment…" : "Show my analysis"}

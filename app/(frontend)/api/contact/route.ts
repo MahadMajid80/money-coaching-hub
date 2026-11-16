@@ -4,6 +4,7 @@ import { getSettings } from "@/lib/cms/data";
 import { cms } from "@/lib/cms/payload";
 import { cleanLine, cleanText, clientIp, ipHash, readFormBody, tooMany } from "@/lib/security/rateLimit";
 import { checkSpam } from "@/lib/security/spam";
+import { verifyRecaptcha } from "@/lib/security/recaptcha";
 
 // Every message is saved in the dashboard (Inbox → Enquiries) and, when email is set up, emailed too.
 // Environment variables for the email copy:
@@ -29,6 +30,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Too many messages. Please try again later." }, { status: 429 });
   }
 
+  // reCAPTCHA "I'm not a robot" (checked with Google when RECAPTCHA_SECRET_KEY is set).
+  const captcha = await verifyRecaptcha(body.recaptcha, clientIp(req));
+  if (!captcha.ok) {
+    console.log(`reCAPTCHA failed (${captcha.reason})`);
+    return NextResponse.json({ error: "Please tick “I'm not a robot” and try again." }, { status: 400 });
+  }
+
   const name = cleanLine(body.name, 120);
   const email = cleanLine(body.email, 200);
   const phone = cleanLine(body.phone, 40);
@@ -40,7 +48,7 @@ export async function POST(req: Request) {
 
   // Spam (blocked senders, sales pitches, bots): kept in the dashboard, marked, but never emailed.
   const extra = Object.entries(body)
-    .filter(([k, v]) => !["name", "email", "phone", "topic", "message", "website", "kind", "formAge"].includes(k) && typeof v === "string")
+    .filter(([k, v]) => !["name", "email", "phone", "topic", "message", "website", "kind", "formAge", "recaptcha"].includes(k) && typeof v === "string")
     .map(([, v]) => v as string)
     .join("\n");
   const verdict = checkSpam({ email, text: [name, topic, message, extra].join("\n"), formAge: body.formAge });
@@ -48,7 +56,7 @@ export async function POST(req: Request) {
   // 1. Save it in the dashboard.
   let saved = false;
   try {
-    const known = new Set(["name", "email", "phone", "topic", "message", "website", "kind", "formAge"]);
+    const known = new Set(["name", "email", "phone", "topic", "message", "website", "kind", "formAge", "recaptcha"]);
     const details = Object.fromEntries(
       Object.entries(body)
         .filter(([k, v]) => !known.has(k) && /^[a-zA-Z][\w-]{0,40}$/.test(k) && typeof v === "string" && v.trim())
