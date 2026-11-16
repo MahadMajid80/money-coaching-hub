@@ -133,7 +133,7 @@ export default function InvestmentHouse() {
       const res = await fetch("/api/subscribe/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "investment-house" }),
+        body: JSON.stringify({ formAge: Math.round(performance.now()),  name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "investment-house" }),
       });
       const j = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(j.error || "Something went wrong.");

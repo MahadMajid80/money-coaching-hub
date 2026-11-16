@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cms } from "@/lib/cms/payload";
 import { notifyOwner } from "@/lib/mail";
+import { checkSpam } from "@/lib/security/spam";
 import { cleanLine, clientIp, ipHash, readFormBody, tooMany } from "@/lib/security/rateLimit";
 
 // Saves a newsletter sign-up in the dashboard, emails it to the site owner, and (when connected) adds it to MailerLite.
@@ -28,6 +29,13 @@ export async function POST(req: Request) {
   const list = body.list === "side-hustle" ? "side-hustle" : "unspoken";
   const source = cleanLine(body.source, 60).replace(/[^\w-]/g, "") || "website";
   if (!/^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(email)) return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+
+  // Spam (blocked senders, bots): answered as if it worked, but not saved or emailed.
+  const verdict = checkSpam({ email, text: name, formAge: body.formAge });
+  if (verdict.spam) {
+    console.log(`Subscribe: spam ignored (${verdict.reason})`);
+    return NextResponse.json({ ok: true });
+  }
 
   // Keep every sign-up in the dashboard (Inbox → Newsletter sign-ups).
   let recordId: string | number | null = null;

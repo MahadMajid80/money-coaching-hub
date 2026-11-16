@@ -7,7 +7,9 @@ import { useState } from "react";
 type State = "idle" | "sending" | "ok" | "err";
 
 async function post(url: string, data: Record<string, unknown>) {
-  const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+  // formAge: how long the page has been open (ms). People take seconds; bots post instantly or skip the page.
+  const body = { ...data, formAge: Math.round(performance.now()) };
+  const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
   const json = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(json.error || "Something went wrong. Please try again.");
 }

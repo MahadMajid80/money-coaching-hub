@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 import { getSettings } from "@/lib/cms/data";
 import { cms } from "@/lib/cms/payload";
 import { cleanLine, cleanText, clientIp, ipHash, readFormBody, tooMany } from "@/lib/security/rateLimit";
+import { checkSpam } from "@/lib/security/spam";
 
 // Every message is saved in the dashboard (Inbox → Enquiries) and, when email is set up, emailed too.
 // Environment variables for the email copy:
@@ -37,10 +38,17 @@ export async function POST(req: Request) {
   if (!name || !email || !message) return NextResponse.json({ error: "Please fill in your name, email and message." }, { status: 400 });
   if (!/^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(email)) return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
 
+  // Spam (blocked senders, sales pitches, bots): kept in the dashboard, marked, but never emailed.
+  const extra = Object.entries(body)
+    .filter(([k, v]) => !["name", "email", "phone", "topic", "message", "website", "kind", "formAge"].includes(k) && typeof v === "string")
+    .map(([, v]) => v as string)
+    .join("\n");
+  const verdict = checkSpam({ email, text: [name, topic, message, extra].join("\n"), formAge: body.formAge });
+
   // 1. Save it in the dashboard.
   let saved = false;
   try {
-    const known = new Set(["name", "email", "phone", "topic", "message", "website", "kind"]);
+    const known = new Set(["name", "email", "phone", "topic", "message", "website", "kind", "formAge"]);
     const details = Object.fromEntries(
       Object.entries(body)
         .filter(([k, v]) => !known.has(k) && /^[a-zA-Z][\w-]{0,40}$/.test(k) && typeof v === "string" && v.trim())
@@ -51,11 +59,25 @@ export async function POST(req: Request) {
     await payload.create({
       collection: "enquiries",
       overrideAccess: true,
-      data: { name, email, phone, kind: cleanLine(body.kind, 60) || "Contact form", subject: topic, message, details, ipHash: hash },
+      data: {
+        name,
+        email,
+        phone,
+        kind: verdict.spam ? `Spam, not emailed (${verdict.reason})`.slice(0, 120) : cleanLine(body.kind, 60) || "Contact form",
+        subject: topic,
+        message,
+        details,
+        ipHash: hash,
+      },
     });
     saved = true;
   } catch (err) {
     console.error("Contact form: could not save enquiry", err);
+  }
+
+  if (verdict.spam) {
+    console.log(`Contact form: spam not emailed (${verdict.reason})`);
+    return NextResponse.json({ ok: true });
   }
 
   // 2. Email a copy.
