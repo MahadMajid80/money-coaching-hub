@@ -101,3 +101,7 @@ export const legalNav = [
   { label: "Cookies", href: "/cookie-policy/" },
   { label: "Terms", href: "/website-terms-and-conditions/" },
 ];
+
+/** Luca's Calendly booking page for the free 10-minute call (shown on /contact-us/).
+ *  If the event's link changes in Calendly, update it here. */
+export const calendly = "https://calendly.com/moneycoachinghub/30min";

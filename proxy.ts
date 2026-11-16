@@ -35,7 +35,7 @@ function csp(nonce: string, admin: boolean) {
       ...(isDev ? ["ws:"] : []),
     ],
     "media-src": ["'self'", "https:"],
-    "frame-src": ["'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com", "https://player.vimeo.com", "https://www.google.com", "https://recaptcha.google.com"],
+    "frame-src": ["'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com", "https://player.vimeo.com", "https://www.google.com", "https://recaptcha.google.com", "https://calendly.com"],
     "worker-src": ["'self'", "blob:"],
     "frame-ancestors": ["'self'"],
     "form-action": ["'self'"],
