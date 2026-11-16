@@ -39,7 +39,7 @@
      "label": "Text",
      "kind": "text",
      "type": "text",
-     "default": "Tell me when suits you. The call is on Google Meet, or by phone if you prefer."
+     "default": "Pick any free slot in my calendar. The call is on Google Meet, or by phone if you prefer."
     },
     {
      "name": "text_2",
@@ -75,7 +75,7 @@
      "label": "Text 5",
      "kind": "text",
      "type": "text",
-     "default": "Request your call"
+     "default": "Pick a time that suits you"
     },
     {
      "name": "link",

@@ -2,6 +2,7 @@ import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
 import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
 import { CallRequestForm } from "@/components/forms";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 const baseMetadata: Metadata = {
   title: "Book a 10-minute call",
   description: "Free, 10 minutes, no pitch. Tell Luca what's going on with your money and he'll tell you honestly whether coaching, a course or a workshop is the right next step.",
@@ -101,7 +102,7 @@ export default async function Page() {
                 }], [])}</span>
             </div>
           </div>
-          <div style={{
+          <div id="book" style={{
             flex: "0 1 480px",
             minWidth: "300px",
             background: "#ffffff",
@@ -118,7 +119,11 @@ export default async function Page() {
               fontWeight: "700",
               fontSize: "20px"
             }}>{R(c, "section_1.text_5")}</span>
-            <CallRequestForm />
+            <CalendlyEmbed />
+            <details className="call-fallback">
+              <summary>No time that suits you? Send me a request instead</summary>
+              <CallRequestForm />
+            </details>
             <span style={{
               fontSize: "13px",
               color: "#6B6248",

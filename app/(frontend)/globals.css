@@ -257,3 +257,10 @@ section.strip-28{padding-top:28px !important;padding-bottom:28px !important}
 .wa-inline--dark{color:#FDF7E8}
 .wa-inline--dark svg{color:#25D366}
 @media (prefers-reduced-motion:reduce){.wa-float{transition:none}.wa-float:hover{transform:none}}
+
+/* Calendly booking calendar on /contact-us/ */
+.calendly-embed iframe { width: 100%; height: 720px; border: 0; border-radius: 14px; display: block; background: #fff; }
+@media (max-width: 620px) { .calendly-embed iframe { height: 900px; } }
+.call-fallback { border-top: 1px solid #E6E0D0; padding-top: 14px; }
+.call-fallback summary { cursor: pointer; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+.call-fallback[open] summary { margin-bottom: 16px; }
