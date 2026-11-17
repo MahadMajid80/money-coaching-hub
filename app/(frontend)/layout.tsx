@@ -8,6 +8,9 @@ import "@fontsource/lato/400.css";
 import "@fontsource/lato/400-italic.css";
 import "@fontsource/lato/700.css";
 import { LivePreviewListener } from "@/components/LivePreviewListener";
+import { ClickTracking } from "@/components/ClickTracking";
+import { CookieBanner } from "@/components/CookieConsent";
+import { consentDefaultScript, pixelConsentSnippet } from "@/lib/consent";
 import { getSettings } from "@/lib/cms/data";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -47,6 +50,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const pixel = /^\d+$/.test(s.metaPixelId) ? s.metaPixelId : "";
   return (
     <html lang="en">
+      <head>
+        {/* Google Consent Mode v2: everything denied until the visitor chooses. Must run before any tag. */}
+        <script nonce={nonce} id="consent-default" dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />
+      </head>
       <body>
         <a href="#main" className="skip">
           Skip to content
@@ -54,6 +61,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {children}
         <WhatsAppFloat />
         <LivePreviewListener />
+        <CookieBanner />
+        <ClickTracking />
         {ga && (
           <>
             <Script nonce={nonce} src={`https://www.googletagmanager.com/gtag/js?id=${ga}`} strategy="afterInteractive" />
@@ -61,7 +70,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </>
         )}
         {pixel && (
-          <Script nonce={nonce} id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixel}');fbq('track','PageView');`}</Script>
+          <Script nonce={nonce} id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');${pixelConsentSnippet}fbq('init','${pixel}');fbq('track','PageView');`}</Script>
         )}
       </body>
     </html>

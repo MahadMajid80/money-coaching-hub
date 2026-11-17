@@ -3,6 +3,7 @@
 // - PageHeader: the same header with the page's own button; PageFooter: the inner pages' footer
 
 import { getSettings, type Link } from "@/lib/cms/data";
+import { CookieSettingsLink } from "./CookieConsent";
 
 const ext = (l: Link) => (l.newTab ? { target: "_blank", rel: "noopener" } : {});
 
@@ -114,6 +115,7 @@ export async function PageFooter({ note, contactLine = true, back = true, divide
           <a href="/privacy-policy/" style={{ color: "#C9C3B1", textDecoration: "none" }}>Privacy</a>
           <a href="/cookie-policy/" style={{ color: "#C9C3B1", textDecoration: "none" }}>Cookies</a>
           <a href="/website-terms-and-conditions/" style={{ color: "#C9C3B1", textDecoration: "none" }}>Terms</a>
+          <CookieSettingsLink style={{ color: "#C9C3B1" }} />
         </nav>
         {back && (
           <a href="/" style={{ color: "#FFD112", textDecoration: "none", fontWeight: "700", marginTop: "8px" }}>
@@ -190,6 +192,7 @@ export async function SiteFooter() {
             <a href="/privacy-policy/" style={link}>Privacy</a>
             <a href="/cookie-policy/" style={link}>Cookies</a>
             <a href="/website-terms-and-conditions/" style={link}>Terms</a>
+            <CookieSettingsLink style={link} />
           </div>
         </div>
       </div>
