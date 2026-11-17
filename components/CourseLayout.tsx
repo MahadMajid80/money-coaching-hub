@@ -221,7 +221,7 @@ export default async function CourseLayout({ slug }: { slug: string }) {
         </section>
 
         {/* FAQ */}
-        {c.faqs && (
+        {c.faqs && c.faqs.length > 0 && (
           <section style={{ background: "#ffffff", padding: "96px 0" }}>
             <div className="wrap" style={{ maxWidth: "860px", display: "flex", flexDirection: "column", gap: "28px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>

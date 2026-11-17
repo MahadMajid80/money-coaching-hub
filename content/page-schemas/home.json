@@ -334,7 +334,7 @@
      "label": "Text 13",
      "kind": "text",
      "type": "textarea",
-     "default": "Understand Bitcoin, Ethereum and the rest before you put a cent in. Next cohort: 14, 16 and 21 December 2026."
+     "default": "Understand Bitcoin, Ethereum and the rest before you put a cent in. Next cohort: 6 and 13 January 2027."
     },
     {
      "name": "text_14",
@@ -404,7 +404,7 @@
      "label": "Text 21",
      "kind": "text",
      "type": "text",
-     "default": "Read a chart without the noise. Intro level, deliberately simple. 11 and 22 December 2026."
+     "default": "Read a chart without the noise. Intro level, deliberately simple. 8 and 15 January 2027."
     },
     {
      "name": "text_22",

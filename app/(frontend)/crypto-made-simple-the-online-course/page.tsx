@@ -4,7 +4,7 @@ import { courseMetadata } from "@/lib/cms/courseMeta";
 
 const baseMetadata: Metadata = {
   title: "Crypto Made Simple – The Online Course",
-  description: "Three live online sessions that take you from crypto confusion to confidence: the basics, wallets, avoiding scams and building your portfolio.",
+  description: "Two live online sessions of two hours each that take you from crypto confusion to confidence: the basics, wallets, avoiding scams and building your portfolio.",
   alternates: { canonical: "/crypto-made-simple-the-online-course/" },
 };
 export function generateMetadata() {

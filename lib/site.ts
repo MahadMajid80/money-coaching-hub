@@ -11,7 +11,7 @@ export const mainNav: NavItem[] = [
     href: "/investing-made-simple/",
     children: [
       { label: "Investing Made Simple", href: "/investing-made-simple/", note: "Next cohort 11 Jan 2027" },
-      { label: "Crypto Made Simple", href: "/crypto-made-simple-the-online-course/", note: "4-week online course" },
+      { label: "Crypto Made Simple", href: "/crypto-made-simple-the-online-course/", note: "2 live sessions" },
       { label: "Crypto Masterclass", href: "/crypto-masterclass/", note: "Free live session" },
       { label: "Technical Analysis Bootcamp", href: "/technical-analysis-bootcamp/" },
       { label: "Money Management Masterclass", href: "/money-management-masterclass/" },

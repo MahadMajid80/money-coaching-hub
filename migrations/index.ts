@@ -8,6 +8,7 @@ import * as migration_20261113_170000_blog_article_1_cover from './20261113_1700
 import * as migration_20261114_140000_column_bets_husband from './20261114_140000_column_bets_husband';
 import * as migration_20261115_230000_blog_week_16_nov from './20261115_230000_blog_week_16_nov';
 import * as migration_20261115_235500_blog_week_16_nov_tidy_media from './20261115_235500_blog_week_16_nov_tidy_media';
+import * as migration_20261118_090000_january_crypto_ta from './20261118_090000_january_crypto_ta';
 
 export const migrations = [
   {
@@ -59,5 +60,10 @@ export const migrations = [
     up: migration_20261115_235500_blog_week_16_nov_tidy_media.up,
     down: migration_20261115_235500_blog_week_16_nov_tidy_media.down,
     name: '20261115_235500_blog_week_16_nov_tidy_media',
+  },
+  {
+    up: migration_20261118_090000_january_crypto_ta.up,
+    down: migration_20261118_090000_january_crypto_ta.down,
+    name: '20261118_090000_january_crypto_ta',
   },
 ];

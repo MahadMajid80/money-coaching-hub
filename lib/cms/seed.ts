@@ -58,8 +58,8 @@ export async function seedContent(payload: Payload, opts: SeedOptions = {}): Pro
   /* Courses */
   const starts: Record<string, string> = {
     "investing-made-simple": "2027-01-11T18:30:00.000Z",
-    "crypto-made-simple-the-online-course": "2026-12-14T18:30:00.000Z",
-    "technical-analysis-bootcamp": "2026-12-11T18:30:00.000Z",
+    "crypto-made-simple-the-online-course": "2027-01-06T18:30:00.000Z",
+    "technical-analysis-bootcamp": "2027-01-08T18:30:00.000Z",
   };
   const lines = (a: string[] = []) => a.map((text) => ({ text }));
   for (const [i, c] of courses.entries()) {
