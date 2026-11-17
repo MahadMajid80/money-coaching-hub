@@ -1570,15 +1570,56 @@ export default async function Page() {
               }}>{R(c, "section_15.heading")}</h2>
               <p className="body">{R(c, "section_15.paragraph")}</p>
               <p className="body">{R(c, "section_15.paragraph_2")}</p>
-              <p style={{
-                margin: "0",
-                padding: "14px 18px",
-                border: "1.5px dashed #D9C48A",
-                borderRadius: "14px",
-                fontSize: "15px",
-                lineHeight: "1.55",
-                color: "#6B6248"
-              }}>{R(c, "section_15.paragraph_3")}</p>
+              <figure style={{
+                margin: "8px 0 4px",
+                position: "relative",
+                padding: "30px 28px 26px 30px",
+                borderRadius: "22px",
+                background: "#111111",
+                color: "#FFFFFF",
+                overflow: "hidden",
+                boxShadow: "0 18px 40px rgba(17,17,17,.18)"
+              }}>
+                <span aria-hidden="true" className="disp" style={{
+                  position: "absolute",
+                  top: "-26px",
+                  right: "18px",
+                  fontSize: "150px",
+                  fontWeight: "800",
+                  lineHeight: "1",
+                  color: "#FAAC15",
+                  opacity: ".9"
+                }}>&rdquo;</span>
+                <span aria-hidden="true" style={{
+                  display: "block",
+                  width: "44px",
+                  height: "5px",
+                  borderRadius: "3px",
+                  background: "#FAAC15",
+                  marginBottom: "16px"
+                }}></span>
+                <blockquote className="disp" style={{
+                  margin: "0",
+                  maxWidth: "26em",
+                  fontWeight: "800",
+                  fontSize: "clamp(22px,2.2vw,28px)",
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
+                  color: "#FFFFFF"
+                }}>{R(c, "section_15.paragraph_3", [{
+                    style: {
+                      color: "#FFD112"
+                    }
+                  }], [])}</blockquote>
+                <figcaption style={{
+                  marginTop: "14px",
+                  fontSize: "15px",
+                  fontWeight: "700",
+                  letterSpacing: ".06em",
+                  textTransform: "uppercase",
+                  color: "#FAAC15"
+                }}>Luca Caruana</figcaption>
+              </figure>
               <ul style={{
                 margin: "6px 0 0",
                 padding: "0",
