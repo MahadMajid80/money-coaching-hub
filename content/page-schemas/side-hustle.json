@@ -424,7 +424,7 @@
      "label": "Paragraph 3",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "In November 2026, I resigned from my full-time job to go *all in* on what I built on the side."
+     "default": "In November 2026, I left my full-time job to go *all in* on what I built on the side."
     },
     {
      "name": "item",
@@ -1542,7 +1542,7 @@
      "label": "Paragraph 3",
      "kind": "paragraph",
      "type": "textarea",
-     "default": "In November 2026, I resigned from my full-time job to go *all in* on what I built on the side."
+     "default": "In November 2026, I left my full-time job to go *all in* on what I built on the side."
     },
     {
      "name": "item",
