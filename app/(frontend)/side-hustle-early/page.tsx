@@ -8,7 +8,9 @@ import "../side-hustle/side-hustle.css";
 // Text and photos follow the Side Hustle page in the dashboard (Pages → Side hustle page → Intro sections).
 
 // Stripe payment link: €25 incl. VAT, stops automatically after 20 bookings.
-const EARLY_CHECKOUT = "STRIPE_LINK_HERE";
+// Until the link is in, the button goes to the contact page.
+const STRIPE_LINK: string = "";
+const EARLY_CHECKOUT = STRIPE_LINK || "/contact-us/?subject=Side%20Hustle%20intro%20(waitlist)";
 
 export const metadata: Metadata = {
   title: "Side Hustle intro: early access",
