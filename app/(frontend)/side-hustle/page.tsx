@@ -1582,9 +1582,9 @@ export default async function Page() {
               }}>
                 <span aria-hidden="true" className="disp" style={{
                   position: "absolute",
-                  top: "-26px",
-                  right: "18px",
-                  fontSize: "150px",
+                  top: "6px",
+                  right: "22px",
+                  fontSize: "120px",
                   fontWeight: "800",
                   lineHeight: "1",
                   color: "#FAAC15",
