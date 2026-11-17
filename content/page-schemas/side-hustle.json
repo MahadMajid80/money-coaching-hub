@@ -586,7 +586,7 @@
      "label": "Text 13",
      "kind": "text",
      "type": "text",
-     "default": "Live only, so the exercise and Q&A work properly"
+     "default": "Yes. Can't make it live? Everyone who books gets the replay for 7 days."
     },
     {
      "name": "button",
