@@ -34,12 +34,14 @@ export async function POST(req: Request) {
 
   const email = cleanLine(body.email, 200).toLowerCase();
   const name = cleanLine(body.name, 100);
+  const lastName = cleanLine(body.lastName, 100);
+  const fullName = [name, lastName].filter(Boolean).join(" ");
   const list = body.list === "side-hustle" ? "side-hustle" : "unspoken";
   const source = cleanLine(body.source, 60).replace(/[^\w-]/g, "") || "website";
   if (!/^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(email)) return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
 
   // Spam (blocked senders, bots): answered as if it worked, but not saved or emailed.
-  const verdict = checkSpam({ email, text: name, formAge: body.formAge });
+  const verdict = checkSpam({ email, text: fullName, formAge: body.formAge });
   if (verdict.spam) {
     console.log(`Subscribe: spam ignored (${verdict.reason})`);
     return NextResponse.json({ ok: true });
@@ -49,7 +51,7 @@ export async function POST(req: Request) {
   let recordId: string | number | null = null;
   try {
     const payload = await cms();
-    const doc = await payload.create({ collection: "subscribers", overrideAccess: true, data: { email, firstName: name, source, list, ipHash: hash } });
+    const doc = await payload.create({ collection: "subscribers", overrideAccess: true, data: { email, firstName: fullName, source, list, ipHash: hash } });
     recordId = doc.id;
   } catch (err) {
     console.error("Subscribe: could not save sign-up", err);
@@ -66,14 +68,14 @@ export async function POST(req: Request) {
   const listName = list === "side-hustle" ? "Side Hustle (notify me)" : "Newsletter";
   const emailed = await notifyOwner({
     subject: `New sign-up: ${email} – ${listName}`,
-    text: `New newsletter sign-up\n\nEmail: ${email}\nName: ${name || "-"}\nList: ${listName}\nForm: ${source}`,
+    text: `New newsletter sign-up\n\nEmail: ${email}\nName: ${fullName || "-"}\nList: ${listName}\nForm: ${source}`,
     rows: [
       ["Email", email],
-      ["Name", name],
+      ["Name", fullName],
       ["List", listName],
       ["Form", source],
     ],
-    replyTo: { name: name || email, email },
+    replyTo: { name: fullName || email, email },
   });
 
   const key = process.env.MAILERLITE_API_KEY;
@@ -87,7 +89,8 @@ export async function POST(req: Request) {
     const res = await fetch("https://connect.mailerlite.com/api/subscribers", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json", Authorization: `Bearer ${key}` },
-      body: JSON.stringify({ email, fields: { name, source }, groups: [group] }),
+      // Only send names that were filled in, so an empty box never wipes a name MailerLite already has.
+      body: JSON.stringify({ email, fields: { ...(name ? { name } : {}), ...(lastName ? { last_name: lastName } : {}), source }, groups: [group] }),
     });
     if (!res.ok) {
       console.error("MailerLite error", res.status, await res.text());

@@ -221,6 +221,8 @@ export function CallRequestForm() {
 }
 
 /** Side hustle "Notify me" (email only), matching the design's pill input. */
+const nfInput: React.CSSProperties = { width: "100%", height: "56px", boxSizing: "border-box", border: "1.5px solid #D9CCA6", borderRadius: "999px", padding: "0 22px", fontFamily: "Lato,'Segoe UI',sans-serif", fontSize: "17px", background: "#FFFFFF", color: "#111111" };
+
 export function NotifyForm({ id, note }: { id: string; note: string }) {
   const [state, setState] = useState<State>("idle");
   const [err, setErr] = useState("");
@@ -238,7 +240,7 @@ export function NotifyForm({ id, note }: { id: string; note: string }) {
     }
     setState("sending");
     try {
-      await post("/api/subscribe/", { recaptcha, email: f.get("email"), website: f.get("website"), list: "side-hustle", source: "side-hustle" });
+      await post("/api/subscribe/", { recaptcha, name: f.get("name"), lastName: f.get("lastName"), email: f.get("email"), website: f.get("website"), list: "side-hustle", source: "side-hustle" });
       setState("ok");
     } catch (x) {
       cap.current?.reset();
@@ -254,6 +256,16 @@ export function NotifyForm({ id, note }: { id: string; note: string }) {
         </p>
       ) : (
         <>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+            <div style={{ flex: "1 1 200px", minWidth: "0", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label htmlFor={`${id}-name`} style={{ fontSize: "14px", fontWeight: "700", color: "#111111" }}>First name</label>
+              <input id={`${id}-name`} className="field" type="text" name="name" required autoComplete="given-name" style={nfInput} />
+            </div>
+            <div style={{ flex: "1 1 200px", minWidth: "0", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label htmlFor={`${id}-last`} style={{ fontSize: "14px", fontWeight: "700", color: "#111111" }}>Surname</label>
+              <input id={`${id}-last`} className="field" type="text" name="lastName" required autoComplete="family-name" style={nfInput} />
+            </div>
+          </div>
           <label htmlFor={`${id}-email`} style={{ fontSize: "14px", fontWeight: "700", color: "#111111" }}>Email address</label>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
             <input
