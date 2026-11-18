@@ -13,6 +13,7 @@ import * as migration_20261118_100000_restore_ta_content from './20261118_100000
 import * as migration_20261118_110000_restore_crypto_content from './20261118_110000_restore_crypto_content';
 import * as migration_20261118_120000_ta_included_reviews from './20261118_120000_ta_included_reviews';
 import * as migration_20261118_130000_ta_dedupe from './20261118_130000_ta_dedupe';
+import * as migration_20261118_140000_home_side_hustle_card from './20261118_140000_home_side_hustle_card';
 
 export const migrations = [
   {
@@ -89,5 +90,10 @@ export const migrations = [
     up: migration_20261118_130000_ta_dedupe.up,
     down: migration_20261118_130000_ta_dedupe.down,
     name: '20261118_130000_ta_dedupe',
+  },
+  {
+    up: migration_20261118_140000_home_side_hustle_card.up,
+    down: migration_20261118_140000_home_side_hustle_card.down,
+    name: '20261118_140000_home_side_hustle_card',
   },
 ];
