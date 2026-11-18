@@ -2648,7 +2648,7 @@ export interface PageSideHustle {
      */
     hidden?: boolean | null;
     /**
-     * Currently showing luca-seated.jpg. Upload or pick an image to replace it; remove it to go back to the original.
+     * Currently showing luca-tv2.jpg. Upload or pick an image to replace it; remove it to go back to the original.
      */
     image?: (number | null) | Media;
     image_alt?: string | null;

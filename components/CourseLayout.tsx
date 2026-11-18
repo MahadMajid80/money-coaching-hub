@@ -6,6 +6,7 @@ import { jsonLd as toJsonLd } from "@/lib/security/sanitize";
 import { PageFooter, PageHeader, Tick } from "@/components/chrome";
 import { notFound } from "next/navigation";
 import { getCourse, getCourses } from "@/lib/cms/data";
+import { CandlestickChart } from "@/components/CandlestickChart";
 
 export default async function CourseLayout({ slug }: { slug: string }) {
   const c = await getCourse(slug);
@@ -100,6 +101,7 @@ export default async function CourseLayout({ slug }: { slug: string }) {
                 <strong style={{ color: "#111111" }}>{c.forYou.note}</strong>
               </p>
             )}
+            {c.slug === "technical-analysis-bootcamp" && <CandlestickChart />}
           </div>
         </section>
 
@@ -148,7 +150,15 @@ export default async function CourseLayout({ slug }: { slug: string }) {
                 <span className="eyebrow">Everything included</span>
                 <h2 className="h2">{c.includedValue || "Everything you get, one price."}</h2>
               </div>
-              <div className="g3" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "20px" }}>
+              <div
+                className="g3"
+                style={{
+                  display: "grid",
+                  // Price card included: 6 cards → 3 across, 4 cards → 2 across, so rows are always full.
+                  gridTemplateColumns: `repeat(${(c.included.length + 1) % 3 === 0 ? 3 : (c.included.length + 1) % 2 === 0 ? 2 : 3}, minmax(0, 1fr))`,
+                  gap: "20px",
+                }}
+              >
                 {c.included.map((it) => (
                   <div key={it.title} className="card">
                     <span className="tick">

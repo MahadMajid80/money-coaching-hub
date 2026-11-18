@@ -396,6 +396,13 @@ export const courses: Course[] = [
         ],
       },
     ],
+    included: [
+      { title: "2 live sessions", text: "Two 2-hour evenings on Zoom, 7:30–9:30pm (Malta time)." },
+      { title: "Small group, max 15", text: "So charts are reviewed live and every question gets answered." },
+      { title: "Live chart walkthroughs", text: "Real charts, read together on screen, step by step." },
+      { title: "Homework with feedback", text: "Practise on real charts after session one, then review it together in session two." },
+      { title: "Both sessions recorded", text: "Watch again anytime to lock in what you learned." },
+    ],
     instructor: [
       "Luca has been studying technical analysis for over 10 years across different market cycles. But more importantly: he teaches without jargon, focuses on understanding, not prediction, and explains complex ideas in a calm, practical way.",
       "This isn't trader hype. It's education designed to help you trust yourself when reading charts.",
@@ -411,6 +418,11 @@ export const courses: Course[] = [
         text: "Luca is very professional, knowledgeable, and trustworthy. He makes complex topics easy to understand, especially for beginners.",
       },
       { name: "Clayton Camilleri", text: "Very informative course with clear explanations and well-prepared materials." },
+      {
+        name: "Carmelo Romano",
+        role: "CTO",
+        text: "Unlike a traditional financial advisor, Luca does not dictate investment choices; instead, he expertly opens up a world of possibilities, enabling me to make informed decisions about my savings.",
+      },
     ],
     faqs: [
     {
