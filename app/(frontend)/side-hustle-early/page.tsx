@@ -9,7 +9,7 @@ import "../side-hustle/side-hustle.css";
 
 // Stripe payment link: €25 incl. VAT, stops automatically after 20 bookings.
 // Until the link is in, the button goes to the contact page.
-const STRIPE_LINK: string = "";
+const STRIPE_LINK: string = "https://buy.stripe.com/5kQ3cv9Lq6M36g4b7I5os0k";
 const EARLY_CHECKOUT = STRIPE_LINK || "/contact-us/?subject=Side%20Hustle%20intro%20(waitlist)";
 
 export const metadata: Metadata = {
