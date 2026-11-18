@@ -248,6 +248,10 @@ export const courses: Course[] = [
         role: "CTO",
         text: "He did very well at explaining the missing gaps, and providing insights on the tools and strategies to use for investing and the way to look at finances.",
       },
+      {
+        name: "Alexander Pace",
+        text: "Finally I found a person that is very professional in his work and trustworthy. When you are learning about crypto, you need someone to go down to your level, especially when you are new. I recommend anyone that wants to learn, and maybe later invest themselves in crypto, to do a course with Luca. You can only gain in knowledge. 10/10",
+      },
     ],
     faqs: [
     {

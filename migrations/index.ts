@@ -10,6 +10,7 @@ import * as migration_20261115_230000_blog_week_16_nov from './20261115_230000_b
 import * as migration_20261115_235500_blog_week_16_nov_tidy_media from './20261115_235500_blog_week_16_nov_tidy_media';
 import * as migration_20261118_090000_january_crypto_ta from './20261118_090000_january_crypto_ta';
 import * as migration_20261118_100000_restore_ta_content from './20261118_100000_restore_ta_content';
+import * as migration_20261118_110000_restore_crypto_content from './20261118_110000_restore_crypto_content';
 
 export const migrations = [
   {
@@ -71,5 +72,10 @@ export const migrations = [
     up: migration_20261118_100000_restore_ta_content.up,
     down: migration_20261118_100000_restore_ta_content.down,
     name: '20261118_100000_restore_ta_content',
+  },
+  {
+    up: migration_20261118_110000_restore_crypto_content.up,
+    down: migration_20261118_110000_restore_crypto_content.down,
+    name: '20261118_110000_restore_crypto_content',
   },
 ];
