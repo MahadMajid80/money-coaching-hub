@@ -8,7 +8,7 @@ import IntroView from "./IntroView";
 import "./side-hustle.css";
 const baseMetadata: Metadata = {
   title: "Side Hustle, Done Right",
-  description: "Thinking about a side hustle? Start here. A live online session and a six-week founding cohort with money coach Luca Caruana, from idea to first paying customer.",
+  description: "Thinking about a side hustle? Start here. A live online session and a founding programme with money coach Luca Caruana, from idea to first paying customer.",
   alternates: {
     canonical: "/side-hustle/"
   }
