@@ -347,7 +347,7 @@
      "label": "Image",
      "kind": "image",
      "type": "upload",
-     "default": "/img/luca-seated.jpg"
+     "default": "/img/luca-tv2.jpg"
     },
     {
      "name": "image_alt",
