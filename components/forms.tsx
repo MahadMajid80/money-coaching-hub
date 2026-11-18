@@ -43,7 +43,7 @@ export function UnspokenForm() {
     }
     setState("sending");
     try {
-      await post("/api/subscribe/", { recaptcha, name: f.get("name"), email: f.get("email"), website: f.get("website"), source: "homepage" });
+      await post("/api/subscribe/", { recaptcha, name: f.get("name"), lastName: f.get("lastName"), email: f.get("email"), website: f.get("website"), source: "homepage" });
       setState("ok");
     } catch (x) {
       cap.current?.reset();
@@ -67,8 +67,16 @@ export function UnspokenForm() {
         </p>
       ) : (
         <>
-          <label htmlFor="nl-name" style={labelStyle}>First name</label>
-          <input id="nl-name" name="name" type="text" autoComplete="given-name" placeholder="So I can write to you properly" style={inputStyle} />
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+            <div style={{ flex: "1 1 150px", minWidth: "0", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label htmlFor="nl-name" style={labelStyle}>First name</label>
+              <input id="nl-name" name="name" type="text" required autoComplete="given-name" style={inputStyle} />
+            </div>
+            <div style={{ flex: "1 1 150px", minWidth: "0", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <label htmlFor="nl-last" style={labelStyle}>Surname <span style={{ fontWeight: "400", color: "#6B6248" }}>(optional)</span></label>
+              <input id="nl-last" name="lastName" type="text" autoComplete="family-name" style={inputStyle} />
+            </div>
+          </div>
           <label htmlFor="nl-email" style={labelStyle}>Email address</label>
           <input id="nl-email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" style={inputStyle} />
           <Honeypot id="nl-web" />
