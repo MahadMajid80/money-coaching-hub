@@ -40,7 +40,7 @@ function Banner() {
       >
         <span aria-hidden="true" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FAAC15", flex: "0 0 auto" }} />
         <strong style={{ fontFamily: "Raleway,'Trebuchet MS',sans-serif", color: "#FFD112" }}>Waitlist early access</strong>
-        <span>Your €25 place is held until Monday 30 November. Only 20 places at this price.</span>
+        <span>Your €25 place is held until Monday 30 November. Only 20 places at this price, then it goes up to €35.</span>
       </div>
     </div>
   );
