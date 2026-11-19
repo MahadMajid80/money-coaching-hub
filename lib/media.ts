@@ -81,6 +81,7 @@ export const mediaItems: MediaItem[] = [
   {
     outlet: "GROWTHSchema podcast",
     type: "Podcast",
+    date: "2025-02-12",
     title: "Luca Caruana on turning financial instability into a mission",
     summary:
       "How Luca’s early experiences of his family’s money struggles shaped his work, and how he balances saving for the future with enjoying the present.",
