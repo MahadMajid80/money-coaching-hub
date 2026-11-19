@@ -4,7 +4,7 @@
 
 export type MediaItem = {
   outlet: string;
-  type: "Interview" | "Opinion" | "Profile" | "News" | "TV" | "Podcast" | "Talk";
+  type: "Interview" | "Opinion" | "Profile" | "News" | "TV" | "Podcast" | "Talk" | "Video";
   date?: string; // YYYY-MM-DD; items without a date go last
   youtubeId?: string; // plays on the page
   listenUrl?: string; // e.g. Spotify
@@ -88,5 +88,14 @@ export const mediaItems: MediaItem[] = [
     youtubeId: "gC10znOEumI",
     listenUrl: "https://open.spotify.com/episode/2KDmUm6TetJ1nMcoJQIB2J",
     url: "https://www.youtube.com/watch?v=gC10znOEumI",
+  },
+  {
+    outlet: "YouTube · in Maltese",
+    type: "Video",
+    title: "Can anyone become rich? Planning ahead for when you need the money",
+    summary:
+      "A conversation in Maltese on planning for the future, whether anyone can become rich and what being rich really means, with practical ideas for using money wisely.",
+    youtubeId: "jrp2c9KAooo",
+    url: "https://www.youtube.com/watch?v=jrp2c9KAooo",
   },
 ];

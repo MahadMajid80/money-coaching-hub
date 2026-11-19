@@ -33,7 +33,7 @@ function Meta({ m }: { m: MediaItem }) {
 
 function linkLabel(m: MediaItem) {
   if (m.youtubeId) return "Watch on YouTube";
-  if (m.type === "TV" || m.type === "Talk") return "Watch";
+  if (m.type === "TV" || m.type === "Talk" || m.type === "Video") return "Watch";
   if (m.type === "Podcast") return "Listen";
   if (m.type === "Interview") return "Read the interview";
   if (m.type === "Opinion") return "Read Luca’s article";
