@@ -4,8 +4,10 @@
 
 export type MediaItem = {
   outlet: string;
-  type: "Interview" | "Column" | "TV" | "Podcast" | "Talk" | "Article";
-  date: string; // YYYY-MM-DD
+  type: "Interview" | "Opinion" | "Profile" | "News" | "TV" | "Podcast" | "Talk";
+  date?: string; // YYYY-MM-DD; items without a date go last
+  youtubeId?: string; // plays on the page
+  listenUrl?: string; // e.g. Spotify
   title: string;
   summary: string;
   quote?: string;
@@ -26,5 +28,64 @@ export const mediaItems: MediaItem[] = [
     byline: "Mark Laurence Zammit",
     url: "https://timesofmalta.com/article/big-salaries-no-wealth-high-earners-struggling-manage-funds.1024433",
     featured: true,
+  },
+  {
+    outlet: "Lovin Malta",
+    type: "Interview",
+    date: "2023-12-09",
+    title: "‘The Silent Sufferers’: Money coach says Malta’s sore lack of financial literacy is more problematic than we think",
+    summary: "Why well-paid professionals can still struggle in silence, held back by shame about money.",
+    quote: "These people are well paid but still find it difficult to make ends meet.",
+    byline: "Ana Tortell",
+    url: "https://lovinmalta.com/malta/the-silent-sufferers-money-coach-says-maltas-sore-lack-of-financial-literacy-is-more-problematic-than-we-think/",
+  },
+  {
+    outlet: "Lovin Malta",
+    type: "Interview",
+    date: "2023-02-13",
+    title: "Malta’s first ‘money coach’ plans to put an end to your bad cash habits once and for all",
+    summary: "Malta’s first certified money coach on working with the psychology behind money habits, not investment tips.",
+    quote: "Unlike financial coaching, money coaching starts from the psychological side before going to the practical side.",
+    byline: "Tim Diacono",
+    url: "https://lovinmalta.com/lifestyle/interview/maltas-first-money-coach-plans-to-put-an-end-to-your-bad-cash-habits-once-and-for-all/",
+  },
+  {
+    outlet: "Who’s Who Malta",
+    type: "Profile",
+    date: "2024-02-15",
+    title: "‘The fundamentals of financial wellbeing are universal,’ says money coach Luca Caruana",
+    summary: "How a childhood shaped by family money stress led Luca to financial literacy and workplace financial wellbeing.",
+    quote: "Financial literacy should start in schools. It’s a life skill, as essential as reading and writing.",
+    url: "https://whoswho.mt/en/the-fundamentals-of-financial-wellbeing-are-universal-says-money-coach-luca-caruana",
+  },
+  {
+    outlet: "Malta CEOs",
+    type: "News",
+    date: "2026-05-05",
+    title: "Money coach proposes mandatory financial education at Maltese schools",
+    summary: "Luca’s financial wellness manifesto ahead of the general election, with five proposals starting in secondary school.",
+    quote: "Property cannot be the only path to wealth.",
+    byline: "Tim Diacono",
+    url: "https://maltaceos.mt/money-coach-proposes-mandatory-financial-education-at-maltese-schools/",
+  },
+  {
+    outlet: "Malta CEOs",
+    type: "Opinion",
+    date: "2026-10-29",
+    title: "The €1,000 question the Budget never asked",
+    summary: "Budget 2027 raised incomes but ignored how people manage money. Luca’s proposals for Budget 2028.",
+    quote: "The Budget 2027 put money in people’s pockets, but did nothing for how they handle money.",
+    byline: "Luca Caruana",
+    url: "https://maltaceos.mt/the-e1000-question-the-budget-never-asked/",
+  },
+  {
+    outlet: "GROWTHSchema podcast",
+    type: "Podcast",
+    title: "Luca Caruana on turning financial instability into a mission",
+    summary:
+      "How Luca’s early experiences of his family’s money struggles shaped his work, and how he balances saving for the future with enjoying the present.",
+    youtubeId: "gC10znOEumI",
+    listenUrl: "https://open.spotify.com/episode/2KDmUm6TetJ1nMcoJQIB2J",
+    url: "https://www.youtube.com/watch?v=gC10znOEumI",
   },
 ];
