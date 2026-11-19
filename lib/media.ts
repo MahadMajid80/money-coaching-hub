@@ -90,6 +90,15 @@ export const mediaItems: MediaItem[] = [
     url: "https://www.youtube.com/watch?v=gC10znOEumI",
   },
   {
+    outlet: "The SMARTA Podcast",
+    type: "Podcast",
+    title: "What they don’t teach you about money",
+    summary:
+      "With host Sonia Marta: the emotional side of money, starting small, emergency funds, the Happy Money Fund and the mental blocks that hold people back.",
+    youtubeId: "APBAWMqBxMo",
+    url: "https://www.youtube.com/watch?v=APBAWMqBxMo",
+  },
+  {
     outlet: "YouTube · in Maltese",
     type: "Video",
     title: "Can anyone become rich? Planning ahead for when you need the money",
