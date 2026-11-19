@@ -4,6 +4,7 @@ import { draftMode } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import { PostGrid } from "@/components/BlogIndex";
 import { SiteFooter, SiteHeader } from "@/components/chrome";
+import { UnspokenBand } from "@/components/unspoken/Band";
 import { categoryName, findPost, formatDate, getCategories, related } from "@/lib/blog";
 import { findRedirect } from "@/lib/cms/data";
 import { SITE_URL } from "@/lib/site";
@@ -108,6 +109,7 @@ export default async function PostPage({ params }: Params) {
             </div>
           </section>
         </article>
+        <UnspokenBand />
         <section style={{ background: "#FDF7E8", padding: "96px 0" }}>
           <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "24px", flexWrap: "wrap" }}>

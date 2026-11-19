@@ -1,0 +1,43 @@
+/* =====================================================================
+   Unspoken — the story letter's own look (see the Unspoken design system)
+   Night #17203A · Cream #F4EDE0 · Gold #FAAC15 · Fraunces Soft + Lato
+   Used only on /unspoken and the Unspoken sign-up box; MCH pages keep black and gold.
+   ===================================================================== */
+
+.uk { --uk-night:#17203A; --uk-night-deep:#0F1628; --uk-cream:#F4EDE0; --uk-paper:#FBF7EF; --uk-gold:#FAAC15; --uk-gold-text-light:#A86F00; --uk-mist:#B9BFCE; --uk-mist-light:#D9DDE6; --uk-dusk:#4B5468; --uk-hair-night:#3A4568; --uk-hair-cream:#DED4C2; font-family:Lato,'Segoe UI',sans-serif; color:var(--uk-night) }
+.uk-word, .uk-display { font-family:var(--font-fraunces),Georgia,serif; font-variation-settings:"SOFT" 100,"WONK" 0,"opsz" 144 }
+.uk-word { font-weight:560; line-height:1; letter-spacing:-0.01em; white-space:nowrap }
+.uk-display { font-weight:500; letter-spacing:-0.005em; margin:0 }
+.uk-wide { display:inline-flex; align-items:center }
+.uk-main { display:inline-flex; flex-direction:column; align-items:center }
+.uk-gold { color:var(--uk-gold) }
+.uk-gold-light { color:var(--uk-gold-text-light) }
+.uk-label { font-weight:700; font-size:12px; letter-spacing:.2em; text-transform:uppercase }
+.uk-wrap { max-width:1120px; margin:0 auto; padding:0 24px; box-sizing:border-box }
+.uk a { color:inherit }
+
+/* the sign-up panel */
+.uk-form { background:var(--uk-cream); color:var(--uk-night); border-radius:6px; padding:28px; box-sizing:border-box; display:flex; flex-direction:column; gap:12px }
+.uk-form label { font-size:14px; font-weight:700 }
+.uk-form input { height:48px; border:1px solid #B6AC98; border-radius:4px; background:#ffffff; padding:0 14px; font-family:Lato,sans-serif; font-size:16px; color:var(--uk-night); box-sizing:border-box; width:100% }
+.uk-form input:focus { outline:2px solid var(--uk-gold); outline-offset:1px; border-color:var(--uk-night) }
+.uk-btn { min-height:52px; border:0; border-radius:4px; background:var(--uk-gold); color:var(--uk-night); font-family:Lato,sans-serif; font-weight:700; font-size:16px; cursor:pointer; padding:0 24px; display:inline-flex; align-items:center; justify-content:center; text-decoration:none; transition:background-color .18s ease }
+.uk-btn:hover { background:#FFD112; color:var(--uk-night) }
+.uk-btn:disabled { opacity:.6; cursor:not-allowed }
+.uk-note { font-size:13px; color:var(--uk-dusk); margin:0 }
+.uk-ok { margin:0; font-size:16px; line-height:1.55 }
+.uk-err { margin:0; font-size:14px; color:#8A1C1C }
+
+/* letter cards */
+.uk-letters { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:24px }
+.uk-card { background:var(--uk-cream); border-radius:6px; padding:28px; display:flex; flex-direction:column; gap:12px; text-decoration:none; color:var(--uk-night); transition:transform .18s ease, box-shadow .18s ease }
+a.uk-card:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(23,32,58,.12); color:var(--uk-night) }
+.uk-card .uk-display { font-size:30px; line-height:1.1 }
+.uk-card p { margin:0; font-size:16px; line-height:1.6 }
+.uk-more { font-weight:700; font-size:15px; margin-top:auto }
+
+@media (max-width:700px) {
+  .uk-hero-h { font-size:44px !important }
+  .uk-band-h { font-size:36px !important }
+}
+@media (prefers-reduced-motion:reduce) { .uk-card, .uk-btn { transition:none } a.uk-card:hover { transform:none } }

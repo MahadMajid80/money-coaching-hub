@@ -92,6 +92,64 @@ export function UnspokenForm() {
   );
 }
 
+/**
+ * Unspoken sign-up in the Unspoken look (night, cream, gold). Used on /unspoken and at the end of blog posts.
+ * Joins the same list as the homepage form; MailerLite then sends the welcome letter.
+ */
+export function UnspokenSignup({ source, idPrefix = "uk", button = "Send me the stories", note = "Free. Every second Thursday. Unsubscribe any time." }: { source: string; idPrefix?: string; button?: string; note?: string }) {
+  const [state, setState] = useState<State>("idle");
+  const [err, setErr] = useState("");
+  const cap = useRef<RecaptchaHandle>(null);
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    let recaptcha: string;
+    try {
+      recaptcha = captchaToken(cap);
+    } catch (x) {
+      setErr((x as Error).message);
+      setState("err");
+      return;
+    }
+    setState("sending");
+    try {
+      await post("/api/subscribe/", { recaptcha, name: f.get("name"), email: f.get("email"), website: f.get("website"), source });
+      setState("ok");
+    } catch (x) {
+      cap.current?.reset();
+      setErr((x as Error).message);
+      setState("err");
+    }
+  }
+  if (state === "ok")
+    return (
+      <div className="uk-form" role="status">
+        <p className="uk-ok">
+          <strong>You&apos;re in.</strong> Your welcome letter is on its way. Check your inbox (and your promotions tab, just in case).
+        </p>
+      </div>
+    );
+  return (
+    <form className="uk-form" onSubmit={submit}>
+      <label htmlFor={`${idPrefix}-name`}>First name</label>
+      <input id={`${idPrefix}-name`} name="name" type="text" required autoComplete="given-name" />
+      <label htmlFor={`${idPrefix}-email`}>Email</label>
+      <input id={`${idPrefix}-email`} name="email" type="email" required autoComplete="email" placeholder="you@example.com" />
+      <Honeypot id={`${idPrefix}-web`} />
+      <Recaptcha ref={cap} />
+      {state === "err" && (
+        <p className="uk-err" role="alert">
+          {err}
+        </p>
+      )}
+      <button type="submit" className="uk-btn" disabled={state === "sending"}>
+        {state === "sending" ? "Sending…" : button}
+      </button>
+      <p className="uk-note">{note}</p>
+    </form>
+  );
+}
+
 /** Companies page enquiry form → emailed to Luca. */
 export function EnquiryForm() {
   const [state, setState] = useState<State>("idle");
