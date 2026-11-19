@@ -66,9 +66,10 @@ export type SiteSettings = {
 const links = (v: unknown): Link[] =>
   Array.isArray(v) ? v.filter((l) => l?.label && l?.url).map((l) => ({ label: l.label, url: safeUrl(l.url), newTab: !!l.newTab })) : [];
 
-// PREVIEW ONLY: shows Luca the proposed menu with Unspoken in place of "Column" (and in the footer) without
-// touching the dashboard, which the live site shares. Never runs in production. Remove once the dashboard menu is updated.
-const previewUnspoken = process.env.VERCEL_ENV === "preview";
+// Unspoken in the menu (approved by Luca, 19 Nov 2026): replaces "Column" in the main menu and adds
+// "Unspoken, the letter" to the footer under the column link. Steps aside as soon as the dashboard menu
+// itself has an /unspoken/ link, so the dashboard stays in charge; this can then be deleted.
+const previewUnspoken = true;
 const UNSPOKEN: Link = { label: "Unspoken", url: "/unspoken/", newTab: false };
 function proposeNav(nav: Link[]): Link[] {
   if (!previewUnspoken || nav.some((l) => l.url.startsWith("/unspoken"))) return nav;
