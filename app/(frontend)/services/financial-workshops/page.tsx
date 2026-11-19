@@ -1,3 +1,4 @@
+import { FeaturedIn } from "@/components/FeaturedIn";
 import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
 import { ClientNames, QuoteCards } from "@/components/cms";
 import { getClientLogos, getReviews } from "@/lib/cms/data";
@@ -115,6 +116,9 @@ export default async function Page() {
             color: "#111111"
           }}>
             <ClientNames logos={await getClientLogos()} />
+          </div>
+          <div style={{ borderTop: "1px solid #EFE6CF", paddingTop: "18px", marginTop: "6px", width: "100%" }}>
+            <FeaturedIn label="As featured in" />
           </div>
         </div>
       </section>}

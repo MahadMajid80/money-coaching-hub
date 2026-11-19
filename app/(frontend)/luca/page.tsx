@@ -1,3 +1,4 @@
+import { FeaturedIn } from "@/components/FeaturedIn";
 import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
 import { QuoteCards } from "@/components/cms";
 import { getReviews } from "@/lib/cms/data";
@@ -208,6 +209,13 @@ export default async function LucaPage() {
             </div>
           </div>
         </section>}
+
+        {/* IN THE MEDIA */}
+        <section className="strip-28" style={{ background: "#FDF7E8", padding: "28px 0" }}>
+          <div className="wrap">
+            <FeaturedIn label="See me in the media" />
+          </div>
+        </section>
 
         {/* REVIEWS */}
         {c.show("reviews") && <section id="reviews" style={{

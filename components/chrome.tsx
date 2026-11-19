@@ -153,7 +153,7 @@ const FALLBACK_COLUMNS = [
       { label: "For Companies", url: "/services/financial-workshops/" },
     ],
   },
-  { title: "Connect", links: [{ label: "Book a 10-minute call", url: "/contact-us/" }] },
+  { title: "Connect", links: [{ label: "Book a 10-minute call", url: "/contact-us/" }, { label: "In the media", url: "/media/" }] },
 ] as { title: string; links: Link[] }[];
 
 export async function SiteFooter() {

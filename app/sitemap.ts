@@ -9,6 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const fixed: [string, number][] = [
     ["/", 1],
     ["/luca/", 0.7],
+    ["/media/", 0.6],
     ["/services/", 0.9],
     ["/services/financial-workshops/", 0.8],
     ["/portfolio-management/", 0.7],

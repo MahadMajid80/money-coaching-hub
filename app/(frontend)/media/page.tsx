@@ -8,8 +8,6 @@ export const metadata: Metadata = {
   description:
     "Interviews, articles, TV appearances, podcasts and talks featuring Luca Caruana, Certified Money Coach in Malta.",
   alternates: { canonical: "/media/" },
-  // Hidden from Google until Luca approves the page and the rest of the entries are in.
-  robots: { index: false, follow: true },
 };
 
 const fmt = (d?: string) => !d ? "" :

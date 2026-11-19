@@ -1,3 +1,4 @@
+import { FeaturedIn } from "@/components/FeaturedIn";
 import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
 
 import { SiteFooter, SiteHeader } from "@/components/chrome";
@@ -245,6 +246,9 @@ export default async function Home() {
             color: "#ffffff"
           }}>
             <ClientNames logos={logos} />
+          </div>
+          <div style={{ borderTop: "1px solid #2A2A2A", paddingTop: "18px", marginTop: "6px", width: "100%" }}>
+            <FeaturedIn dark />
           </div>
         </div>
       </section>}
