@@ -66,9 +66,26 @@ export type SiteSettings = {
 const links = (v: unknown): Link[] =>
   Array.isArray(v) ? v.filter((l) => l?.label && l?.url).map((l) => ({ label: l.label, url: safeUrl(l.url), newTab: !!l.newTab })) : [];
 
+// PREVIEW ONLY: shows Luca the proposed menu with Unspoken in place of "Column" (and in the footer) without
+// touching the dashboard, which the live site shares. Never runs in production. Remove once the dashboard menu is updated.
+const previewUnspoken = process.env.VERCEL_ENV === "preview";
+const UNSPOKEN: Link = { label: "Unspoken", url: "/unspoken/", newTab: false };
+function proposeNav(nav: Link[]): Link[] {
+  if (!previewUnspoken || nav.some((l) => l.url.startsWith("/unspoken"))) return nav;
+  const i = nav.findIndex((l) => l.url === "/#column");
+  return i >= 0 ? nav.map((l, j) => (j === i ? UNSPOKEN : l)) : [...nav, UNSPOKEN];
+}
+function proposeFooter(cols: { title: string; links: Link[] }[]) {
+  if (!previewUnspoken || cols.some((c) => c.links.some((l) => l.url.startsWith("/unspoken")))) return cols;
+  return cols.map((c) => {
+    const i = c.links.findIndex((l) => l.url === "/#column");
+    return i < 0 ? c : { ...c, links: [...c.links.slice(0, i + 1), { ...UNSPOKEN, label: "Unspoken, the letter" }, ...c.links.slice(i + 1)] };
+  });
+}
+
 export const getSettings = cache(async (): Promise<SiteSettings> => {
   const s = await global("site-settings");
-  const nav = links(s.nav);
+  const nav = proposeNav(links(s.nav));
   const socials = links(s.socials);
   return {
     logo: mediaUrl(s.logo) || "/img/logo.png",
@@ -85,9 +102,9 @@ export const getSettings = cache(async (): Promise<SiteSettings> => {
     footerTagline: String(s.footerTagline || "Based in Malta (EU), working with clients all over the world.\nEducation, not personalised financial advice.")
       .split("\n")
       .filter(Boolean),
-    footerColumns: Array.isArray(s.footerColumns) && s.footerColumns.length
-      ? s.footerColumns.map((c: Doc) => ({ title: c.title, links: links(c.links) }))
-      : [],
+    footerColumns: proposeFooter(
+      Array.isArray(s.footerColumns) && s.footerColumns.length ? s.footerColumns.map((c: Doc) => ({ title: c.title, links: links(c.links) })) : [],
+    ),
     disclaimer:
       s.disclaimer ||
       "Luca Caruana is a Certified Money Coach (CMC®). Money Coaching Hub provides financial education and coaching. It is not licensed to provide investment advice and does not sell financial products.",

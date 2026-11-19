@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/chrome";
+import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { UnspokenSignup } from "@/components/forms";
 import { UnspokenMarks } from "@/components/unspoken/Marks";
 import { UK, UnspokenWide, fraunces } from "@/components/unspoken/brand";
@@ -41,6 +41,7 @@ const letters = [
 export default function Page() {
   return (
     <div className={`uk ${fraunces.variable}`} style={{ width: "100%", display: "flex", flexDirection: "column", background: UK.cream }}>
+      <SiteHeader />
       <main id="main" style={{ display: "contents" }}>
         <section style={{ background: UK.night, color: UK.cream }}>
           <header className="uk-wrap" style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "space-between", alignItems: "center", paddingTop: "28px", paddingBottom: "28px" }}>
