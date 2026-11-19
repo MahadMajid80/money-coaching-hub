@@ -14,7 +14,7 @@ export function UnspokenBand({ source = "blog-post" }: { source?: string }) {
             The money stories people <span className="uk-gold">never tell</span>
           </h2>
           <p style={{ margin: 0, fontSize: "18px", lineHeight: 1.65, maxWidth: "520px", color: UK.mistLight }}>
-            One true story every second Thursday, from my column and my own life. Names always changed. No hard selling.
+            One true story every second Thursday, from the people I meet and the messages they send me. Names always changed. No hard selling.
           </p>
         </div>
         <div style={{ flex: "1 1 340px", minWidth: 0 }}>

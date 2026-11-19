@@ -40,9 +40,9 @@ const letters = [
 
 export default function Page() {
   return (
-    <div className={`uk ${fraunces.variable}`} style={{ width: "100%", display: "flex", flexDirection: "column", background: UK.cream }}>
+    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
       <SiteHeader />
-      <main id="main" style={{ display: "contents" }}>
+      <main id="main" className={`uk ${fraunces.variable}`} style={{ display: "flex", flexDirection: "column", background: UK.cream }}>
         <section style={{ background: UK.night, color: UK.cream }}>
           <header className="uk-wrap" style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "space-between", alignItems: "center", paddingTop: "28px", paddingBottom: "28px" }}>
             <a href="/unspoken/" aria-label="Unspoken" style={{ textDecoration: "none", display: "inline-flex" }}>
@@ -61,7 +61,7 @@ export default function Page() {
                 The money stories people <span className="uk-gold">never tell</span>
               </h1>
               <p style={{ margin: 0, fontSize: "19px", lineHeight: 1.65, maxWidth: "560px", color: UK.mistLight }}>
-                True stories from my Money Coach column in the Times of Malta, and from my own life. What really sits underneath them. Names always changed. No hard selling.
+                True stories from real life: the people I meet, and the emails, letters and WhatsApp messages they send me. What really sits underneath them. Names always changed. No hard selling.
               </p>
             </div>
             <div style={{ flex: "1 1 340px", minWidth: 0 }}>

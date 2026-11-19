@@ -14,7 +14,6 @@
 .uk-gold-light { color:var(--uk-gold-text-light) }
 .uk-label { font-weight:700; font-size:12px; letter-spacing:.2em; text-transform:uppercase }
 .uk-wrap { max-width:1120px; margin:0 auto; padding:0 24px; box-sizing:border-box }
-.uk a { color:inherit }
 
 /* the sign-up panel */
 .uk-form { background:var(--uk-cream); color:var(--uk-night); border-radius:6px; padding:28px; box-sizing:border-box; display:flex; flex-direction:column; gap:12px }
