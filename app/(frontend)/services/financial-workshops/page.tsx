@@ -1,6 +1,7 @@
 import { FeaturedIn } from "@/components/FeaturedIn";
+import { ClientLogoStrip } from "@/components/LogoStrip";
 import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
-import { ClientNames, QuoteCards } from "@/components/cms";
+import { QuoteCards } from "@/components/cms";
 import { getClientLogos, getReviews } from "@/lib/cms/data";
 import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
@@ -104,19 +105,7 @@ export default async function Page() {
             color: "#6B6248",
             fontWeight: "700"
           }}>{R(c, "logo_strip.text")}</span>
-          <div style={{
-            display: "flex",
-            gap: "14px 36px",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "Raleway,sans-serif",
-            fontWeight: "700",
-            fontSize: "15px",
-            color: "#111111"
-          }}>
-            <ClientNames logos={await getClientLogos()} />
-          </div>
+          <ClientLogoStrip logos={await getClientLogos()} dark={false} />
           <div style={{ borderTop: "1px solid #EFE6CF", paddingTop: "18px", marginTop: "6px", width: "100%" }}>
             <FeaturedIn label="As featured in" />
           </div>
