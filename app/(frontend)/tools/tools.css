@@ -87,4 +87,4 @@
 .calc-progress,.calc-stack{display:flex;height:14px;border-radius:999px;overflow:hidden;background:#F3EEDF}
 .calc-progress div,.calc-stack div{height:100%}
 .calc-stack div+div{border-left:2px solid #fff}
-@media(max-width:620px){.calc-line{grid-template-columns:minmax(0,1fr) 120px}}
+@media(max-width:620px){.calc-line{grid-template-columns:minmax(0,1fr) 120px}.calc-chart svg{overflow:visible}.calc-chart svg text{font-size:21px}}

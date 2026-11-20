@@ -66,7 +66,7 @@ export default function DrawdownCalculator() {
 
       <div className="calc-results" aria-live="polite">
         <span className="calc-eyebrow">Your money lasts</span>
-        <span className="calc-big">{forever ? "100+ years" : `${y} year${y === 1 ? "" : "s"}${mo ? ` ${mo} mo` : ""}`}</span>
+        <span className="calc-big">{forever ? "100+ years" : `${y} year${y === 1 ? "" : "s"}${mo ? `, ${mo} month${mo === 1 ? "" : "s"}` : ""}`}</span>
         <Tiles items={[
           { label: "Taken out in total", value: eur(r.taken) },
           { label: `To last ${goal} years, take up to`, value: `${eur(safe)}/month`, color: GREEN },
