@@ -21,7 +21,7 @@ export default async function CourseLayout({ slug }: { slug: string }) {
     "@type": "Course",
     name: c.name,
     description: c.tagline,
-    provider: { "@type": "Organization", name: "Money Coaching Hub", sameAs: "https://moneycoachinghub.com" },
+    provider: { "@type": "Organization", name: "Money Coaching Hub", sameAs: "https://www.moneycoachinghub.com" },
     offers: c.price.startsWith("€") ? { "@type": "Offer", price: c.price.replace(/[^\d.]/g, ""), priceCurrency: "EUR", category: "Paid" } : undefined,
   };
 

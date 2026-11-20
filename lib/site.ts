@@ -1,6 +1,8 @@
 // Site-wide navigation, links and contact details.
 
-export const SITE_URL = "https://moneycoachinghub.com";
+// The live address. moneycoachinghub.com (no www) redirects here, so every canonical, share
+// and sitemap link uses the www address directly instead of pointing at a redirect.
+export const SITE_URL = "https://www.moneycoachinghub.com";
 export const EMAIL = "info@moneycoachinghub.com";
 
 export type NavItem = { label: string; href: string; children?: { label: string; href: string; note?: string }[] };

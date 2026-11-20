@@ -1,7 +1,7 @@
 // All homepage copy and links live here, so text and URLs can be changed
 // without touching the layout.
 
-export const SITE = "https://moneycoachinghub.com";
+export const SITE = "https://www.moneycoachinghub.com";
 
 export const links = {
   bookCall: "/contact-us/",
