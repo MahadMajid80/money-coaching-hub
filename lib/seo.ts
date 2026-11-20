@@ -62,7 +62,7 @@ export function withShare(m: Metadata, opts: { eyebrow?: string; type?: "website
   const given = og.images ? (Array.isArray(og.images) ? og.images : [og.images]) : [];
   const images = given.length
     ? given.map((i) => (typeof i === "string" ? { url: shareImage(i) } : i instanceof URL ? { url: shareImage(i.href) } : { ...i, url: shareImage(String(i.url)) }))
-    : [{ url: cardUrl(title, opts.eyebrow || eyebrowFor(path)), width: 1200, height: 630, alt: title }];
+    : [{ url: cardUrl(title.replace(/\s*[|–-]\s*Money Coaching Hub$/, ""), opts.eyebrow || eyebrowFor(path)), width: 1200, height: 630, alt: title }];
   return {
     ...m,
     openGraph: {
