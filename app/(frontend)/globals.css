@@ -303,3 +303,14 @@ section.strip-28{padding-top:28px !important;padding-bottom:28px !important}
 @keyframes ls-scroll{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ls{-webkit-mask-image:none;mask-image:none}.ls-track{animation:none;width:auto}.ls-row{flex-wrap:wrap;justify-content:center;gap:24px 48px}.ls-row[aria-hidden]{display:none}}
 @media(max-width:620px){.ls-row{gap:44px}.ls-track{animation-duration:36s}}
+
+/* Money Tools dropdown in the main menu */
+.nav-dd{position:relative;display:flex;align-items:center}
+.nav-dd__caret{font-size:11px;margin-left:2px;color:#6B6248}
+.nav-dd__panel{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:14px;min-width:280px;display:none;flex-direction:column;gap:2px;padding:10px;background:#fff;border:1px solid #EFE9D9;border-radius:16px;box-shadow:0 18px 40px rgba(17,17,17,.12);z-index:60}
+.nav-dd__panel:before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.nav-dd:hover .nav-dd__panel,.nav-dd:focus-within .nav-dd__panel{display:flex}
+.nav-dd__panel a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:#111;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap}
+.nav-dd__panel a:hover{background:#FDF7E8;color:#111}
+.nav-dd__panel .nav-dd__all{margin-top:4px;border-top:1px solid #F3EEDF;border-radius:0 0 10px 10px;color:#B07400;font-size:14px}
+.mnav-panel>a.mnav-sub{padding:10px 0 10px 18px;font-size:15px;font-weight:400;color:#3A3A3A}

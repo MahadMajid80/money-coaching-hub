@@ -2,6 +2,8 @@
 // - SiteHeader / SiteFooter: the homepage's full navigation and footer
 // - PageHeader: the same header with the page's own button; PageFooter: the inner pages' footer
 
+import { Fragment } from "react";
+import { TOOLS } from "@/lib/tools";
 import { getSettings, type Link } from "@/lib/cms/data";
 import { CookieSettingsLink } from "./CookieConsent";
 
@@ -31,6 +33,8 @@ async function Announcement() {
  * Pages can swap the button for their own action (e.g. “Apply for January”); `plain` shows it as a text link.
  * On phones the menu folds into a “Menu” button (no script needed).
  */
+const LIVE_TOOLS = TOOLS.filter((t): t is typeof t & { href: string } => Boolean(t.href));
+
 export async function SiteHeader({ cta, plain = false }: { cta?: { label: string; href: string }; plain?: boolean } = {}) {
   const s = await getSettings();
   const action = cta ?? { label: s.headerCta.label, href: s.headerCta.url };
@@ -43,11 +47,28 @@ export async function SiteHeader({ cta, plain = false }: { cta?: { label: string
             <img src={s.logo} alt="Money Coaching Hub" style={{ height: "64px", width: "auto" }} />
           </a>
           <nav aria-label="Main" className="site-nav" style={{ display: "flex", gap: "28px", flexWrap: "wrap", justifyContent: "center", fontWeight: "700", fontSize: "15px" }}>
-            {s.nav.map((l) => (
-              <a key={l.label + l.url} href={l.url} style={{ textDecoration: "none", color: "#111111" }} {...ext(l)}>
-                {l.label}
-              </a>
-            ))}
+            {s.nav.map((l) =>
+              l.url.startsWith("/tools") ? (
+                <div key={l.label + l.url} className="nav-dd">
+                  <a href={l.url} aria-haspopup="true" style={{ textDecoration: "none", color: "#111111" }}>
+                    {l.label} <span aria-hidden="true" className="nav-dd__caret">▾</span>
+                  </a>
+                  <div className="nav-dd__panel">
+                    {LIVE_TOOLS.map((t) => (
+                      <a key={t.href} href={t.href}>
+                        <span aria-hidden="true">{t.icon}</span>
+                        {t.title}
+                      </a>
+                    ))}
+                    <a href="/tools/" className="nav-dd__all">All money tools →</a>
+                  </div>
+                </div>
+              ) : (
+                <a key={l.label + l.url} href={l.url} style={{ textDecoration: "none", color: "#111111" }} {...ext(l)}>
+                  {l.label}
+                </a>
+              ),
+            )}
           </nav>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
             {plain ? (
@@ -66,9 +87,17 @@ export async function SiteHeader({ cta, plain = false }: { cta?: { label: string
               </summary>
               <nav aria-label="Main" className="mnav-panel">
                 {s.nav.map((l) => (
-                  <a key={l.label + l.url} href={l.url} {...ext(l)}>
-                    {l.label}
-                  </a>
+                  <Fragment key={l.label + l.url}>
+                    <a href={l.url} {...ext(l)}>
+                      {l.label}
+                    </a>
+                    {l.url.startsWith("/tools") &&
+                      LIVE_TOOLS.map((t) => (
+                        <a key={t.href} href={t.href} className="mnav-sub">
+                          {t.title}
+                        </a>
+                      ))}
+                  </Fragment>
                 ))}
                 {!plain && (
                   <a href={action.href} className="btn btn-dark" style={{ marginTop: "16px" }}>

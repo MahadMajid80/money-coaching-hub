@@ -71,8 +71,16 @@ const links = (v: unknown): Link[] =>
 // itself has an /unspoken/ link, so the dashboard stays in charge; this can then be deleted.
 const previewUnspoken = true;
 const UNSPOKEN: Link = { label: "Unspoken", url: "/unspoken/", newTab: false };
+/** "Money Tools" in the main menu (before Blog), unless the dashboard menu already links /tools/. */
+function withToolsNav(nav: Link[]): Link[] {
+  if (!nav.length || nav.some((l) => l.url.startsWith("/tools"))) return nav;
+  const item = { label: "Money Tools", url: "/tools/" } as Link;
+  const i = nav.findIndex((l) => l.url.startsWith("/blog"));
+  return i >= 0 ? [...nav.slice(0, i), item, ...nav.slice(i)] : [...nav, item];
+}
+
 function proposeNav(nav: Link[]): Link[] {
-  nav = nav.map(openSideHustle);
+  nav = withToolsNav(nav.map(openSideHustle));
   if (!previewUnspoken || nav.some((l) => l.url.startsWith("/unspoken"))) return nav;
   const i = nav.findIndex((l) => l.url === "/#column");
   return i >= 0 ? nav.map((l, j) => (j === i ? UNSPOKEN : l)) : [...nav, UNSPOKEN];
