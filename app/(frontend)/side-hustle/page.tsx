@@ -16,6 +16,18 @@ const baseMetadata: Metadata = {
 export function generateMetadata() {
   return pageMetadata("side-hustle", baseMetadata);
 }
+function FoundingBanner() {
+  return (
+    <div style={{ background: "#111111", color: "#FFFFFF" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "14px clamp(20px,4vw,40px)", boxSizing: "border-box", display: "flex", flexWrap: "wrap", gap: "6px 14px", alignItems: "center", justifyContent: "center", textAlign: "center", fontSize: "16px", lineHeight: "1.4" }}>
+        <span aria-hidden="true" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FAAC15", flex: "0 0 auto" }} />
+        <strong style={{ fontFamily: "Raleway,'Trebuchet MS',sans-serif", color: "#FFD112" }}>Founding price</strong>
+        <span>The first 20 places are €25. After that, the price goes up to €35.</span>
+      </div>
+    </div>
+  );
+}
+
 export default async function Page() {
   const c = await pageContent("side-hustle");
   const {
@@ -216,7 +228,7 @@ export default async function Page() {
       </div>
       <div className="view" id="view-intro" hidden={stage !== "intro"}>
 
-      <IntroView c={c} checkout={introCheckout} />
+      <IntroView c={c} checkout={introCheckout} banner={<FoundingBanner />} />
 
       </div>
       <div className="view" id="view-programme" hidden={stage !== "programme"}>

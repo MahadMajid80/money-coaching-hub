@@ -135,7 +135,7 @@ const FALLBACK_COLUMNS = [
     links: [
       { label: "Investing Made Simple", url: "/investing-made-simple/" },
       { label: "Crypto Made Simple", url: "/crypto-made-simple-the-online-course/" },
-      { label: "Side Hustle, Done Right", url: "/side-hustle/#notify" },
+      { label: "Side Hustle, Done Right", url: "/side-hustle/" },
       { label: "Technical Analysis Bootcamp", url: "/technical-analysis-bootcamp/" },
       { label: "Times of Malta column", url: "/#column" },
       { label: "Money Type Quiz", url: "/take-money-type-quiz/" },

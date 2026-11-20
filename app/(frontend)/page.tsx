@@ -482,7 +482,7 @@ export default async function Home() {
                 paddingTop: "8px"
               }}>{R(c, "course.text_14")}</span>
             </a>
-            <a href={c.t("course.card_2")} style={{
+            <a href={c.t("course.card_2").replace("/side-hustle/#notify", "/side-hustle/")} style={{
               textDecoration: "none",
               display: "flex",
               flexDirection: "column",
@@ -513,7 +513,7 @@ export default async function Home() {
                 fontWeight: "700",
                 marginTop: "auto",
                 paddingTop: "8px"
-              }}>{R(c, "course.text_18")}</span>
+              }}>{c.t("course.text_18").startsWith("Get notified") ? "Book your place →" : R(c, "course.text_18")}</span>
             </a>
             <a href={c.t("course.card_3")} style={{
               textDecoration: "none",

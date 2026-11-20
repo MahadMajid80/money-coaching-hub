@@ -110,7 +110,7 @@ export const SiteSettings: GlobalConfig = {
                   links: [
                     link("Investing Made Simple", "/investing-made-simple/"),
                     link("Crypto Made Simple", "/crypto-made-simple-the-online-course/"),
-                    link("Side Hustle, Done Right", "/side-hustle/#notify"),
+                    link("Side Hustle, Done Right", "/side-hustle/"),
                     link("Technical Analysis Bootcamp", "/technical-analysis-bootcamp/"),
                     link("Times of Malta column", "/#column"),
                     link("Money Type Quiz", "/take-money-type-quiz/"),
