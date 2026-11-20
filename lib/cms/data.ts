@@ -87,7 +87,21 @@ function withMedia(cols: { title: string; links: Link[] }[]) {
   return cols.map((c, k) => (k === at ? { ...c, links: [...c.links.slice(0, 1), { label: "In the media", url: "/media/" } as Link, ...c.links.slice(1)] } : c));
 }
 
+/** Puts "Free money tools" in the Learn column, after the Investment House, unless the dashboard already links /tools/. */
+function withTools(cols: { title: string; links: Link[] }[]) {
+  if (!cols.length || cols.some((c) => c.links.some((l) => l.url.startsWith("/tools")))) return cols;
+  const i = cols.findIndex((c) => /learn/i.test(c.title));
+  const at = i >= 0 ? i : 0;
+  return cols.map((c, k) => {
+    if (k !== at) return c;
+    const j = c.links.findIndex((l) => l.url.startsWith("/portfolio-management"));
+    const pos = j >= 0 ? j + 1 : c.links.length;
+    return { ...c, links: [...c.links.slice(0, pos), { label: "Free money tools", url: "/tools/" } as Link, ...c.links.slice(pos)] };
+  });
+}
+
 function proposeFooter(cols: { title: string; links: Link[] }[]) {
+  cols = withTools(cols);
   cols = withMedia(cols).map((c) => ({ ...c, links: c.links.map(openSideHustle) }));
   if (!previewUnspoken || cols.some((c) => c.links.some((l) => l.url.startsWith("/unspoken")))) return cols;
   return cols.map((c) => {
