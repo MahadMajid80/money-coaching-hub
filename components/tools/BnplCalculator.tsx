@@ -32,6 +32,7 @@ export default function BnplCalculator() {
   const r = financed > 0 && n > 0 ? monthlyRate(financed, pmt, n) : 0;
   const apr = (Math.pow(1 + r, 12) - 1) * 100;
   const free = extra < 0.01;
+  const short = price - total > 0.5; // payments add up to less than the price: probably a typo
 
   return (
     <div className="calc">
@@ -56,7 +57,9 @@ export default function BnplCalculator() {
           <div style={{ width: `${(extra / Math.max(total, price)) * 100}%`, background: GOLD }} />
         </div>
         <div className="calc-callout">
-          {free
+          {short
+            ? `These payments add up to ${eur2(total)}, which is less than the price. Check the number of payments and the monthly amount against the plan's terms.`
+            : free
             ? "Interest-free, as long as every payment is on time. Late fees can change that quickly, so set up automatic payments."
             : `You'd pay ${eur(extra)} more than the price, the same as borrowing at about ${apr.toFixed(0)}% a year. If you can pay in full without touching your emergency fund, that's usually cheaper.`}
         </div>
