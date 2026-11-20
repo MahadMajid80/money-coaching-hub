@@ -10,6 +10,7 @@ import ToolSignup from "./ToolSignup";
 
 const eur = (n: number) => "€" + Math.round(n).toLocaleString("en-IE");
 const GREEN = "#1F7A52";
+const short = (n: number) => (n >= 1e6 ? `€${(n / 1e6).toFixed(1)}m` : n >= 1e3 ? `€${Math.round(n / 1e3)}k` : `€${Math.round(n)}`);
 const GOLD = "#E8930C";
 
 type Row = { year: number; paidIn: number; value: number };
@@ -87,7 +88,10 @@ function Chart({ rows, deflate }: { rows: Row[]; deflate: (v: number, y: number)
         onPointerLeave={() => setHover(null)}
       >
         {[0.25, 0.5, 0.75, 1].map((f) => (
-          <line key={f} x1={L} x2={W - R} y1={yv(max * f)} y2={yv(max * f)} stroke="#EFE6CF" strokeWidth="1" />
+          <g key={f}>
+            <line x1={L} x2={W - R} y1={yv(max * f)} y2={yv(max * f)} stroke="#EFE6CF" strokeWidth="1" />
+            <text x={L + 2} y={yv(max * f) - 5} fontSize="11" fill="#6B6248">{short(max * f)}</text>
+          </g>
         ))}
         <path d={area(total, paid)} fill={GOLD} opacity="0.9" />
         <path d={area(paid)} fill={GREEN} opacity="0.95" />
