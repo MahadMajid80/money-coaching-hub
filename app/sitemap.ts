@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { cms } from "@/lib/cms/payload";
+
+import { cmsRead } from "@/lib/cms/read";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -28,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
   const out: MetadataRoute.Sitemap = fixed.map(([p, priority]) => ({ url: `${SITE_URL}${p}`, lastModified: now, priority }));
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     const [courses, posts, cats, pages] = await Promise.all([
       payload.find({ collection: "courses", where: { status: { not_equals: "hidden" } }, limit: 100, depth: 0 }),
       payload.find({ collection: "posts", where: { _status: { equals: "published" } }, limit: 2000, depth: 1 }),

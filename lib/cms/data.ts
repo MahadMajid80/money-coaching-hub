@@ -2,7 +2,8 @@
 import "server-only";
 import { cache } from "react";
 import type { Course } from "@/lib/courses";
-import { cms, mediaUrl } from "./payload";
+import { mediaUrl } from "./payload";
+import { cmsRead } from "./read";
 import { safeUrl } from "@/lib/security/sanitize";
 import { whatsapp } from "@/lib/site";
 
@@ -11,7 +12,7 @@ export type Link = { label: string; url: string; newTab?: boolean | null };
 
 async function global<T = Doc>(slug: string): Promise<T> {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     return (await payload.findGlobal({ slug: slug as never, depth: 1 })) as T;
   } catch (e) {
     console.error(`[cms] global ${slug}`, e);
@@ -21,7 +22,7 @@ async function global<T = Doc>(slug: string): Promise<T> {
 
 async function list(collection: string, opts: { where?: Doc; sort?: string; limit?: number } = {}): Promise<Doc[]> {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     const r = await payload.find({ collection: collection as never, depth: 1, limit: opts.limit ?? 100, sort: opts.sort, where: opts.where });
     return r.docs as Doc[];
   } catch (e) {
@@ -266,7 +267,7 @@ export const getSideHustle = cache(async () => {
 
 export async function getSimplePage(slug: string, draft = false): Promise<Doc | null> {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     const r = await payload.find({
       collection: "simple-pages",
       where: draft ? { slug: { equals: slug } } : { and: [{ slug: { equals: slug } }, { _status: { equals: "published" } }] },
@@ -285,7 +286,7 @@ export async function getSimplePage(slug: string, draft = false): Promise<Doc | 
 /** Redirect target for a path, from the dashboard's Redirects list. */
 export async function findRedirect(path: string): Promise<string | null> {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     const variants = [...new Set([path, path.replace(/\/$/, ""), path.endsWith("/") ? path : `${path}/`])];
     const r = await payload.find({ collection: "redirects", where: { from: { in: variants } }, limit: 1, depth: 2 });
     const d = r.docs[0] as Doc | undefined;

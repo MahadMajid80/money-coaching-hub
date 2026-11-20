@@ -15,6 +15,7 @@ import { Categories, Posts } from "./payload/collections/blog";
 import { ClientLogos, Columns, Courses, Enquiries, SimplePages, Subscribers, Testimonials } from "./payload/collections/content";
 import { Media, Users } from "./payload/collections/core";
 import { pageGlobals } from "./payload/globals/pages";
+import { revalidateAfterChange, revalidateAfterDelete } from "./payload/hooks/revalidate";
 import { QuizSettings, SideHustleSettings, SiteSettings } from "./payload/globals/settings";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -213,6 +214,8 @@ export default buildConfig({
       collections: ["posts", "courses"],
       overrides: {
         labels: { singular: "Redirect", plural: "Redirects" },
+        // The site reads redirects through the content cache: clear it when one changes.
+        hooks: { afterChange: [revalidateAfterChange], afterDelete: [revalidateAfterDelete] },
         admin: {
           group: "Settings",
           description: "Send an old web address to a new one (for example after renaming a post). Use paths like /old-page/.",

@@ -3,7 +3,8 @@ import "server-only";
 import { cache } from "react";
 import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import type { Where } from "payload";
-import { cms, mediaAlt, mediaUrl } from "@/lib/cms/payload";
+import { mediaAlt, mediaUrl } from "@/lib/cms/payload";
+import { cmsRead } from "@/lib/cms/read";
 import { cleanHtml } from "@/lib/security/sanitize";
 
 export type Post = {
@@ -60,7 +61,7 @@ const published: Where = { _status: { equals: "published" } };
 
 export const getCategories = cache(async (): Promise<Category[]> => {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     const cats = await payload.find({ collection: "categories", limit: 100, sort: "name", depth: 0 });
     return Promise.all(
       cats.docs.map(async (c) => {
@@ -76,7 +77,7 @@ export const getCategories = cache(async (): Promise<Category[]> => {
 
 export async function getPosts({ page = 1, category, limit = PER_PAGE }: { page?: number; category?: string; limit?: number } = {}) {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     let where: Where = published;
     if (category) {
       const cat = (await getCategories()).find((c) => c.slug === category);
@@ -93,7 +94,7 @@ export async function getPosts({ page = 1, category, limit = PER_PAGE }: { page?
 
 export async function findPost(category: string, slug: string, draft = false): Promise<Post | null> {
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     const r = await payload.find({
       collection: "posts",
       where: draft ? { slug: { equals: slug } } : { and: [published, { slug: { equals: slug } }] },

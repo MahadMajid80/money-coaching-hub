@@ -1,6 +1,7 @@
 import "server-only";
 import { Fragment, type CSSProperties, type ReactNode } from "react";
-import { cms, mediaUrl } from "./payload";
+import { mediaUrl } from "./payload";
+import { cmsRead } from "./read";
 import { pageSchemas } from "./schemas";
 import { safeUrl } from "@/lib/security/sanitize";
 
@@ -32,7 +33,7 @@ for (const s of pageSchemas) {
 export async function pageContent(slug: string): Promise<PageContent> {
   let doc: Doc = {};
   try {
-    const payload = await cms();
+    const payload = await cmsRead();
     doc = (await payload.findGlobal({ slug: `page-${slug}` as never, depth: 1 })) as unknown as Doc;
   } catch (err) {
     console.error(`[cms] could not load page "${slug}"`, err);
