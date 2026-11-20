@@ -124,7 +124,7 @@ export default function MediaPage() {
               </div>
             )}
             <div className="md-cta">
-              <img className="md-cta-photo" src="/img/media/luca-podcast.jpg" width={720} height={720} loading="lazy"
+              <img className="md-cta-photo" src="/img/media/luca-podcast.jpg" width={480} height={480} loading="lazy"
                 alt="Luca Caruana speaking on a podcast" />
               <p>
                 Journalist, producer or event organiser? I&apos;m happy to talk about money, financial wellbeing and the
