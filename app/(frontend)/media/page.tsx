@@ -90,7 +90,8 @@ export default function MediaPage() {
       <SiteHeader />
       <main id="main">
         <section className="md-hero">
-          <div className="wrap">
+          <div className="wrap md-hero-grid">
+            <div>
             <span className="eyebrow">Media</span>
             <h1>
               Luca in the <span className="md-hl">media</span>
@@ -104,6 +105,11 @@ export default function MediaPage() {
                 <strong key={o}>{o}</strong>
               ))}
             </p>
+            </div>
+            <figure className="md-photo">
+              <img src="/img/media/luca-tv.jpg" width={880} height={1100}
+                alt="Luca Caruana talking about money as a guest on a Maltese TV programme" />
+            </figure>
           </div>
         </section>
 
@@ -118,6 +124,8 @@ export default function MediaPage() {
               </div>
             )}
             <div className="md-cta">
+              <img className="md-cta-photo" src="/img/media/luca-podcast.jpg" width={480} height={480} loading="lazy"
+                alt="Luca Caruana speaking on a podcast" />
               <p>
                 Journalist, producer or event organiser? I&apos;m happy to talk about money, financial wellbeing and the
                 stories people never tell.
