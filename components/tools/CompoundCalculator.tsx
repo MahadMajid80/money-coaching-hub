@@ -7,6 +7,7 @@
 
 import { useMemo, useState } from "react";
 import ToolSignup from "./ToolSignup";
+import { Field } from "./ui";
 
 const eur = (n: number) => "€" + Math.round(n).toLocaleString("en-IE");
 const GREEN = "#1F7A52";
@@ -30,33 +31,6 @@ function project(start: number, monthly: number, rate: number, years: number, ra
     m = m * (1 + raise / 100);
   }
   return rows;
-}
-
-function Field({ id, label, value, onChange, min, max, step, prefix, suffix, hint }: {
-  id: string; label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; prefix?: string; suffix?: string; hint?: string;
-}) {
-  const clamp = (v: number) => Math.min(max, Math.max(min, isFinite(v) ? v : min));
-  return (
-    <div className="calc-field">
-      <label htmlFor={id} className="calc-label">{label}</label>
-      <div className="calc-input">
-        {prefix && <span>{prefix}</span>}
-        <input
-          id={id}
-          type="number"
-          inputMode="decimal"
-          value={Number.isFinite(value) ? value : ""}
-          min={min}
-          max={max}
-          step={step}
-          onChange={(e) => onChange(e.target.value === "" ? 0 : clamp(parseFloat(e.target.value)))}
-        />
-        {suffix && <span>{suffix}</span>}
-      </div>
-      <input type="range" aria-label={label} min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} />
-      {hint && <span className="calc-hint">{hint}</span>}
-    </div>
-  );
 }
 
 function Chart({ rows, deflate }: { rows: Row[]; deflate: (v: number, y: number) => number }) {
