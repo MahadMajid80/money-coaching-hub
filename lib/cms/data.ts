@@ -72,10 +72,14 @@ const links = (v: unknown): Link[] =>
 const previewUnspoken = true;
 const UNSPOKEN: Link = { label: "Unspoken", url: "/unspoken/", newTab: false };
 function proposeNav(nav: Link[]): Link[] {
+  nav = nav.map(openSideHustle);
   if (!previewUnspoken || nav.some((l) => l.url.startsWith("/unspoken"))) return nav;
   const i = nav.findIndex((l) => l.url === "/#column");
   return i >= 0 ? nav.map((l, j) => (j === i ? UNSPOKEN : l)) : [...nav, UNSPOKEN];
 }
+/** Booking is open: links ending in /side-hustle/#notify would force the old "notify me" view. */
+const openSideHustle = (l: Link): Link => (l.url.startsWith("/side-hustle/#notify") ? { ...l, url: "/side-hustle/" } : l);
+
 function withMedia(cols: { title: string; links: Link[] }[]) {
   if (!cols.length || cols.some((c) => c.links.some((l) => l.url.startsWith("/media")))) return cols;
   const i = cols.findIndex((c) => /connect/i.test(c.title));
@@ -84,7 +88,7 @@ function withMedia(cols: { title: string; links: Link[] }[]) {
 }
 
 function proposeFooter(cols: { title: string; links: Link[] }[]) {
-  cols = withMedia(cols);
+  cols = withMedia(cols).map((c) => ({ ...c, links: c.links.map(openSideHustle) }));
   if (!previewUnspoken || cols.some((c) => c.links.some((l) => l.url.startsWith("/unspoken")))) return cols;
   return cols.map((c) => {
     const i = c.links.findIndex((l) => l.url === "/#column");

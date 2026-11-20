@@ -348,7 +348,7 @@
      "label": "Card link 2",
      "kind": "card",
      "type": "text",
-     "default": "/side-hustle/#notify"
+     "default": "/side-hustle/"
     },
     {
      "name": "text_15",
@@ -376,7 +376,7 @@
      "label": "Text 18",
      "kind": "text",
      "type": "text",
-     "default": "Get notified →"
+     "default": "Book your place →"
     },
     {
      "name": "card_3",
