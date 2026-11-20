@@ -314,3 +314,9 @@ section.strip-28{padding-top:28px !important;padding-bottom:28px !important}
 .nav-dd__panel a:hover{background:#FDF7E8;color:#111}
 .nav-dd__panel .nav-dd__all{margin-top:4px;border-top:1px solid #F3EEDF;border-radius:0 0 10px 10px;color:#B07400;font-size:14px}
 .mnav-panel>a.mnav-sub{padding:10px 0 10px 18px;font-size:15px;font-weight:400;color:#3A3A3A}
+
+/* ---------- page-change progress bar (SiteNavigation) ---------- */
+.nav-progress{position:fixed;top:0;left:0;height:3px;width:0;background:#FAAC15;z-index:10000;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.nav-progress.is-loading{opacity:1;animation:nav-progress 8s cubic-bezier(.1,.7,.2,1) forwards}
+@keyframes nav-progress{0%{width:0}15%{width:45%}100%{width:92%}}
+@media (prefers-reduced-motion:reduce){.nav-progress.is-loading{animation:none;width:60%}}

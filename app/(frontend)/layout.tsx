@@ -9,6 +9,8 @@ import "@fontsource/lato/400-italic.css";
 import "@fontsource/lato/700.css";
 import { LivePreviewListener } from "@/components/LivePreviewListener";
 import { ClickTracking } from "@/components/ClickTracking";
+import { SiteNavigation } from "@/components/SiteNavigation";
+import { Suspense } from "react";
 import { CookieBanner } from "@/components/CookieConsent";
 import { consentDefaultScript, pixelConsentSnippet } from "@/lib/consent";
 import { getSettings } from "@/lib/cms/data";
@@ -63,6 +65,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <LivePreviewListener />
         <CookieBanner />
         <ClickTracking />
+        <Suspense fallback={null}>
+          <SiteNavigation />
+        </Suspense>
         {ga && (
           <>
             <Script nonce={nonce} src={`https://www.googletagmanager.com/gtag/js?id=${ga}`} strategy="afterInteractive" />
