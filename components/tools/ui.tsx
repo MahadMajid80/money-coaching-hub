@@ -3,7 +3,7 @@
 // Shared pieces for the money calculators: number fields, result tiles and a simple line chart.
 // Styles live in app/(frontend)/tools/tools.css (calc-* classes).
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 export const eur = (n: number) => (n < 0 ? "−" : "") + "€" + Math.round(Math.abs(n)).toLocaleString("en-IE");
 export const eur2 = (n: number) => "€" + n.toLocaleString("en-IE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -11,21 +11,63 @@ export const short = (n: number) => (n >= 1e6 ? `€${(n / 1e6).toFixed(1)}m` : 
 export const GREEN = "#1F7A52";
 export const GOLD = "#E8930C";
 
-export function Field({ id, label, value, onChange, min, max, step, prefix, suffix, hint, slider = true }: {
+/**
+ * A number box people can type into freely. While typing, the text is kept as is and the
+ * calculator only updates once the number is within limits; on leaving the box it snaps
+ * back into range. (Clamping on every keystroke made it impossible to type e.g. 250000
+ * into a field with a minimum of 10000, because the first "2" jumped straight to 10000.)
+ */
+export function NumberBox({ id, value, onChange, min, max, step }: {
+  id: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number;
+}) {
+  const [text, setText] = useState(String(value));
+  const [focused, setFocused] = useState(false);
+  useEffect(() => { if (!focused) setText(String(value)); }, [value, focused]);
+  const parse = (t: string) => parseFloat(t.replace(/[,\s€%]/g, ""));
+  return (
+    <input id={id} type="text" inputMode="decimal" autoComplete="off" value={text}
+      onFocus={(e) => { setFocused(true); e.currentTarget.select(); }}
+      onChange={(e) => {
+        const t = e.target.value;
+        setText(t);
+        const v = parse(t);
+        if (Number.isFinite(v) && v >= min && v <= max) onChange(v);
+      }}
+      onBlur={() => {
+        setFocused(false);
+        const v = parse(text);
+        const c = Number.isFinite(v) ? Math.min(max, Math.max(min, v)) : value;
+        onChange(c);
+        setText(String(c));
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") (e.currentTarget as HTMLInputElement).blur();
+        if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+          e.preventDefault();
+          const base = Number.isFinite(parse(text)) ? parse(text) : value;
+          const n = Math.min(max, Math.max(min, +(base + (e.key === "ArrowUp" ? step : -step)).toFixed(4)));
+          setText(String(n)); onChange(n);
+        }
+      }} />
+  );
+}
+
+export function Field({ id, label, value, onChange, min, max, step, prefix, suffix, hint, slider = true, typeMax }: {
   id: string; label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number;
   prefix?: string; suffix?: string; hint?: ReactNode; slider?: boolean;
+  /** Highest number that can be typed, when it should go beyond the slider. Euro amounts default to 10x the slider. */
+  typeMax?: number;
 }) {
-  const clamp = (v: number) => Math.min(max, Math.max(min, isFinite(v) ? v : min));
+  const hardMax = typeMax ?? (prefix === "€" ? max * 10 : max);
   return (
     <div className="calc-field">
       <label htmlFor={id} className="calc-label">{label}</label>
       <div className="calc-input">
         {prefix && <span>{prefix}</span>}
-        <input id={id} type="number" inputMode="decimal" value={Number.isFinite(value) ? value : ""} min={min} max={max} step={step}
-          onChange={(e) => onChange(e.target.value === "" ? 0 : clamp(parseFloat(e.target.value)))} />
+        <NumberBox id={id} value={value} onChange={onChange} min={min} max={hardMax} step={step} />
         {suffix && <span>{suffix}</span>}
       </div>
-      {slider && <input type="range" aria-label={label} min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} />}
+      {slider && <input type="range" aria-label={label} min={min} max={max} step={step} value={Math.min(value, max)} onChange={(e) => onChange(parseFloat(e.target.value))} />}
       {hint && <span className="calc-hint">{hint}</span>}
     </div>
   );
@@ -41,8 +83,7 @@ export function LineItem({ id, label, value, onChange, note }: { id: string; lab
       </label>
       <div className="calc-input calc-input--sm">
         <span>€</span>
-        <input id={id} type="number" inputMode="decimal" min={0} step={10} value={Number.isFinite(value) ? value : ""}
-          onChange={(e) => onChange(e.target.value === "" ? 0 : Math.max(0, parseFloat(e.target.value) || 0))} />
+        <NumberBox id={id} value={value} onChange={onChange} min={0} max={1000000} step={10} />
       </div>
     </div>
   );
