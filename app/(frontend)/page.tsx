@@ -1,9 +1,10 @@
 import { FeaturedIn } from "@/components/FeaturedIn";
+import { ClientLogoStrip } from "@/components/LogoStrip";
 import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
 
 import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { UnspokenForm } from "@/components/forms";
-import { ClientNames, longDate, ReviewCards } from "@/components/cms";
+import { longDate, ReviewCards } from "@/components/cms";
 import { categoryName, getCategories, getPosts } from "@/lib/blog";
 import { getClientLogos, getColumns, getCourse, getReviews } from "@/lib/cms/data";
 const monthYear = (iso: string) => new Date(iso).toLocaleDateString("en-GB", {
@@ -234,19 +235,7 @@ export default async function Home() {
             color: "#C9C3B1",
             fontWeight: "700"
           }}>{R(c, "logo_strip.text")}</span>
-          <div style={{
-            display: "flex",
-            gap: "16px 36px",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "Raleway,sans-serif",
-            fontWeight: "700",
-            fontSize: "15px",
-            color: "#ffffff"
-          }}>
-            <ClientNames logos={logos} />
-          </div>
+          <ClientLogoStrip logos={logos} />
           <div style={{ borderTop: "1px solid #2A2A2A", paddingTop: "18px", marginTop: "6px", width: "100%" }}>
             <FeaturedIn dark />
           </div>
