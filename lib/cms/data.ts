@@ -76,7 +76,15 @@ function proposeNav(nav: Link[]): Link[] {
   const i = nav.findIndex((l) => l.url === "/#column");
   return i >= 0 ? nav.map((l, j) => (j === i ? UNSPOKEN : l)) : [...nav, UNSPOKEN];
 }
+function withMedia(cols: { title: string; links: Link[] }[]) {
+  if (!cols.length || cols.some((c) => c.links.some((l) => l.url.startsWith("/media")))) return cols;
+  const i = cols.findIndex((c) => /connect/i.test(c.title));
+  const at = i >= 0 ? i : cols.length - 1;
+  return cols.map((c, k) => (k === at ? { ...c, links: [...c.links.slice(0, 1), { label: "In the media", url: "/media/" } as Link, ...c.links.slice(1)] } : c));
+}
+
 function proposeFooter(cols: { title: string; links: Link[] }[]) {
+  cols = withMedia(cols);
   if (!previewUnspoken || cols.some((c) => c.links.some((l) => l.url.startsWith("/unspoken")))) return cols;
   return cols.map((c) => {
     const i = c.links.findIndex((l) => l.url === "/#column");

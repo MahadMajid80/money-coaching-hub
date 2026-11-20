@@ -8,11 +8,9 @@ export const metadata: Metadata = {
   description:
     "Interviews, articles, TV appearances, podcasts and talks featuring Luca Caruana, Certified Money Coach in Malta.",
   alternates: { canonical: "/media/" },
-  // Hidden from Google until Luca approves the page and the rest of the entries are in.
-  robots: { index: false, follow: true },
 };
 
-const fmt = (d: string) =>
+const fmt = (d?: string) => !d ? "" :
   new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
 function Meta({ m }: { m: MediaItem }) {
@@ -21,16 +19,22 @@ function Meta({ m }: { m: MediaItem }) {
       <span className="md-outlet">{m.outlet}</span>
       <span aria-hidden="true">·</span>
       <span className="md-type">{m.type}</span>
-      <span aria-hidden="true">·</span>
-      <time dateTime={m.date}>{fmt(m.date)}</time>
+      {m.date && (
+        <>
+          <span aria-hidden="true">·</span>
+          <time dateTime={m.date}>{fmt(m.date)}</time>
+        </>
+      )}
     </p>
   );
 }
 
 function linkLabel(m: MediaItem) {
-  if (m.type === "TV" || m.type === "Talk") return "Watch";
+  if (m.youtubeId) return "Watch on YouTube";
+  if (m.type === "TV" || m.type === "Talk" || m.type === "Video") return "Watch";
   if (m.type === "Podcast") return "Listen";
   if (m.type === "Interview") return "Read the interview";
+  if (m.type === "Opinion") return "Read Luca’s article";
   return "Read the article";
 }
 
@@ -41,6 +45,18 @@ function Card({ m, big = false }: { m: MediaItem; big?: boolean }) {
       <h2 className="md-title">
         <a href={m.url} target="_blank" rel="noopener noreferrer">{m.title}</a>
       </h2>
+      {m.youtubeId && (
+        <div className="md-video">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${m.youtubeId}`}
+            title={m.title}
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      )}
       <p className="md-summary">{m.summary}</p>
       {m.quote && (
         <blockquote className="md-quote">
@@ -49,6 +65,11 @@ function Card({ m, big = false }: { m: MediaItem; big?: boolean }) {
       )}
       <div className="md-foot">
         {m.byline && <span className="md-byline">By {m.byline}</span>}
+        {m.listenUrl && (
+          <a className="md-link" href={m.listenUrl} target="_blank" rel="noopener noreferrer">
+            Listen on Spotify <span aria-hidden="true">→</span>
+          </a>
+        )}
         <a className="md-link" href={m.url} target="_blank" rel="noopener noreferrer">
           {linkLabel(m)} <span aria-hidden="true">→</span>
           <span className="sr-only"> (opens {m.outlet})</span>
@@ -59,7 +80,7 @@ function Card({ m, big = false }: { m: MediaItem; big?: boolean }) {
 }
 
 export default function MediaPage() {
-  const items = [...mediaItems].sort((a, b) => b.date.localeCompare(a.date));
+  const items = [...mediaItems].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
   const featured = items.find((m) => m.featured);
   const rest = items.filter((m) => m !== featured);
   const outlets = Array.from(new Set(items.map((m) => m.outlet)));
