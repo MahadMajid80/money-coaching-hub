@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogIndex from "@/components/BlogIndex";
 import { getPosts } from "@/lib/blog";
+import { withShare } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ page: string }> }): Promise<Metadata> {
   const { page } = await params;
-  return { title: `Knowledge Hub – Page ${page}`, alternates: { canonical: `/blog/${page}/` } };
+  return withShare({ title: `Knowledge Hub – Page ${page}`, alternates: { canonical: `/blog/${page}/` } });
 }
 
 export default async function Page({ params }: { params: Promise<{ page: string }> }) {

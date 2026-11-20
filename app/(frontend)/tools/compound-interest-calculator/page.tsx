@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
 import CompoundCalculator from "@/components/tools/CompoundCalculator";
 import "../tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Compound Interest Calculator (€) – See What Your Savings Could Grow Into",
   description:
     "Free compound interest calculator in euros. Enter a starting amount, a monthly amount, a yearly return and a number of years, and see how much is growth, year by year.",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     description: "See what your savings and monthly investments could grow into, in euros.",
     url: "/tools/compound-interest-calculator/",
   },
-};
+});
 
 const FAQ: { q: string; a: string }[] = [
   {

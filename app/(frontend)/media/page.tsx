@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { mediaItems, type MediaItem } from "@/lib/media";
 import "./media.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Luca Caruana in the media – Money Coaching Hub",
   description:
     "Interviews, articles, TV appearances, podcasts and talks featuring Luca Caruana, Certified Money Coach in Malta.",
   alternates: { canonical: "/media/" },
-};
+});
 
 const fmt = (d?: string) => !d ? "" :
   new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });

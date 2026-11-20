@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageContent } from "@/lib/cms/pageContent";
 import IntroView from "../side-hustle/IntroView";
 import "../side-hustle/side-hustle.css";
+import { withShare } from "@/lib/seo";
 
 // Hidden early-access page for the Side Hustle waitlist.
 // Not in the menu, not in the sitemap, and noindex: only people with the link can find it.
@@ -12,12 +13,12 @@ import "../side-hustle/side-hustle.css";
 const STRIPE_LINK: string = "https://buy.stripe.com/5kQ3cv9Lq6M36g4b7I5os0k";
 const EARLY_CHECKOUT = STRIPE_LINK || "/contact-us/?subject=Side%20Hustle%20intro%20(waitlist)";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Side Hustle intro: early access",
   description: "Early access to the Side Hustle intro session for the waitlist.",
   alternates: { canonical: "/side-hustle-early/" },
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
-};
+});
 
 function Banner() {
   return (

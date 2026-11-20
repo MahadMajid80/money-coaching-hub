@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { UnspokenMarks } from "@/components/unspoken/Marks";
 import { UK, fraunces } from "@/components/unspoken/brand";
+import { withShare } from "@/lib/seo";
 
 // Where the one-tap answers in an Unspoken letter land. MailerLite counts which answer each reader tapped;
 // this page just says thank you.
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Thank you | Unspoken",
   robots: { index: false, follow: false },
-};
+});
 
 export default function Page() {
   return (

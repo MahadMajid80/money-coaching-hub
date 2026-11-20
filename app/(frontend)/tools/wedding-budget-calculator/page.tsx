@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ToolPage, { type Faq } from "@/components/tools/ToolPage";
 import WeddingCalculator from "@/components/tools/WeddingCalculator";
 import "../tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Wedding Budget Calculator Malta (€) – What Will Our Wedding Cost?",
   description: "Free Maltese wedding budget calculator. Add your guests and costs, see the total and cost per guest, and how much to save each month until the big day.",
   alternates: { canonical: "/tools/wedding-budget-calculator/" },
   openGraph: { title: "Wedding budget calculator | Money Coaching Hub", description: "Free Maltese wedding budget calculator. Add your guests and costs, see the total and cost per guest, and how much to save each month until the big day.", url: "/tools/wedding-budget-calculator/" },
-};
+});
 
 const FAQ: Faq[] = [
   {

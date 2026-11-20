@@ -22,9 +22,9 @@ export const mainNav: NavItem[] = [
     href: "/services/",
     children: [
       { label: "All services", href: "/services/" },
-      { label: "One Time Session", href: "/services/one-time-session/" },
-      { label: "Individual Coaching", href: "/services/individual-coaching/" },
-      { label: "Couples Coaching", href: "/services/couples-coaching/" },
+      { label: "One Time Session", href: "/services/#options" },
+      { label: "Individual Coaching", href: "/services/#options" },
+      { label: "Couples Coaching", href: "/services/#options" },
       { label: "Build your €10,000 Investment House", href: "/portfolio-management/", note: "Free interactive tool" },
     ],
   },
@@ -77,9 +77,9 @@ export const footerNav = [
   {
     title: "Coaching",
     links: [
-      { label: "One Time Session", href: "/services/one-time-session/" },
-      { label: "Individual Coaching", href: "/services/individual-coaching/" },
-      { label: "Couples Coaching", href: "/services/couples-coaching/" },
+      { label: "One Time Session", href: "/services/#options" },
+      { label: "Individual Coaching", href: "/services/#options" },
+      { label: "Couples Coaching", href: "/services/#options" },
       { label: "For Companies", href: "/services/financial-workshops/" },
       { label: "€10,000 Investment House", href: "/portfolio-management/" },
     ],

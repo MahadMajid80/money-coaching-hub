@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ToolPage, { type Faq } from "@/components/tools/ToolPage";
 import BnplCalculator from "@/components/tools/BnplCalculator";
 import "../tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Buy Now, Pay Later Calculator – What Does It Really Cost?",
   description: "Free buy now, pay later calculator. Enter the price and the monthly payments to see the extra you pay and the equivalent yearly interest rate.",
   alternates: { canonical: "/tools/buy-now-pay-later-calculator/" },
   openGraph: { title: "Buy now, pay later calculator | Money Coaching Hub", description: "Free buy now, pay later calculator. Enter the price and the monthly payments to see the extra you pay and the equivalent yearly interest rate.", url: "/tools/buy-now-pay-later-calculator/" },
-};
+});
 
 const FAQ: Faq[] = [
   {

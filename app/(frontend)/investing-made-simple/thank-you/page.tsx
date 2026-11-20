@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
 import { PurchaseEvent } from "@/components/PurchaseEvent";
 import { getCourse } from "@/lib/cms/data";
+import { withShare } from "@/lib/seo";
 
 // Where Stripe sends buyers of Investing Made Simple after paying.
 // Stripe "After payment" redirect: https://www.moneycoachinghub.com/investing-made-simple/thank-you/?session_id={CHECKOUT_SESSION_ID}
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "You're in",
   description: "Thank you for joining Investing Made Simple.",
   alternates: { canonical: "/investing-made-simple/thank-you/" },
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
-};
+});
 
 const WHATSAPP = "https://wa.me/message/6QZWZO5REG65M1";
 

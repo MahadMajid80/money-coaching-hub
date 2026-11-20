@@ -1,3 +1,4 @@
+import { EMAIL, SITE_URL } from "@/lib/site";
 import { FeaturedIn } from "@/components/FeaturedIn";
 import { ClientLogoStrip } from "@/components/LogoStrip";
 import { pageContent, pageMetadata, R } from "@/lib/cms/pageContent";
@@ -11,9 +12,53 @@ const monthYear = (iso: string) => new Date(iso).toLocaleDateString("en-GB", {
   month: "short",
   year: "numeric"
 });
-export function generateMetadata() {
-  return pageMetadata("home");
+export async function generateMetadata() {
+  const m = await pageMetadata("home");
+  return { ...m, alternates: { canonical: "/" } };
 }
+
+// Who Luca and Money Coaching Hub are, for Google's knowledge panel and AI search answers.
+const siteLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "Money Coaching Hub",
+      inLanguage: "en-GB",
+      publisher: { "@id": `${SITE_URL}/#org` },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#org`,
+      name: "Money Coaching Hub",
+      url: `${SITE_URL}/`,
+      logo: `${SITE_URL}/img/logo.png`,
+      image: `${SITE_URL}/img/luca-tv.jpg`,
+      email: EMAIL,
+      description: "Money coaching, courses and financial wellbeing workshops in Malta. Financial education, not financial advice: no products, no commissions.",
+      areaServed: "MT",
+      address: { "@type": "PostalAddress", addressCountry: "MT" },
+      founder: { "@id": `${SITE_URL}/#luca` },
+      sameAs: [
+        "https://www.instagram.com/moneycoachluca/",
+        "https://www.linkedin.com/company/money-coaching-hub/",
+        "https://www.facebook.com/profile.php?id=61575551973728",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#luca`,
+      name: "Luca Caruana",
+      jobTitle: "Certified Money Coach",
+      url: `${SITE_URL}/luca/`,
+      image: `${SITE_URL}/img/luca-yellow.png`,
+      worksFor: { "@id": `${SITE_URL}/#org` },
+      knowsAbout: ["Personal finance", "Money psychology", "Investing education", "Financial wellbeing"],
+    },
+  ],
+};
 export default async function Home() {
   const c = await pageContent("home");
   const [{ items: latest }, cats, latestColumns, logos, reviews, ims] = await Promise.all([
@@ -1260,6 +1305,7 @@ export default async function Home() {
       </section>}
 
       </main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }} />
       <SiteFooter />
     </div>;
 }
