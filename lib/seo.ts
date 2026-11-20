@@ -29,6 +29,7 @@ export function eyebrowFor(path: string): string {
   if (first === "luca") return "About Luca";
   if (first === "unspoken") return "UNSPOKEN";
   if (first === "contact-us") return "Get in touch";
+  if (/^(investing-made-simple|crypto-|technical-analysis|money-management-masterclass)/.test(first)) return "Online course";
   if (first === "portfolio-management") return "Free money tool";
   if (first === "take-money-type-quiz" || first === "the-8-money-archetypes") return "Money types";
   if (/policy|terms/.test(first)) return "Money Coaching Hub";
