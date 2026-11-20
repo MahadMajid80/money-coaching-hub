@@ -73,3 +73,18 @@
 .tool-signup .field-label{color:#C9C3B1}
 @media(max-width:900px){.calc{grid-template-columns:1fr}.tools-hero h1{font-size:40px}}
 @media(max-width:620px){.calc-big{font-size:42px}.calc-split{grid-template-columns:1fr 1fr}.calc-split div:last-child{grid-column:1/-1}.tool-signup__row{grid-template-columns:1fr}.calc-inputs,.calc-results,.tool-signup{padding:20px}.calc-tip{margin-left:0}}
+
+/* shared calculator pieces */
+.calc-lines{display:flex;flex-direction:column;gap:8px}
+.calc-line{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:12px;align-items:center}
+.calc-line label{font-size:15px;line-height:1.3;display:flex;flex-direction:column}
+.calc-line small{font-size:12px;color:#6B6248}
+.calc-input--sm{height:42px;font-size:16px;padding:0 10px}
+.calc-choice{display:flex;flex-wrap:wrap;gap:8px}
+.calc-choice button{cursor:pointer;min-height:42px;padding:0 14px;border-radius:999px;border:1.5px solid #D9CFB3;background:#fff;font:700 14px Lato,sans-serif;color:#111}
+.calc-choice button[aria-checked=true]{background:#111;border-color:#111;color:#fff}
+.calc-callout{padding:16px 18px;border-radius:14px;background:#FFF3CF;font-size:16px;line-height:1.55;color:#111}
+.calc-progress,.calc-stack{display:flex;height:14px;border-radius:999px;overflow:hidden;background:#F3EEDF}
+.calc-progress div,.calc-stack div{height:100%}
+.calc-stack div+div{border-left:2px solid #fff}
+@media(max-width:620px){.calc-line{grid-template-columns:minmax(0,1fr) 120px}}
