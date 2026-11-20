@@ -51,7 +51,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const ga = /^G-[A-Z0-9]+$/i.test(s.gaId) ? s.gaId : "";
   const pixel = /^\d+$/.test(s.metaPixelId) ? s.metaPixelId : "";
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
         {/* Google Consent Mode v2: everything denied until the visitor chooses. Must run before any tag. */}
         <script nonce={nonce} id="consent-default" dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />

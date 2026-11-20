@@ -3,8 +3,9 @@ import { SiteFooter, SiteHeader } from "@/components/chrome";
 import { UnspokenSignup } from "@/components/forms";
 import { UnspokenMarks } from "@/components/unspoken/Marks";
 import { UK, UnspokenWide, fraunces } from "@/components/unspoken/brand";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Unspoken: the money stories people never tell",
   description:
     "A letter from money coach Luca Caruana, every second Thursday: one true money story, and what really sits underneath it. Names changed. No hard selling.",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     description: "One true money story, every second Thursday, from money coach Luca Caruana.",
     url: "/unspoken/",
   },
-};
+});
 
 // The latest letters. Each links to its web version in MailerLite.
 const letters = [

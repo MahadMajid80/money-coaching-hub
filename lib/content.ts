@@ -1,7 +1,7 @@
 // All homepage copy and links live here, so text and URLs can be changed
 // without touching the layout.
 
-export const SITE = "https://moneycoachinghub.com";
+export const SITE = "https://www.moneycoachinghub.com";
 
 export const links = {
   bookCall: "/contact-us/",
@@ -74,14 +74,14 @@ export const services = [
     tag: "Single session",
     title: "One Time Session",
     blurb: "A focused deep-dive on one money question. Property or stocks? Pay the loan or invest?",
-    href: "/services/one-time-session/",
+    href: "/services/#options",
     cta: "Learn more",
   },
   {
     tag: "Most popular",
     title: "Individual Coaching",
     blurb: "A one-to-one journey to rewrite your money story, build habits and start investing with confidence.",
-    href: "/services/individual-coaching/",
+    href: "/services/#options",
     cta: "Learn more",
     featured: true,
   },
@@ -89,7 +89,7 @@ export const services = [
     tag: "For two",
     title: "Couples Coaching",
     blurb: "Talk about money without the awkwardness, align your goals and plan your future together.",
-    href: "/services/couples-coaching/",
+    href: "/services/#options",
     cta: "Learn more",
   },
   {

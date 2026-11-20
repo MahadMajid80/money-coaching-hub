@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ["/", 1],
     ["/luca/", 0.7],
     ["/media/", 0.6],
+    ["/unspoken/", 0.7],
     ["/tools/", 0.7],
     ["/tools/compound-interest-calculator/", 0.8],
     ["/tools/home-loan-calculator/", 0.8],

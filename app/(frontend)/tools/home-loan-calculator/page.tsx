@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ToolPage, { type Faq } from "@/components/tools/ToolPage";
 import LoanCalculator from "@/components/tools/LoanCalculator";
 import "../tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Home Loan Calculator Malta (€) – Repayments, Interest and Overpaying",
   description: "Free home loan calculator in euros. See your monthly repayment, the total interest, and how much paying a little extra each month saves you.",
   alternates: { canonical: "/tools/home-loan-calculator/" },
   openGraph: { title: "Home loan calculator | Money Coaching Hub", description: "Free home loan calculator in euros. See your monthly repayment, the total interest, and how much paying a little extra each month saves you.", url: "/tools/home-loan-calculator/" },
-};
+});
 
 const FAQ: Faq[] = [
   {

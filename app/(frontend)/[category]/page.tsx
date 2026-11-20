@@ -6,6 +6,7 @@ import LegalPage from "@/components/LegalPage";
 import { courseMetadata } from "@/lib/cms/courseMeta";
 import { findRedirect, getCourse, getSimplePage } from "@/lib/cms/data";
 import { mediaUrl } from "@/lib/cms/payload";
+import { withShare } from "@/lib/seo";
 
 type Params = { params: Promise<{ category: string }> };
 
@@ -15,12 +16,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const page = await getSimplePage(slug, (await draftMode()).isEnabled);
   if (!page) return (await getCourse(slug)) ? courseMetadata(slug) : {};
   const image = mediaUrl(page.meta?.image, "large");
-  return {
+  return withShare({
     title: page.meta?.title ? { absolute: page.meta.title } : page.title,
     description: page.meta?.description || page.intro || undefined,
     alternates: { canonical: `/${slug}/` },
     openGraph: image ? { images: [{ url: image }] } : undefined,
-  };
+  });
 }
 
 export default async function SimplePage({ params }: Params) {

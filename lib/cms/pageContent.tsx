@@ -1,4 +1,5 @@
 import "server-only";
+import { withShare } from "@/lib/seo";
 import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { mediaUrl } from "./payload";
 import { cmsRead } from "./read";
@@ -105,12 +106,12 @@ export async function pageMetadata(slug: string, base: import("next").Metadata =
   const c = await pageContent(slug);
   const m = c.meta || {};
   const image = mediaUrl(m.image, "large");
-  return {
+  return withShare({
     ...base,
     ...(m.title ? { title: { absolute: m.title } } : {}),
     ...(m.description ? { description: m.description } : {}),
     ...(image || m.title || m.description
       ? { openGraph: { ...(base.openGraph || {}), ...(m.title ? { title: m.title } : {}), ...(m.description ? { description: m.description } : {}), ...(image ? { images: [{ url: image }] } : {}) } }
       : {}),
-  };
+  });
 }

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ToolPage, { type Faq } from "@/components/tools/ToolPage";
 import EmergencyFundCalculator from "@/components/tools/EmergencyFundCalculator";
 import "../tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Emergency Fund Calculator (€) – How Much Should I Have Saved?",
   description: "Free emergency fund calculator. Add up your essential monthly costs, choose how many months of cover you need, and see how long it takes to get there.",
   alternates: { canonical: "/tools/emergency-fund-calculator/" },
   openGraph: { title: "Emergency fund calculator | Money Coaching Hub", description: "Free emergency fund calculator. Add up your essential monthly costs, choose how many months of cover you need, and see how long it takes to get there.", url: "/tools/emergency-fund-calculator/" },
-};
+});
 
 const FAQ: Faq[] = [
   {

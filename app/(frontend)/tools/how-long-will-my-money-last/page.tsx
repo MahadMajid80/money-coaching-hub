@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ToolPage, { type Faq } from "@/components/tools/ToolPage";
 import DrawdownCalculator from "@/components/tools/DrawdownCalculator";
 import "../tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "How Long Will My Money Last? Retirement Drawdown Calculator (€)",
   description: "Free calculator: enter your savings or pension pot and what you want to take each month, and see how many years your money lasts, with inflation.",
   alternates: { canonical: "/tools/how-long-will-my-money-last/" },
   openGraph: { title: "How long will my money last? | Money Coaching Hub", description: "Free calculator: enter your savings or pension pot and what you want to take each month, and see how many years your money lasts, with inflation.", url: "/tools/how-long-will-my-money-last/" },
-};
+});
 
 const FAQ: Faq[] = [
   {

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { PageFooter, PageHeader } from "@/components/chrome";
 import { TOOLS } from "@/lib/tools";
 import "./tools.css";
+import { withShare } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withShare({
   title: "Free Money Tools and Calculators – Money Coaching Hub",
   description: "Free calculators and tools from money coach Luca Caruana: compound interest, the €10,000 Investment House and more. In euros, made for Malta.",
   alternates: { canonical: "/tools/" },
-};
+});
 
 export default function Page() {
   return (

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogShell, PostGrid } from "@/components/BlogIndex";
 import { categoryName, getCategories, getPosts } from "@/lib/blog";
+import { withShare } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const name = categoryName(slug, await getCategories());
-  return { title: `${name} – Articles`, description: `Articles on ${name.toLowerCase()} from Certified Money Coach Luca Caruana.`, alternates: { canonical: `/category/${slug}/` } };
+  return withShare({ title: `${name} – Articles`, description: `Articles on ${name.toLowerCase()} from Certified Money Coach Luca Caruana.`, alternates: { canonical: `/category/${slug}/` } }, { eyebrow: "Blog" });
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {

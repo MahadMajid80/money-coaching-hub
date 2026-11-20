@@ -1,3 +1,4 @@
+import { withShare } from "@/lib/seo";
 import { jsonLd as toJsonLd } from "@/lib/security/sanitize";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { category, slug } = await params;
   const post = await findPost(category, slug, (await draftMode()).isEnabled);
   if (!post) return {};
-  return {
+  return withShare({
     title: post.meta?.title ? { absolute: post.meta.title } : post.title,
     description: post.description,
     alternates: { canonical: post.path },
@@ -27,9 +28,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       publishedTime: post.date,
       modifiedTime: post.modified,
       authors: ["Luca Caruana"],
-      images: post.meta?.image ? [{ url: post.meta.image }] : post.image ? [{ url: post.image.src, width: post.image.width, height: post.image.height, alt: post.image.alt }] : undefined,
+      images: post.meta?.image ? [{ url: post.meta.image }] : post.image ? [{ url: post.image.src, width: 1200, height: 630, alt: post.image.alt }] : undefined,
     },
-  };
+  }, { eyebrow: (await getCategories()).find((c) => c.slug === category)?.name || "Blog", type: "article" });
 }
 
 export default async function PostPage({ params }: Params) {
@@ -49,7 +50,7 @@ export default async function PostPage({ params }: Params) {
     description: post.description,
     datePublished: post.date,
     dateModified: post.modified,
-    image: post.image ? `${SITE_URL}${post.image.src}` : undefined,
+    image: post.image ? (post.image.src.startsWith("http") ? post.image.src : `${SITE_URL}${post.image.src}`) : undefined,
     author: { "@type": "Person", name: "Luca Caruana", url: `${SITE_URL}/luca/` },
     publisher: { "@type": "Organization", name: "Money Coaching Hub", logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.png` } },
     mainEntityOfPage: `${SITE_URL}${post.path}`,
