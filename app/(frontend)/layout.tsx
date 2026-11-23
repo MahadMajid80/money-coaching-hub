@@ -12,7 +12,7 @@ import { ClickTracking } from "@/components/ClickTracking";
 import { SiteNavigation } from "@/components/SiteNavigation";
 import { Suspense } from "react";
 import { CookieBanner } from "@/components/CookieConsent";
-import { consentDefaultScript, pixelConsentSnippet } from "@/lib/consent";
+import { COOKIE_BANNER, consentDefaultScript, pixelConsentSnippet } from "@/lib/consent";
 import { getSettings } from "@/lib/cms/data";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -63,7 +63,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {children}
         <WhatsAppFloat />
         <LivePreviewListener />
-        <CookieBanner />
+        {COOKIE_BANNER && <CookieBanner />}
         <ClickTracking />
         <Suspense fallback={null}>
           <SiteNavigation />
